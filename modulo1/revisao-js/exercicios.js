@@ -186,5 +186,20 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
+    consultas.sort((a, b) => {
+        dataA = new Date((a.dataDaConsulta.split().reverse()).toString())
+        dataB = new Date((b.dataDaConsulta.split().reverse()).toString())
+
+        if(dataA.getTime() > dataB.getTime()){
+            console.log(`${dataA} é maior que ${dataB}`)
+            return 1
+        } else if(dataB.getTime() > dataA.getTime()){
+            console.log(`${dataB} é maior que ${dataA}`)
+            return -1
+        } else {
+            return 0
+        }
+    })
+
+    return consultas
 }
