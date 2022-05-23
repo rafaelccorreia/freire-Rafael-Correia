@@ -145,12 +145,30 @@ function retornaPessoasAutorizadas(pessoas) {
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  
+    let pessoasNaoAutorizadas = []
+
+    for(individuo of pessoas){
+        if(!(individuo.idade > 14 && individuo.idade < 60 && individuo.altura >= 1.5)){
+            pessoasNaoAutorizadas.push(individuo)
+        }
+    }
+
+    return pessoasNaoAutorizadas
 }
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
+    for(cliente of contas){
+        
+        let totalCompras = 0
+        for(let i = 0; i < cliente.compras.length; i++){
+            totalCompras += cliente.compras[i]
+        }
 
+        cliente.saldoTotal -= totalCompras
+        cliente.compras = []
+    }
+    return contas
 }
 
 // EXERCÍCIO 15A
