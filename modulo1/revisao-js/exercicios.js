@@ -110,12 +110,13 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
+    const arrayOrdenada = array.sort((a,b) => a - b)
+    return [arrayOrdenada[arrayOrdenada.length - 2], arrayOrdenada[1]]
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+    
 }
 
 // EXERCÍCIO 12
