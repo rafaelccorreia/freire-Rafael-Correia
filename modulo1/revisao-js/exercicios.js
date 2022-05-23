@@ -10,7 +10,17 @@ function retornaTamanhoArray(array) {
 
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
-
+    let contadorReverso = array.length - 1
+    let elementosSalvos = []
+    for(let i = 0; i < (array.length / 2); i++){
+        elementosSalvos.push(array[contadorReverso])
+        array[contadorReverso] = array[i]
+        contadorReverso--;
+    }
+    for(let l = 0; l < (array.length / 2); l++){
+        array[l] = elementosSalvos[l]
+    }
+    return array
 }
 
 // EXERCÍCIO 03
