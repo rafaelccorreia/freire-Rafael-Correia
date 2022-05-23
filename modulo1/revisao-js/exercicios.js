@@ -32,7 +32,14 @@ function retornaArrayOrdenado(array) {
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-    
+    let novaArray = []
+    array.forEach(element => {
+        if(element % 2 === 0){
+            novaArray.push(element)
+        }
+    })
+
+    return novaArray
 }
 
 // EXERCÍCIO 05
