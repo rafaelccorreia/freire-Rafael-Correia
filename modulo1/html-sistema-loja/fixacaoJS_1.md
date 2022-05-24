@@ -1,4 +1,5 @@
-```function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
+```
+function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
   let salarioFinalDoFuncionario = 2000
   let valorDeCadaCarro = valorTotalVendas / qtdeCarrosVendidos
   let comissao = ((valorDeCadaCarro * 0.05) + 100) * qtdeCarrosVendidos
@@ -8,4 +9,5 @@
   
   
   return salarioFinalDoFuncionario
-}```
+}
+```
