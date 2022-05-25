@@ -22,30 +22,24 @@
                 <a href="./funcionarios.html" class="navegacao--link">Funcionários</a>
             </nav>
 
-            <h2>Adicionar Produto</h2>
-            <form action="">
-                    <label for="link-foto">Link para foto: </label>
-                    <input type="url" id="link-foto" name="link-foto">
-                    <br>
-            
-                    <label for="descricao">Descrição do produto: </label>
-                    <!-- Adicione o id apropriado para o input abaixo -->
-                    <input type="text" id="descricao" name="descrição">
-                    <br>
-                    <label for="preco">Preço (em R$): </label>
-                    <!-- Adicione o id apropriado e o type para receber números abaixo -->
-                    <input type="number" id="preco" name="preço">
-                    <br>
-
-                    <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-                    <label for="estoque">Quantidade disponível: </label>
-                    <input type="number" id="estoque" name="estoque">
-
-                    <br>
-                    <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
+            <section class="adiciona">
+                <h2 class="adiciona--titulo">Adicionar Produto</h2>
+                <form class="adiciona--form" action="">
+                    <label for="link-foto" class="adiciona--form--label">Link para foto: </label>
+                    <input type="url" id="link-foto" name="link-foto" class="adiciona--form--input">
+                    
+                    <label for="descricao" class="adiciona--form--label">Descrição do produto: </label>
+                    <input type="text" id="descricao" name="descrição" class="adiciona--form--input">
+                    
+                    <label for="preco" class="adiciona--form--label">Preço (em R$): </label>
+                    <input type="number" id="preco" name="preço" class="adiciona--form--input">
+                    
+                    <label for="estoque" class="adiciona--form--label">Quantidade disponível: </label>
+                    <input type="number" id="estoque" name="estoque" class="adiciona--form--input">
+                    
                     <button type="submit">Adicionar</button>
-
-            </form>
+                </form>
+            </section>
             <footer class="rodape">
                 <p class="rodape--descricao">Siga-nos nas redes sociais!</p>
                 <a href="#"><img src="./img/facebook.svg" class="rodape--icone" alt="ícone do facebook"/></a>
