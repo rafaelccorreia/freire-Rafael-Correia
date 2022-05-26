@@ -6,6 +6,20 @@
     text-align: center;
 }
 
+.estoque--link-cesta {
+    display: block;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    border: 2px solid #222222;
+    border-radius: 5px;
+}
+
+.estoque--link-cesta--img {
+    height: 100px;
+    width: 200px;
+}
+
 .estoque--tabela {
     padding: 15px 0;
 }
