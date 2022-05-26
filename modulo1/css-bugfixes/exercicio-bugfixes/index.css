@@ -36,6 +36,7 @@ div>p:first-child {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    margin: 150px auto;
 }
 
 .botao-amarelo:hover {
@@ -80,6 +81,14 @@ div>p:first-child {
     font-size: 60px;
 }
 
+#container-para-comprar a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
 
 /**
   *
@@ -90,6 +99,24 @@ div>p:first-child {
 div input {
     border: none;
     border-bottom: 3px solid black;
+}
+
+div input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.container-do-search img {
+    width: 20px;
+    height: 20px;
+}
+
+.container-do-search img:hover {
+    opacity: 0.5;
+}
+
+.container-do-search img:active {
+    opacity: 1;
 }
 
 div:nth-child(2),
@@ -134,6 +161,15 @@ td img {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+}
+
+.div-voltar {
+    text-align: center;
+    margin-top: 125px;
+}
+
+.div-voltar a {
+    text-decoration: none;
 }
 
 #back-button:hover {
