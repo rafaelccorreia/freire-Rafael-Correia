@@ -39,6 +39,7 @@ div img {
 
 .botao-amarelo {
     background-color: #ffaf43;
+    display: block;
     width: 250px;
     height: 40px;
     border-radius: 5px;
