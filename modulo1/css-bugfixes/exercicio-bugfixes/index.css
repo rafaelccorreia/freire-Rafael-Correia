@@ -1,9 +1,6 @@
 * {
-    font-family: 'Roboto', sans-serif;
-}
-
-* {
     margin: 0;
+    font-family: 'Roboto', sans-serif;
     padding: 0;
 }
 
@@ -69,7 +66,9 @@ div>p:first-child {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    list-style-position: inside;
 }
+
 
 #container-para-comprar {
     background-color: #e7eb90;
