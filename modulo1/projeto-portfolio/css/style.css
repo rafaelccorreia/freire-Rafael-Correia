@@ -15,8 +15,9 @@ a, a:active, a:focus{
 
 h1 {
     font-size: 2.5rem;
-    margin: auto 10%;
+    padding: 0 10%;
     border-bottom: 1px solid #faebd7;
+    margin-bottom: 0;
 }
 h1>span {
     display: block;
@@ -37,4 +38,19 @@ h1>span {
 }
 .cabecalho--navegacao li:hover {
     border-bottom: 1px solid #faebd7;
+}
+
+.cabecalho--descricao {
+    font-size: 1.5rem;
+    display: inline;
+}
+.cabecalho--descricao p {
+    display: inline;
+}
+.perfil-img {
+    width: 9.375rem;
+    height: 9.375rem;
+    border-radius: 100%;
+    margin-left: 2rem;
+    text-align: right;
 }
