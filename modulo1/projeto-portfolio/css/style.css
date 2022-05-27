@@ -9,6 +9,10 @@ a, a:active, a:focus{
     color: inherit;
 }
 
+ul{
+    padding-inline-start: 0px;
+}
+
 .principal {
     margin: 0 5%;
 }
@@ -71,7 +75,7 @@ h1>span {
 }
 .intituicoes--lista--item {
     display: inline;
-    margin-left: 1rem;
+    margin: 0 1.22rem;
 }
 .intituicoes--lista--item img {
     display: inline;
@@ -94,8 +98,8 @@ h1>span {
 }
 .projetos--lista--item img {
     display: block;
-    width: 25rem;
-    height: 25rem;
+    width: 20rem;
+    height: 20rem;
     border-radius: 5px;
     margin: 0 auto;
     padding-left: 0;
