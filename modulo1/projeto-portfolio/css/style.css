@@ -78,3 +78,28 @@ h1>span {
     width: 20rem;
     height: 20rem;
 }   
+
+.projetos{
+    display: block;
+}
+.projetos--lista {
+    display: block;
+    width: 100%;
+}
+.projetos--lista--item {
+    display: inline;
+    text-align: center;
+    list-style-type: none;
+    font-size: 1.5rem;
+}
+.projetos--lista--item img {
+    display: block;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding-left: 0;
+}
+.projetos--lista--item a:hover, .projetos--lista--item a:active {
+    color: #a7a457;
+}
