@@ -52,5 +52,29 @@ h1>span {
     height: 9.375rem;
     border-radius: 100%;
     margin-left: 2rem;
+    margin-top: 4rem;
     text-align: right;
 }
+
+.section-titulo {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 6rem;
+}
+
+.intituicoes {
+    display: block;
+}
+.intituicoes--lista {
+    display: block;
+    margin: 0 auto;
+}
+.intituicoes--lista--item {
+    display: inline;
+    margin-left: 1rem;
+}
+.intituicoes--lista--item img {
+    display: inline;
+    width: 20rem;
+    height: 20rem;
+}   
