@@ -22,6 +22,8 @@ header {
     display: block;
     margin: 0 auto;
     width: 60%;
+    border: 1px solid #faebd7;
+    border-radius: 5px;
 }
 
 .descricao {
