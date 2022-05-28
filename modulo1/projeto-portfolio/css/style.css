@@ -158,11 +158,11 @@ textarea {
     cursor: pointer;
     border-radius: 5px;
 }
-.form--botao:hover {
+.form--botao:hover,.botao:hover {
     color: #2e366c;
     border-color: #2e366c;
 }
-.form--botao:active {
+.form--botao:active,.botao:active {
     color: black;
     border-color: black;
 }

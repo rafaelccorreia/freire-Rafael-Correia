@@ -1,0 +1,38 @@
+header {
+    margin-bottom: 2rem;
+}
+
+.volta-home {
+    border-radius: 5px;
+    width: 7rem;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 0;
+    background-color: #a7a457;
+    color: #faebd7;
+    border: 1px solid #faebd7;
+}
+
+.projeto--title {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.projeto--imagem {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.descricao {
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.3rem;
+}
+
+.techs ul {
+    display: block;
+    text-align: center;
+    list-style-position: inside;
+    font-size: 1.3rem;
+}
