@@ -118,3 +118,30 @@ h1>span {
 .skills--lista--item p {
     font-size: 1.3rem;
 }
+
+.form--label, .form--input, .form--botao {
+    display: block;
+    font-size: 1.3rem;
+    margin-left: 35%;
+}
+.form--input {
+    margin-bottom: 1rem;
+    width: 20rem;
+}
+#mensagem {
+    height: 8rem;
+}
+
+.form--botao {
+    background-color: #a7a457;
+    color: #faebd7;
+    border: 1px solid #faebd7;
+}
+.form--botao:hover {
+    color: #2e366c;
+    border-color: #2e366c;
+}
+.form--botao:active {
+    color: black;
+    border-color: black;
+}
