@@ -94,7 +94,7 @@ h1>span {
     display: inline;
     text-align: center;
     list-style-type: none;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 .projetos--lista--item img {
     display: block;
@@ -106,4 +106,15 @@ h1>span {
 }
 .projetos--lista--item a:hover, .projetos--lista--item a:active {
     color: #a7a457;
+}
+
+.skills--lista--item  {
+    display: inline;
+    text-align: center;
+}
+.skills--lista--item h4 {
+    font-size: 1.6rem;
+}
+.skills--lista--item p {
+    font-size: 1.3rem;
 }
