@@ -5,8 +5,8 @@ body{
 }
 
 a, a:active, a:focus{
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 ul{
@@ -22,8 +22,8 @@ ul{
     border-radius: 5px;
     color: #2e366c;
     margin-top: 0rem;
-    padding-top: 1rem;
     padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 .projetos,.habilidades, header{
@@ -31,10 +31,10 @@ ul{
 }
 
 h1 {
-    font-size: 2.5rem;
-    padding: 0 10%;
     border-bottom: 1px solid #faebd7;
+    font-size: 2.5rem;
     margin-bottom: 0;
+    padding: 0 10%;
 }
 h1>span {
     display: block;
@@ -43,10 +43,10 @@ h1>span {
 
 .cabecalho--navegacao ul {
     list-style-type: none;
-    margin-top: 0;
     margin-bottom: 2rem;
-    padding-top: 0.5rem;
+    margin-top: 0;
     padding-bottom: 1rem;
+    padding-top: 0.5rem;
 }
 .cabecalho--navegacao li {
     display: inline;
@@ -56,28 +56,27 @@ h1>span {
 .cabecalho--navegacao li:hover {
     border-bottom: 1px solid #faebd7;
 }
-
 .cabecalho--descricao {
-    font-size: 1.5rem;
     display: inline;
+    font-size: 1.5rem;
 }
 .cabecalho--descricao p {
     display: inline;
 }
 .perfil-img {
-    width: 15rem;
-    height: 15rem;
+    border: 3px solid #a7a457;
     border-radius: 100%;
+    height: 15rem;
     margin-left: 2rem;
     margin-top: 2rem;
     text-align: right;
-    border: 3px solid #a7a457;
+    width: 15rem;
 }
 
 .section-titulo {
     font-size: 2rem;
-    text-align: center;
     margin-top: 2rem;
+    text-align: center;
 }
 
 .instituicoes {
@@ -94,8 +93,8 @@ h1>span {
 }
 .intituicoes--lista--item img {
     display: inline;
-    width: 20rem;
     height: 20rem;
+    width: 20rem;
 }   
 
 .projetos{
@@ -107,17 +106,17 @@ h1>span {
 }
 .projetos--lista--item {
     display: inline;
-    text-align: center;
-    list-style-type: none;
     font-size: 1.3rem;
+    list-style-type: none;
+    text-align: center;
 }
 .projetos--lista--item img {
-    display: block;
-    width: 20rem;
-    height: 20rem;
     border-radius: 5px;
+    display: block;
+    height: 20rem;
     margin: 0 auto;
     padding-left: 0;
+    width: 20rem;
 }
 .projetos--lista--item a:hover, .projetos--lista--item a:active {
     color: #a7a457;
@@ -140,9 +139,9 @@ h1>span {
     margin-left: 35%;
 }
 .form--input {
+    border-radius: 5px;
     margin-bottom: 1rem;
     width: 20rem;
-    border-radius: 5px;
 }
 textarea {
     resize: none;
@@ -150,30 +149,28 @@ textarea {
 #mensagem {
     height: 8rem;
 }
-
 .form--botao {
     background-color: #a7a457;
-    color: #faebd7;
     border: 1px solid #faebd7;
-    cursor: pointer;
     border-radius: 5px;
+    color: #faebd7;
+    cursor: pointer;
 }
 .form--botao:hover,.botao:hover {
-    color: #2e366c;
     border-color: #2e366c;
+    color: #2e366c;
 }
 .form--botao:active,.botao:active {
-    color: black;
     border-color: black;
+    color: black;
 }
 
 .rodape {
-    text-align: center;
-    margin-top: 5rem;
     border-top: 1px solid #faebd7;
+    margin-top: 5rem;
     padding-bottom: 0.5rem;
+    text-align: center;
 }
-
 .rodape--lista--redes {
     display: inline;
     margin: 0 2rem;
