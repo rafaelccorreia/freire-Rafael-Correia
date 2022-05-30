@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cabecalho {
+    align-items: center;
+    background-color: mediumvioletred;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 3.5rem;
+    justify-content: space-between;
+    padding: 0 1.4%;
+}
+
+.logo-icone {
+    width: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.botao {
+    padding: 2px 4px;
+}
