@@ -126,6 +126,18 @@ body>div {
         padding: 0 2rem;
         text-align: center;
     }
+
+    .detalhe {
+        display: flex;
+        flex-direction: column;
+        height: 70vh;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+    .detalhe-video {
+        height: 70%;
+    }
 }
 
 @media screen and (min-device-width : 481px) and (max-device-width : 900px) {
