@@ -10,6 +10,7 @@ import naoMarcado from '../../img/bookmark.svg'
 import marcado from '../../img/bookmarked.svg'
 import compartilhar from '../../img/share.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import {SecaoShare} from '../SecaoShare/SecaoShare'
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -49,7 +50,8 @@ class Post extends React.Component {
     numeroCurtidas: 0,
     comentando: false,
     numeroComentarios: 0,
-    marcado: false
+    marcado: false,
+    sharing: false
   }
 
   onClickCurtida = () => {
@@ -89,6 +91,19 @@ class Post extends React.Component {
     })
   }
 
+  onClickShare = () => {
+    this.setState({
+      sharing: !this.state.sharing
+    })
+  }
+
+  afterShare = (event) => {
+    this.setState({
+      sharing: false
+    })
+    console.log(`Post compartilhado no ${event.target.name} com a mensagem: ${event.target.alt}`)
+  }
+
   render() {
     let iconeCurtida
 
@@ -102,6 +117,12 @@ class Post extends React.Component {
 
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
+    }
+
+    let componenteSharing
+
+    if(this.state.sharing) {
+      componenteSharing = <SecaoShare aoEnviar={this.afterShare}/>
     }
 
     let marcador
@@ -141,9 +162,11 @@ class Post extends React.Component {
 
           <IconeComContador
             icone={compartilhar}
+            onClickIcone={this.onClickShare}
           />
         </PostFooter>
         {componenteComentario}
+        {componenteSharing}
       </PostContainer>
     )
   }
