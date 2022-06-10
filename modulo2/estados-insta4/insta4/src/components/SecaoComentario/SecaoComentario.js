@@ -12,9 +12,29 @@ const InputComentario = styled.input`
     margin-right: 5px;
 `
 
+const ListaComments = styled.div`
+	display: block;
+	padding-left: 10px;
+	padding-top: 5px;
+`
+
+const UserName = styled.span`
+	font-style: italic;
+`
+
 export class SecaoComentario extends Component {
 	state = {
-		valorComentario: ""
+		valorComentario: "",
+		comentarios: [
+			{
+				user: "emy",
+				comment: "É sobre isso!"
+			},
+			{
+				user: "maikão",
+				comment: "Voa mlk!"
+			}
+		]
 	}
 
 	onChangeComentario = (event) => {
@@ -23,15 +43,48 @@ export class SecaoComentario extends Component {
 		})
 		console.log(event.target.value);
 	}
+
+	criarComentario = () => {
+
+		this.props.aoEnviar()
+
+		const novoComentario = {
+			user: "você",
+			comment: this.state.valorComentario
+		}
+
+		const novaArrayComentarios = [...this.state.comentarios, novoComentario]
+		this.setState({
+			comentarios: novaArrayComentarios
+		})
+
+		this.setState({
+			valorComentario: ""
+		})
+	}
 	
 	render() {
-		return <CommentContainer>
-			<InputComentario
-				placeholder={'Comentário'}
-				value={this.state.valorComentario}
-				onChange={this.onChangeComentario}
-			/>
-			<button onClick={this.props.aoEnviar}>Enviar</button>
-		</CommentContainer>
+
+		const listaDeComentarios = this.state.comentarios.map((comentario) => {
+			return (
+				<p><UserName>{comentario.user} : </UserName>{comentario.comment}</p>
+			)
+		})
+
+		return (
+			<div>
+				<CommentContainer>
+					<InputComentario
+						placeholder={'Comentário'}
+						value={this.state.valorComentario}
+						onChange={this.onChangeComentario}
+					/>
+					<button onClick={this.criarComentario}>Enviar</button>
+				</CommentContainer>
+				<ListaComments>
+					{listaDeComentarios}
+				</ListaComments>
+			</div>
+		)
 	}
 }
