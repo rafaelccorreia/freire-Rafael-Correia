@@ -125,11 +125,23 @@ class Conversa extends React.Component {
         })
     }
 
+    isEnter = (event) => {
+        if(event.key === 'Enter') {
+            this.enviarMensagem()
+        }
+    }
+
+    handleDoubleClick = (e) => {
+        if(e.detail === 2) {
+
+        }
+    }
+
     render() {
         const componentesListaMensagens = this.state.listaMensagens.map((texto, i) => {
 
             return (
-                <ContainerMensagem key={texto.nome + i} id={texto.idUser}>
+                <ContainerMensagem key={texto.mensagem + i} id={texto.idUser} onClick={this.handleDoubleClick}>
                     <NomeUsuario>{texto.nome}</NomeUsuario>
                     <p>{texto.mensagem}</p>
                 </ContainerMensagem>
@@ -137,7 +149,9 @@ class Conversa extends React.Component {
         })
 
         return (
-            <ContainerConversa>
+            <ContainerConversa
+                onKeyPress={this.isEnter}
+            >
                 <ContainerListaMensagens>
                     {componentesListaMensagens}
                 </ContainerListaMensagens>
