@@ -89,12 +89,12 @@ class Conversa extends React.Component {
 
     enviarMensagem = () => {
         const novaMensagem = {
-            nome: this.state.valorInputUser,
+            nome: this.state.valorInputUser.trim(),
             mensagem: this.state.valorInputMensagem,
             idUser: ""
         }
 
-        if(novaMensagem.nome.toUpperCase() === "EU") {
+        if(novaMensagem.nome.toUpperCase().trim() === "EU") {
             novaMensagem.idUser = "usuario";
             novaMensagem.nome = ""
         } else {
