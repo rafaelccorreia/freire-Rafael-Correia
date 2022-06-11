@@ -9,6 +9,10 @@ const ContainerConversa = styled.section`
     height: 100vh;
     margin: 0;
     font-size: 1.3rem;
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+    }
 `
 
 const ContainerMensagem = styled.li`
