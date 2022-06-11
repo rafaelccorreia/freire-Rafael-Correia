@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import backgroundImg from "../../img/background.jpg"
 import sendIcon from "../../img/send_icon.png"
+import "./conversa.css"
 
 const ContainerConversa = styled.section`
     width: 70%;
@@ -67,7 +68,7 @@ const EntradaInput2 = styled.input`
 `
 
 const ImgSend = styled.img`
-    width: 3rem
+    width: 3rem;
 `
 
 const BotaoEnviar = styled.button`
@@ -85,7 +86,15 @@ class Conversa extends React.Component {
     enviarMensagem = () => {
         const novaMensagem = {
             nome: this.state.valorInputUser,
-            mensagem: this.state.valorInputMensagem
+            mensagem: this.state.valorInputMensagem,
+            idUser: ""
+        }
+
+        if(novaMensagem.nome.toUpperCase() === "EU") {
+            novaMensagem.idUser = "usuario";
+            novaMensagem.nome = ""
+        } else {
+            novaMensagem.idUser = "padrao";
         }
 
         const novaListaMensagens = [novaMensagem, ...this.state.listaMensagens];
@@ -94,10 +103,11 @@ class Conversa extends React.Component {
         });
 
         this.setState({
-            valorInputUser: "",
-            valorInputMensagem: ""
+            valorInputUser: '',
+            valorInputMensagem: ''
         });
     }
+
 
     onChangeInputUser = (event) => { 
         this.setState({
@@ -112,10 +122,10 @@ class Conversa extends React.Component {
     }
 
     render() {
-        const componentesListaMensagens = this.state.listaMensagens.map((texto) => {
+        const componentesListaMensagens = this.state.listaMensagens.map((texto, i) => {
 
             return (
-                <ContainerMensagem key={texto.mensagem}>
+                <ContainerMensagem key={texto.nome + i} id={texto.idUser}>
                     <NomeUsuario>{texto.nome}</NomeUsuario>
                     <p>{texto.mensagem}</p>
                 </ContainerMensagem>
@@ -130,11 +140,13 @@ class Conversa extends React.Component {
                 <ContainerInputs>
                     <EntradaInput 
                         onChange={this.onChangeInputUser} 
-                        placeholder={"Usuário"} 
+                        placeholder={"Usuário"}
+                        value={this.state.valorInputUser}
                     />
                     <EntradaInput2 
                         onChange={this.onChangeInputMensagem} 
-                        placeholder={"Mensagem"} 
+                        placeholder={"Mensagem"}
+                        value={this.state.valorInputMensagem}
                     />
                     <BotaoEnviar onClick={this.enviarMensagem}>
                         <ImgSend src={sendIcon} />
