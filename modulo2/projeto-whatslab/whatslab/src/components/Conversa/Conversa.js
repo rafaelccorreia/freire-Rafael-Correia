@@ -39,6 +39,13 @@ const ContainerListaMensagens = styled.ul`
 const NomeUsuario = styled.p`
     font-weight: bold;
     margin-top: 0 ;
+    margin-bottom: 10px;
+`
+
+const MensagemUsuario = styled.span`
+display: block;
+    padding: 10px 0;
+    margin-bottom: 10px;
 `
 
 const ContainerInputs = styled.div`
@@ -133,7 +140,39 @@ class Conversa extends React.Component {
 
     handleDoubleClick = (e) => {
         if(e.detail === 2) {
+            let index 
+            if(window.confirm("Deseja realmente excluir esta mensagem?")) {
+                
+                if(e.target.nodeName === "LI") {
+                    this.state.listaMensagens.forEach((mensagem) => {
+                        if(e.target.innerHTML.includes(mensagem.nome) && e.target.innerHTML.includes(mensagem.mensagem) ) {
+                            index = this.state.listaMensagens.indexOf(mensagem)
+                        }
+                    })
+                }
+                else if(e.target.nodeName === "P") {
+                    this.state.listaMensagens.forEach((mensagem) => {
+                        if(e.target.innerHTML.includes(mensagem.nome)) {
+                            index = this.state.listaMensagens.indexOf(mensagem)
+                        }
+                    })
+                }
+                else if(e.target.nodeName === "SPAN") {
+                    this.state.listaMensagens.forEach((mensagem) => {
+                        if(e.target.innerHTML.includes(mensagem.mensagem) ) {
+                            index = this.state.listaMensagens.indexOf(mensagem)
+                        }
+                    })
+                }
 
+                const novaLista = this.state.listaMensagens.splice(index, 1)
+
+                console.log(e.target.innerHTML)
+                console.log(index)
+                this.setState({
+                    listaMensagens: this.state.listaMensagens
+                })
+            }
         }
     }
 
@@ -143,7 +182,7 @@ class Conversa extends React.Component {
             return (
                 <ContainerMensagem key={texto.mensagem + i} id={texto.idUser} onClick={this.handleDoubleClick}>
                     <NomeUsuario>{texto.nome}</NomeUsuario>
-                    <p>{texto.mensagem}</p>
+                    <MensagemUsuario>{texto.mensagem}</MensagemUsuario>
                 </ContainerMensagem>
             )
         })
