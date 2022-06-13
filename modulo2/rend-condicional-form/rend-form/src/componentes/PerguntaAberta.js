@@ -9,12 +9,16 @@ const PerguntaAContainer = Styled.section`
     align-items: center;
 `
 
+const InputUsuario = Styled.input`
+    text-align: left;
+`
+
 class PerguntaAberta extends React.Component {
     render() {
         return (
             <PerguntaAContainer>
                 <label htmlFor={this.props.id}>{this.props.pergunta}</label>
-                <input type={this.props.tipo} id={this.props.id} required={this.props.obrigatoria}/>
+                <InputUsuario type={this.props.tipo} id={this.props.id} required={this.props.obrigatoria}/>
             </PerguntaAContainer>
         )
     }

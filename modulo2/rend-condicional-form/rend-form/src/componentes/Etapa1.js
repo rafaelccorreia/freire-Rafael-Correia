@@ -51,7 +51,7 @@ class Etapa1 extends React.Component {
                     opcao3={"Ensino superior incompleto"}
                     opcao4={"Ensino superior completo"}
                 />
-                <Botao type="submit">Próxima etapa</Botao>
+                <Botao type="submit" onClick={this.props.aoEnviar}>Próxima etapa</Botao>
             </ContainerEtapa>
         )
     }
