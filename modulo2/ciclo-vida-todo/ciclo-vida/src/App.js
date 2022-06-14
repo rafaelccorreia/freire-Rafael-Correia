@@ -27,11 +27,6 @@ class App extends React.Component {
           id: Date.now(),
           texto: 'Terminar o exercício de hoje',
           completa: false
-        },
-        {
-          id: 2,
-          texto: 'Começar os exercícios',
-          completa: true
         }
       ],
       inputValue: '',
