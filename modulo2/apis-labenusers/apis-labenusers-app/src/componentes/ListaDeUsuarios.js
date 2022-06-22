@@ -94,8 +94,8 @@ class ListaDeUsuarios extends React.Component {
     render() {
         const listaUsuarios = this.state.usuarios.map(usuario => {
             return (
-                <li key={usuario.id} onClick={this.handleDetalhes} id={usuario.id}>
-                    <span id={usuario.id}>{usuario.name}</span>
+                <li key={usuario.id} id={usuario.id}>
+                    <span id={usuario.id} onClick={this.handleDetalhes}>{usuario.name}</span>
                     <button type="button" onClick={this.deleteUser} id={usuario.id}>❌</button>
                 </li>
             )
