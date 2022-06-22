@@ -11,8 +11,30 @@ const TelaLista = styled.div`
     margin-top: 1rem;
 `
 
+const ContainerBusca = styled.div`
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: black;
+`
+
+const BuscaInput = styled.input`
+    padding: 0.3rem 0.6rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+`
+
+const BuscaResposta = styled.p`
+    padding: 1rem 1rem;
+`
+
 const ListaUsuariosContainer = styled.ul`
-    margin: 2rem 1rem;
+    margin: 1rem 1rem;
 ` 
 
 const ListaUsuariosLi = styled.li`
@@ -24,17 +46,45 @@ const ListaUsuariosLi = styled.li`
     padding: 0 1rem;
     border: 1px solid black;
     border-radius: 5px;
+    cursor: pointer;
 `
 
 class ListaDeUsuarios extends React.Component {
     state = {
-        valorInputSearch: "",
         usuarios: [],
+        valorInputSearch: "",
+        buscaResposta: "",
         //states usados para tela detalhes
         detalhes: false,
         nameDetalhes: "",
         emailDetalhes: "",
-        idDetalhes: ""
+        idDetalhes: "",
+    }
+    //Controlador de input
+    handleInputBusca = (event) => {
+        this.setState({
+            valorInputSearch: event.target.value
+        })
+    }
+
+    //requisição da api para buscar usuário
+    searchUsers = () => {
+        const nomeUsuario = this.state.valorInputSearch
+        axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${nomeUsuario}`, {
+            headers: {
+                Authorization: "rafael-correia-freire"
+            }
+        })
+        .then(resp => {
+            this.setState({
+                buscaResposta: resp.data[0].name + ` é um usuário no sistema`
+            })
+        })
+        .catch(err => {
+            this.setState({
+                buscaResposta: `Usuário não identificado`
+            })
+        })
     }
 
     // requisição da api para solicitar a lista de usuários cadastrados
@@ -51,7 +101,7 @@ class ListaDeUsuarios extends React.Component {
             })
         })
         .catch(error => {
-            console.log(error.response.data.message)
+            alert(error.response.data.message)
         })
     }
 
@@ -130,7 +180,7 @@ class ListaDeUsuarios extends React.Component {
             return (
                 <ListaUsuariosLi key={usuario.id} id={usuario.id} onClick={this.handleDetalhes}>
                     <span id={usuario.id}>{usuario.name}</span>
-                    <button type="button" onClick={this.deleteUser} id={usuario.id}>❌</button>
+                    <button type="button" onClick={this.deleteUser} id={usuario.id} className="botao">❌</button>
                 </ListaUsuariosLi>
             )
         })
@@ -138,6 +188,11 @@ class ListaDeUsuarios extends React.Component {
         return (
             <TelaLista>
                 <button onClick={this.props.onClick} className="botao">Trocar de tela</button>
+                <ContainerBusca>
+                    <BuscaInput type="text" value={this.state.valorInputSearch} onChange={this.handleInputBusca}/>
+                    <button className="botao" onClick={this.searchUsers}>Buscar</button>
+                </ContainerBusca>
+                <BuscaResposta>{this.state.buscaResposta}</BuscaResposta>
                 <div>
                     <ListaUsuariosContainer>
                         <h2>Lista de usuários</h2>

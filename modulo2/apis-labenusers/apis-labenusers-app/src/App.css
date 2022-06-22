@@ -48,3 +48,8 @@
     border-radius: 5px;
     margin-top: 1rem;
 }
+
+.botao2:hover , .voltarEdit:hover {
+    cursor: pointer;
+    background-color: aqua;
+}

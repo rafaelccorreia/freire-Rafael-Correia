@@ -74,12 +74,12 @@ class DetalhesUsuario extends React.Component {
                 <div>
                     <input type="text" placeholder="Novo nome" value={this.state.novoNome} onChange={this.handleNovoNome} />
                     <input type="email" placeholder="Novo email" value={this.state.novoEmail} onChange={this.handleNovoEmail} />
-                    <button onClick={this.editUser}>Salvar</button>
+                    <button onClick={this.editUser} className="botao">Salvar</button>
                 </div>
             )
         } else {
             elementoEdita = (
-                <button onClick={this.handleEditar}>Editar</button>
+                <button onClick={this.handleEditar} className="botao">Editar</button>
             )
         }
 
