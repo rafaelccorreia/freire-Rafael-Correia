@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import ListaDeUsuarios from "./componentes/ListaDeUsuarios"
+import "./App.css"
 
 class App extends React.Component{
   state = {
@@ -62,16 +63,17 @@ class App extends React.Component{
 
     if(this.state.telaAtual === 1) {
       telaExibida = (
-        <div>
-          <button onClick={this.handleTrocaTela}>Trocar de tela</button>
-          <section>
+        <div className="tela-inicial">
+          <button onClick={this.handleTrocaTela} className="botao">Trocar de tela</button>
+          <section className="input-container">
             <label htmlFor="nome">Nome</label>
             <input  
               type ="text" 
               id="nome" 
               value={this.state.valorInputNome} 
               onChange={this.handleValorNome}
-              placeholder="Nome" 
+              placeholder="Nome"
+              className="inputs" 
             />
             <label htmlFor="email">E-mail</label>
             <input 
@@ -80,9 +82,10 @@ class App extends React.Component{
               value={this.state.valorInputEmail} 
               onChange={this.handleValorEmail} 
               placeholder="E-mail"
+              className="inputs"
             />
           </section>
-          <button onClick={this.handleCriarUsuario}>Criar Usuário</button>
+          <button onClick={this.handleCriarUsuario} className="botao">Criar Usuário</button>
         </div>
       )
     }

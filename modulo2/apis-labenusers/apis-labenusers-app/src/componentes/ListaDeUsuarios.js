@@ -53,6 +53,12 @@ class ListaDeUsuarios extends React.Component {
         }
     }
 
+    stopEdit = () => {
+        this.setState({
+            detalhes: false
+        })
+    }
+
     handleDetalhes = (event) => {
         const id = event.target.id
         if(this.state.detalhes) {
@@ -102,18 +108,22 @@ class ListaDeUsuarios extends React.Component {
         })
 
         return (
-            <div>
-                <button onClick={this.props.onClick}>Trocar de tela</button>
-                <ul>
-                    {listaUsuarios}
-                </ul>
-                <DetalhesUsuario
-                    name={this.state.nameDetalhes}
-                    email={this.state.emailDetalhes}
-                    onClick={this.deleteUser}
-                    detalhes={this.state.detalhes}
-                    id={this.state.idDetalhes}
-                />
+            <div className="tela-lista">
+                <button onClick={this.props.onClick} className="botao">Trocar de tela</button>
+                <div className="tela-lista-conteúdo">
+                    <ul className="conteudo-lista">
+                        <h2>Lista de usuários</h2>
+                        {listaUsuarios}
+                    </ul>
+                    <DetalhesUsuario
+                        name={this.state.nameDetalhes}
+                        email={this.state.emailDetalhes}
+                        onClick={this.deleteUser}
+                        detalhes={this.state.detalhes}
+                        id={this.state.idDetalhes}
+                        stopEdit={this.stopEdit}
+                    />
+                </div>
             </div>
         )
     }
