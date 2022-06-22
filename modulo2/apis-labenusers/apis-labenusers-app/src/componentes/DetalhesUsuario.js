@@ -1,6 +1,19 @@
-import { eventWrapper } from "@testing-library/user-event/dist/utils"
 import React from "react"
 import axios from "axios"
+import styled from "styled-components"
+
+const ConteudoDiv = styled.div`
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+`
 
 class DetalhesUsuario extends React.Component {
     state = {
@@ -9,6 +22,7 @@ class DetalhesUsuario extends React.Component {
         novoEmail: ""
     }
 
+    // Controladores de input
     handleNovoNome = (event) => {
         this.setState({
             novoNome: event.target.value
@@ -21,6 +35,7 @@ class DetalhesUsuario extends React.Component {
         })
     }
 
+    // requisição para editar o usuário na api
     editUser = () => {
         const body = {
             name: this.state.novoNome,
@@ -37,7 +52,7 @@ class DetalhesUsuario extends React.Component {
             alert("Usuário editado com sucesso")
         })
         .catch(error => {
-            alert(error.message)
+            alert(error.response.data.message)
         })
 
         this.setState({
@@ -70,7 +85,8 @@ class DetalhesUsuario extends React.Component {
 
         return (
             <div>
-                {this.props.detalhes ? <div className="conteudo-div">
+                {/* operador ternário para alternar entre o jsx para editar o usuário ou não */}
+                {this.props.detalhes ? <ConteudoDiv>
                     <button onClick={this.props.stopEdit} className="voltarEdit">Voltar</button>
                     <div className="conteudo-div-descricao">
                         <p>{this.props.name}</p>
@@ -78,7 +94,7 @@ class DetalhesUsuario extends React.Component {
                         {elementoEdita}
                     </div>
                     {this.props.detalhes ? <button onClick={this.props.onClick} id={this.props.id} className="botao2">Excluir usuário ❌</button> : ""}
-                </div> : <div className="invisivel"></div>}
+                </ConteudoDiv> : <div className="invisivel"></div>}
             </div>
             
         )

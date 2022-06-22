@@ -1,17 +1,43 @@
 import React from "react"
 import axios from "axios"
 import DetalhesUsuario from "./DetalhesUsuario"
+import styled from "styled-components"
+
+const TelaLista = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+`
+
+const ListaUsuariosContainer = styled.ul`
+    margin: 2rem 1rem;
+` 
+
+const ListaUsuariosLi = styled.li`
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    padding: 0 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+`
 
 class ListaDeUsuarios extends React.Component {
     state = {
         valorInputSearch: "",
         usuarios: [],
+        //states usados para tela detalhes
         detalhes: false,
         nameDetalhes: "",
         emailDetalhes: "",
         idDetalhes: ""
     }
 
+    // requisição da api para solicitar a lista de usuários cadastrados
     getAllUsers = () => {
         const requestUsuarios = axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
             headers: {
@@ -25,7 +51,7 @@ class ListaDeUsuarios extends React.Component {
             })
         })
         .catch(error => {
-            console.log(error.message)
+            console.log(error.response.data.message)
         })
     }
 
@@ -53,12 +79,13 @@ class ListaDeUsuarios extends React.Component {
         }
     }
 
+    // Fechar a tela de detalhes ao clicar em votlar
     stopEdit = () => {
         this.setState({
             detalhes: false
         })
     }
-
+    // Abrir a página de detalhes ao clicar em um usuário
     handleDetalhes = (event) => {
         const id = event.target.id
         if(this.state.detalhes) {
@@ -68,6 +95,7 @@ class ListaDeUsuarios extends React.Component {
                 detalhes: false
             })
         }
+        // faz a requisição dos dados do usuário
         else {
             const getUserById = axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
                 headers: {
@@ -84,7 +112,7 @@ class ListaDeUsuarios extends React.Component {
                 })
             })
             .catch(error => {
-                alert(error.message)
+                alert(error.response.data.message)
             })
         }
     }
@@ -100,21 +128,22 @@ class ListaDeUsuarios extends React.Component {
     render() {
         const listaUsuarios = this.state.usuarios.map(usuario => {
             return (
-                <li key={usuario.id} id={usuario.id}>
-                    <span id={usuario.id} onClick={this.handleDetalhes}>{usuario.name}</span>
+                <ListaUsuariosLi key={usuario.id} id={usuario.id} onClick={this.handleDetalhes}>
+                    <span id={usuario.id}>{usuario.name}</span>
                     <button type="button" onClick={this.deleteUser} id={usuario.id}>❌</button>
-                </li>
+                </ListaUsuariosLi>
             )
         })
 
         return (
-            <div className="tela-lista">
+            <TelaLista>
                 <button onClick={this.props.onClick} className="botao">Trocar de tela</button>
-                <div className="tela-lista-conteúdo">
-                    <ul className="conteudo-lista">
+                <div>
+                    <ListaUsuariosContainer>
                         <h2>Lista de usuários</h2>
                         {listaUsuarios}
-                    </ul>
+                    </ListaUsuariosContainer>
+                    {/* componente de detalhes que aparecerá ao clicar no usuário */}
                     <DetalhesUsuario
                         name={this.state.nameDetalhes}
                         email={this.state.emailDetalhes}
@@ -124,7 +153,7 @@ class ListaDeUsuarios extends React.Component {
                         stopEdit={this.stopEdit}
                     />
                 </div>
-            </div>
+            </TelaLista>
         )
     }
 }
