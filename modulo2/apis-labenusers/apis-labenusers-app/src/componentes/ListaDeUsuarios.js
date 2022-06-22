@@ -8,25 +8,33 @@ const TelaLista = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1rem;
+`
+
+const HeaderC = styled.header`
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    padding: 0 1rem;
 `
 
 const ContainerBusca = styled.div`
-    width: 100%;
-    height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     background-color: black;
+    margin-left: 1rem;
 `
 
 const BuscaInput = styled.input`
     padding: 0.3rem 0.6rem;
     margin-right: 1rem;
     border-radius: 5px;
+    width: 40vw;
 `
 
 const BuscaResposta = styled.p`
@@ -35,7 +43,13 @@ const BuscaResposta = styled.p`
 
 const ListaUsuariosContainer = styled.ul`
     margin: 1rem 1rem;
+    width: 60vw;
+    max-width: 300px;
 ` 
+const ListaTitulo = styled.h2`
+    text-align: center;
+    font-size: 2rem;
+`
 
 const ListaUsuariosLi = styled.li`
     margin: 1.5rem 0;
@@ -187,15 +201,17 @@ class ListaDeUsuarios extends React.Component {
 
         return (
             <TelaLista>
-                <button onClick={this.props.onClick} className="botao">Trocar de tela</button>
-                <ContainerBusca>
-                    <BuscaInput type="text" value={this.state.valorInputSearch} onChange={this.handleInputBusca}/>
-                    <button className="botao" onClick={this.searchUsers}>Buscar</button>
-                </ContainerBusca>
+                <HeaderC>
+                    <button onClick={this.props.onClick} className="botao">Ir para Cadastro</button>
+                    <ContainerBusca>
+                        <BuscaInput type="text" value={this.state.valorInputSearch} onChange={this.handleInputBusca} placeholder="Busca por nome(Obs: Exato | CaseSensitive)" />
+                        <button className="botao" onClick={this.searchUsers}>Buscar Usuário</button>
+                    </ContainerBusca>
+                </HeaderC>
                 <BuscaResposta>{this.state.buscaResposta}</BuscaResposta>
                 <div>
                     <ListaUsuariosContainer>
-                        <h2>Lista de usuários</h2>
+                        <ListaTitulo>Lista de usuários</ListaTitulo>
                         {listaUsuarios}
                     </ListaUsuariosContainer>
                     {/* componente de detalhes que aparecerá ao clicar no usuário */}

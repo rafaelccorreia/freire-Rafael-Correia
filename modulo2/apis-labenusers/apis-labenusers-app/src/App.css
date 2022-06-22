@@ -7,6 +7,7 @@
 .botao {
     padding: 0.3rem 0.6rem;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 .botao:hover {
@@ -28,6 +29,7 @@
 .conteudo-div-descricao button {
     padding: 0.3rem 0.6rem;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 .conteudo-div-descricao input {
@@ -39,6 +41,7 @@
     width: 10rem;
     height: 5rem;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 .voltarEdit {
@@ -47,6 +50,7 @@
     padding: 0.3rem 0.6rem;
     border-radius: 5px;
     margin-top: 1rem;
+    font-weight: bold;
 }
 
 .botao2:hover , .voltarEdit:hover {
