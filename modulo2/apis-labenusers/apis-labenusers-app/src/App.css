@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.botao {
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.botao:hover {
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.invisivel {
+    display: none;
+}
+
+.conteudo-div-descricao {
+    margin: 0.7rem 0;
+}
+
+.conteudo-div-descricao p {
+    margin-bottom: 1rem;
+}
+.conteudo-div-descricao button {
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.conteudo-div-descricao input {
+    margin-right: 1rem;
+    padding: 0.3rem 0.5rem;
+}
+
+.botao2 {
+    width: 10rem;
+    height: 5rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.voltarEdit {
+    position: fixed;
+    top: 0;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.botao2:hover , .voltarEdit:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
