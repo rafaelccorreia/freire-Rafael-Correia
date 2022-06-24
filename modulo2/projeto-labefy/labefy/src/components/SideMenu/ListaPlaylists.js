@@ -19,15 +19,17 @@ const ListaUl = styled.ul`
 `
 
 const ListaTitulo = styled.h4`
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding: 1rem;
 `
 
 const ListaLi = styled.li`
+    margin: 0.5rem 0;
     padding: 0.4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1.6rem;
     &:hover {
         cursor: pointer;
         color: black;
@@ -48,8 +50,11 @@ class ListaPlaylists extends React.Component {
 
         const listaAtualizada = listaDePlaylists.map(playlist => {
             return (
-                <ListaLi key={playlist.id} onClick={this.props.onClick} id={playlist.id}>
-                    <span>{playlist.name}</span>
+                <ListaLi 
+                    key={playlist.id} 
+                    onClick={this.props.onClick} 
+                    id={playlist.id}>
+                    <span id={playlist.id}>{playlist.name}</span>
                     <LiImagem src={deleteIcon} onClick={this.props.delete} id={playlist.id}/>
                 </ListaLi>
             )

@@ -7,7 +7,7 @@ const AdicionaTitulo = styled.h4`
     display: flex;
     align-items: center;
     height: 5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     width: 100%;
     justify-content: space-evenly;
     &:hover {
