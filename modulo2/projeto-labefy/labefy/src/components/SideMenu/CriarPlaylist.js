@@ -1,10 +1,41 @@
 import React from 'react'
-import axios from 'axios'
 import styled from 'styled-components'
+
+import plusIcon from '../../assets/img/plus_icon.png'
+
+const AdicionaTitulo = styled.h4`
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    font-size: 1.5rem;
+    width: 100%;
+    justify-content: space-evenly;
+    &:hover {
+        box-shadow: 1px 1px 2px 2px #f2f2f2;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+`
+
+const AdicionaImg = styled.img`
+    width: 3rem;
+    height: 3rem;
+`
+
+const ContainerAdiciona = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 200px;
+    margin: 0.5rem 0;
+    outline: 1px 1px solid #f2f2f2;
+`
 
 const ContainerInput = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
 `
 
 const Input = styled.input`
@@ -20,34 +51,11 @@ const Botao = styled.button`
 
 class CriarPlaylist extends React.Component {
     state = {
-        valorInputNome: '',
         criandoPlalist: false
-    }
-
-    handleValorNome = (event) => {
-        this.setState({valorInputNome: event.target.value})
     }
 
     handleCriandoPlalist = () => {
         this.setState({criandoPlalist: !this.state.criandoPlalist})
-    }
-
-    createPlaylist = () => {
-        const body = {
-            name: this.state.valorInputNome
-        }
-
-        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists', body, {
-            headers: {
-                Authorization: 'rafael-correia-freire'
-            }
-        })
-        .then(resp => {
-            alert('Playlist adicionada com sucesso!')
-        })
-        .catch(err => {
-            alert(err.response.data.message)
-        })
     }
 
     render() {
@@ -59,19 +67,22 @@ class CriarPlaylist extends React.Component {
                     <Input 
                         id='nomeNovaPlaylist'
                         type='text' 
-                        value={this.state.valorInputNome}
-                        onChange={this.handleValorNome} 
+                        value={this.props.inputValue}
+                        onChange={this.props.onChangeInput} 
                     />
-                    <Botao onClick={this.createPlaylist}>Adicionar playlist</Botao>
+                    <Botao onClick={this.props.onClick}>Adicionar playlist</Botao>
                 </ContainerInput>
             )
         }
 
         return (
-            <section>
-                <h4 onClick={this.handleCriandoPlalist}>Criar Playlist ➕</h4>
+            <ContainerAdiciona>
+                <AdicionaTitulo 
+                    onClick={this.handleCriandoPlalist}
+                    ><span>Criar Playlist</span><AdicionaImg src={plusIcon}/>
+                </AdicionaTitulo>
                 {criarPlalistElemento}
-            </section>
+            </ContainerAdiciona>
         )
     }
 }
