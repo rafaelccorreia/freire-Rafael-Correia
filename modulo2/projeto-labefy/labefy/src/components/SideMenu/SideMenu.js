@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import CriarPlaylist from './CriarPlaylist'
 import ListaPlaylists from './ListaPlaylists'
+import sideLeftArrow from "../../assets/img/side_left_icon.png"
 
 const SideMenuContainer = styled.section`
     width: 35%;
@@ -13,6 +14,18 @@ const SideMenuContainer = styled.section`
     height: auto;
     min-height: 100vh;
     margin-bottom: 7rem;
+`
+
+const MenuHide = styled.div`
+    text-align: end;
+`
+
+const MenuHideImg = styled.img`
+    padding: 1rem;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.3);
+    }
 `
 
 class SideMenu extends React.Component {
@@ -91,6 +104,9 @@ class SideMenu extends React.Component {
     render() {
         return (
             <SideMenuContainer>
+                <MenuHide>
+                    <MenuHideImg src={sideLeftArrow} onClick={this.props.hideMenu}/>
+                </MenuHide>
                 <CriarPlaylist 
                     onClick={this.createPlaylist}
                     inputValue={this.state.valorInputNome}
