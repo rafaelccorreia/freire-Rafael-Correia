@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import leftArrow from '../assets/img/left_arrow_icon.png'
 import downArrow from '../assets/img/down_arrow_icon.png'
 import deleteIcon from '../assets/img/delete_icon.png'
+import backGround from '../assets/img/background.jpg'
 
 const ContainerPlaylist = styled.section`
     flex-grow: 1;
@@ -12,6 +13,8 @@ const ContainerPlaylist = styled.section`
     flex-direction: column;
     align-items: center;
     margin-bottom: 7rem;
+    background-image: url(${backGround});
+    background-size: cover;
 `
 
 const TopoContainer = styled.div`
@@ -79,7 +82,7 @@ const ListaDeTracks = styled.ul`
 
 const ListaTracksItems = styled.li`
     padding: 0.75rem 1rem;
-    margin: 0.8rem 0;
+    margin: 1.5rem 0;
     background-color: purple;
     border-radius: 10px;
     color: white;

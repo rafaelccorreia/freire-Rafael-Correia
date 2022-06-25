@@ -37,7 +37,6 @@ const MenuHideAppImg = styled.img`
 
 class App extends React.Component{
   state ={ 
-    tela: 'Tela Inicial',
     idPlaylistSelecionada: '',
     namePlaylistSelecionada: '',
     sideMenuStatus: 'on'
@@ -68,23 +67,17 @@ class App extends React.Component{
     }
   }
 
-  componentDidMount = () => {
-
-  }
-
-  componentDidUpdtate = () => {
-
-  }
-
   render() {
     let sideMenu
+
     let telaMostrada = (
       <TelaPlaylist
         idPlaylist={this.state.idPlaylistSelecionada}
         namePlaylist={this.state.namePlaylistSelecionada}
       />
     )
-    
+
+    // define o statos da sidebar
     if(this.state.sideMenuStatus === 'on') {
       sideMenu = (
         <SideMenu

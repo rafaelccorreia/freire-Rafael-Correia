@@ -8,6 +8,7 @@ import sideLeftArrow from "../../assets/img/side_left_icon.png"
 
 const SideMenuContainer = styled.section`
     width: 35%;
+    min-width: 35vw;
     padding: 1rem 2rem;
     background-color: purple;
     color: white;
