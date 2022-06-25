@@ -85,6 +85,10 @@ const ListaTracksItems = styled.li`
     box-shadow: 2px 2px 4px 4px paleturquoise;
 `
 
+const TrackDescricao = styled.p`
+    margin-left: 1rem;
+`
+
 const AudioContainer = styled.div`
     display: flex;
     align-items: center;
@@ -213,7 +217,7 @@ class TelaInicial extends React.Component {
         const playlistTracks = this.state.tracks.map(track => {
             return (
                 <ListaTracksItems key={track.id}>
-                    <p>{track.name} - {track.artist}</p>
+                    <TrackDescricao>{track.name} - {track.artist}</TrackDescricao>
                     <AudioContainer>
                         <ListaTracksAudio controls>
                             <source src={track.url}/>
