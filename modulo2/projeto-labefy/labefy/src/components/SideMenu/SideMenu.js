@@ -9,9 +9,10 @@ const SideMenuContainer = styled.section`
     width: 35%;
     padding: 1rem 2rem;
     background-color: purple;
-    color: #f2f2f2;
+    color: white;
     height: auto;
     min-height: 100vh;
+    margin-bottom: 7rem;
 `
 
 class SideMenu extends React.Component {

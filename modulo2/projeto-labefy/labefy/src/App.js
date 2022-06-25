@@ -1,9 +1,9 @@
 import React from "react"
-import axios from "axios"
 import styled from "styled-components"
 
 import SideMenu from "./components/SideMenu/SideMenu"
-import TelaInicial from "./pages/TelaInicial"
+import TelaPlaylist from "./pages/TelaPlaylist"
+import Rodape from "./components/rodape"
 import "./assets/css/style.css"
 
 const ContainerTela = styled.div`
@@ -15,7 +15,7 @@ const ContainerTela = styled.div`
 
 class App extends React.Component{
   state ={ 
-    tela: 'Tela inicial',
+    tela: 'Tela Inicial',
     idPlaylistSelecionada: '',
     namePlaylistSelecionada: '',
   }
@@ -46,7 +46,7 @@ class App extends React.Component{
 
   render() {
     let telaMostrada = (
-      <TelaInicial
+      <TelaPlaylist
         idPlaylist={this.state.idPlaylistSelecionada}
         namePlaylist={this.state.namePlaylistSelecionada}
       />
@@ -58,6 +58,7 @@ class App extends React.Component{
           onClick={this.handleIdPlaylist}
         />
         {telaMostrada}
+        <Rodape />
       </ContainerTela>
     )
   }
