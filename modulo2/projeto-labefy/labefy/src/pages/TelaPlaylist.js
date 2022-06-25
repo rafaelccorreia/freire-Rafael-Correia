@@ -51,10 +51,15 @@ const SectionInputs = styled.section`
 
 const ContainerInputs = styled.div`
     display: flex;
+    padding: 1rem;
     flex-direction: column;
     align-items: center;
     width: 50%;
     text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid purple;
+    box-shadow: 2px 2px 4px 4px paleturquoise;
 `
 
 const InputStyled = styled.input`
