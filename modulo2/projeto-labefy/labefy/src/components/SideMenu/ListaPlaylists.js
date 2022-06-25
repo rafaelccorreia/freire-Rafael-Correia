@@ -38,7 +38,7 @@ const ListaLi = styled.li`
 `
 
 const LiImagem = styled.img`
-    width: 20px;
+    width: 1.5rem;
     &:hover {
         transform: scale(1.4);
     }

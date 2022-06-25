@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import leftArrow from '../assets/img/left_arrow_icon.png'
 import downArrow from '../assets/img/down_arrow_icon.png'
+import deleteIcon from '../assets/img/delete_icon.png'
 
 const ContainerPlaylist = styled.section`
     flex-grow: 1;
@@ -76,7 +77,7 @@ const ListaDeTracks = styled.ul`
 `
 
 const ListaTracksItems = styled.li`
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     margin: 0.8rem 0;
     background-color: purple;
     border-radius: 10px;
@@ -84,9 +85,23 @@ const ListaTracksItems = styled.li`
     box-shadow: 2px 2px 4px 4px paleturquoise;
 `
 
+const AudioContainer = styled.div`
+    display: flex;
+    align-items: center;
+`
+
 const ListaTracksAudio = styled.audio`
     width: 100%;
     margin-top: 0.5rem;
+`
+
+const AudioImagem = styled.img`
+    width: 1.8rem;
+    margin-left: 1rem;
+    &:hover {
+        transform: scale(1.4);
+        cursor: pointer;
+    }
 `
 
 class TelaInicial extends React.Component {  
@@ -163,6 +178,25 @@ class TelaInicial extends React.Component {
         })
     }
 
+    removeTrackFromPlaylist = (event) => {
+        const playlistId = this.props.idPlaylist
+        const trackId = event.target.id
+        
+        if(window.confirm('Deseja mesmo remover esta track da playlist?')) {
+            axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistId}/tracks/${trackId}`, {
+                headers: {
+                    Authorization: 'rafael-correia-freire'
+                }
+            })
+            .then(() => {
+                alert('A track foi excluída da playlist com sucesso')
+            })
+            .catch(err => {
+                alert(err.response.data.message)
+            })
+        }
+    }
+
     handleAdicionando = () => {
         this.setState({adicionandoTrack: !this.state.adicionandoTrack})
     }
@@ -180,10 +214,17 @@ class TelaInicial extends React.Component {
             return (
                 <ListaTracksItems key={track.id}>
                     <p>{track.name} - {track.artist}</p>
-                    <ListaTracksAudio controls>
-                        <source src={track.url}/>
-                        Falha ao carregar audio..
-                    </ListaTracksAudio>
+                    <AudioContainer>
+                        <ListaTracksAudio controls>
+                            <source src={track.url}/>
+                            Falha ao carregar audio..
+                        </ListaTracksAudio>
+                        <AudioImagem 
+                            src={deleteIcon} 
+                            onClick={this.removeTrackFromPlaylist}
+                            id={track.id}
+                        />
+                    </AudioContainer>
                 </ListaTracksItems>
             )
         })
