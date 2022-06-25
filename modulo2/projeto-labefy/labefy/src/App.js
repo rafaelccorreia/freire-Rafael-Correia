@@ -23,7 +23,7 @@ class App extends React.Component{
   handleIdPlaylist = (event) => {
     // verifica qual elemento foi clicado para pegar o nome da playlist no innerHTML
     let playlistNome = ''
-    if(event.target.nodeName === 'LI') {
+    if(event.target.nodeName === 'DIV') {
       playlistNome = event.target.firstChild.innerHTML
     } 
     else if(event.target.nodeName === 'SPAN') {

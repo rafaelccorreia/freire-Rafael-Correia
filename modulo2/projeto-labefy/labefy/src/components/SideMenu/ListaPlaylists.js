@@ -37,6 +37,12 @@ const ListaLi = styled.li`
     }
 `
 
+const ClickContainer = styled.div`
+    width: 100%;
+    text-align: start;
+    padding: 0.4rem 0;
+`
+
 const LiImagem = styled.img`
     width: 1.5rem;
     &:hover {
@@ -50,19 +56,24 @@ class ListaPlaylists extends React.Component {
 
         const listaAtualizada = listaDePlaylists.map(playlist => {
             return (
-                <ListaLi 
-                    key={playlist.id} 
-                    onClick={this.props.onClick} 
-                    id={playlist.id}>
-                    <span id={playlist.id}>{playlist.name}</span>
-                    <LiImagem src={deleteIcon} onClick={this.props.delete} id={playlist.id}/>
+                <ListaLi key={playlist.id}>
+                    <ClickContainer  
+                        onClick={this.props.onClick} 
+                        id={playlist.id}
+                    >
+                        <span id={playlist.id}>{playlist.name}</span>
+                    </ClickContainer>
+                    <LiImagem src={deleteIcon} 
+                        onClick={this.props.delete} 
+                        id={playlist.id}
+                    />
                 </ListaLi>
             )
         })
 
         return (
             <ListaContainer>
-                <ListaTitulo>Suas Playlists</ListaTitulo>
+                <ListaTitulo>Minhas Playlists</ListaTitulo>
                 <ListaUl>
                     {listaAtualizada}
                 </ListaUl>
