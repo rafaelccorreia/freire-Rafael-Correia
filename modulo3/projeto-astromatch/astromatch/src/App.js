@@ -4,7 +4,7 @@ import BigCard from './components/BigCard'
 
 const ContainerGeral = styled.div`
   align-items: center;
-  background-color: purple;
+  background-color: #222;
   display: flex;
   justify-content: center;
   min-height: 100vh;
