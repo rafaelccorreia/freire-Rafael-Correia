@@ -7,8 +7,8 @@ import SmallCard from './SmallCard'
 const BigCardContainer = styled.div`
     background-color: white;
     border-radius: 5px;
-    height: 38rem;
-    width: 26rem;
+    height: 40rem;
+    width: 27rem;
 `
 
 const BigCard = () => {
