@@ -53,7 +53,7 @@ const BotaoImg = styled.img`
     padding: 1rem;
     width: 4rem;
     height: 4rem;
-    &:hover {
+    &:hover, &:active {
         transform: scale(1.1);
         background-color: #FF2626;
         cursor: pointer;
@@ -67,7 +67,7 @@ const BotaoImg2 = styled.img`
     padding: 1rem;
     width: 4rem;
     height: 4rem;
-    &:hover {
+    &:hover, &:active {
         transform: scale(1.1);
         background-color: #289E3B;
         cursor: pointer;

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import React, { useState } from 'react'
 
 import imgLogo from '../img/astro_logo.png'
 import matchesIcon from '../img/match_icon.svg'
@@ -23,7 +24,7 @@ const ImgLogo = styled.img`
 const ImgMatch = styled.img`
     grid-column: 3/ span 1;
     height: 90%;
-    &:hover {
+    &:hover, &:active {
         cursor: pointer;
         transform: scale(0.9);
     }
@@ -31,18 +32,34 @@ const ImgMatch = styled.img`
 const ImgBackS = styled.img`
     grid-column: 1/ span 1;
     height: 90%;
-    &:hover {
+    &:hover, &:active {
         transform: scale(0.9);
         cursor: pointer;
     }
 `
 
-const Header = () => {
+const Header = (props) => {
+    const [displayBack, setDisplayBack] = useState('none')
+    const [displayMatches, setDisplayMatches] = useState('')
+
+    const handleGoBack = () => {
+        setDisplayMatches('')
+        setDisplayBack('none')
+        props.onClickTrocaTela()
+    }
+    
+    const handleGoToMatches = () => {
+        setDisplayMatches('none')
+        setDisplayBack('')
+        props.onClickTrocaTela()
+    }
+
+
     return (
         <Cabecalho>
-            <ImgBackS src={backToSwipe} />
+            <ImgBackS src={backToSwipe} onClick={handleGoBack} style={{display: `${displayBack}`}} />
             <ImgLogo src={imgLogo} />
-            <ImgMatch src={matchesIcon} />
+            <ImgMatch src={matchesIcon} onClick={handleGoToMatches} style={{display: `${displayMatches}`}} />
         </Cabecalho>
     )
 }
