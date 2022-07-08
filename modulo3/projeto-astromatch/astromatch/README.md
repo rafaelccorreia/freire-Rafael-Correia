@@ -16,3 +16,11 @@
 
 ### Link Surge 
 https://astro-match-rafaelc12.surge.sh
+
+### Imagens 
+#### Desktop
+![image](https://user-images.githubusercontent.com/95589176/178029065-11b9616d-0c71-488e-a966-059e17537341.png)
+![image](https://user-images.githubusercontent.com/95589176/178029099-cb723611-f0eb-49b1-93d5-27ae5e2affb0.png)
+#### Mobile
+![image](https://user-images.githubusercontent.com/95589176/178029464-95671ed7-3658-4a93-8a36-57ebd91e4406.png)
+![image](https://user-images.githubusercontent.com/95589176/178029513-89272427-c2df-4ba9-a13f-fe0de39217fa.png)
