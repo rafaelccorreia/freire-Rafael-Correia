@@ -35,8 +35,6 @@ const NomeStyled = styled.span`
     font-size: 2rem;
     font-weight: bold;
     margin-right: 0.5rem;
-    /* #289E3B */
-    /* #FF2626 */
 `
 
 const Bio = styled.p`
@@ -82,6 +80,7 @@ const SmallCard = () => {
     const [name, setName] = useState()
     const [photo, setPhoto] = useState()
     const [bio, setBio] = useState()
+    const [id, setId] = useState()
 
     const [heartImg, setHeartImg] = useState(greenHeartIcon)
     const [xImg, setXImg] = useState(redX)
@@ -94,10 +93,37 @@ const SmallCard = () => {
             setName(resp.data.profile.name)
             setPhoto(resp.data.profile.photo)
             setBio(resp.data.profile.bio)
+            setId(resp.data.profile.id)
         })
         .catch(err => {
             console.log(err)
         })
+    }
+
+    //Match/Pass
+    const handleMatch = (event) => {
+        setId(event.target.id)
+        //requisição 
+        const body = {
+            id: id,
+            choice: event.target.id === 'xBotao' ? false : true
+        }
+
+        if(body.choice === true) {
+            axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafael-correia/choose-person`, body, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(() => {
+                getProfileToChoose()
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        } else {
+            getProfileToChoose()
+        }
     }
 
     //troca as imagens dos botões quando o mouse passa por cima delas
@@ -132,8 +158,8 @@ const SmallCard = () => {
                 </DadosPessoaContainer>
             </SmallCardContainer>
             <BotoesContainer>
-                <BotaoImg src={xImg} onMouseEnter={handleBotaoHover} onMouseLeave={handleBotaoLeave} id='xBotao'/>
-                <BotaoImg2 src={heartImg} onMouseEnter={handleBotaoHover} onMouseLeave={handleBotaoLeave} id='heartBotao'/>
+                <BotaoImg src={xImg} onMouseEnter={handleBotaoHover} onMouseLeave={handleBotaoLeave} onClick={handleMatch} id='xBotao'/>
+                <BotaoImg2 src={heartImg} onMouseEnter={handleBotaoHover} onMouseLeave={handleBotaoLeave} onClick={handleMatch} id={id}/>
             </BotoesContainer>
         </div>
     )
