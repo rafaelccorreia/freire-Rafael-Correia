@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import BotaoVoltar from "../components/BotaoVoltar"
 import { goToAdminHomePage } from "../routes/coordinator"
+import BotaoEscuro from "../components/BotaoEscuro"
 
 const LoginPage = () => {
     const navigate = useNavigate()
@@ -27,7 +28,11 @@ const LoginPage = () => {
             <input value={valorNomeAdmin} onChange={handleNomeAdmin} />
             <input value={valorEmailAdmin} onChange={handleEmailAdmin} />
             <BotaoVoltar />
-            <button onClick={handleLogin}>Entrar</button>
+            <BotaoEscuro 
+                onClick={handleLogin}
+                texto={'Entrar'}
+                color={'neutral'}
+            >Entrar</BotaoEscuro>
         </div>
     )
 }
