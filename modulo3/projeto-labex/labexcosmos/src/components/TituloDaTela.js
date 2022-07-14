@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const TituloStyled = styled.h2`
     font-family: 'Roboto', sans-serif;
-    font-size: 4rem;
+    font-size: 3.3rem;
     margin: 2rem;
     text-align: center;
 `

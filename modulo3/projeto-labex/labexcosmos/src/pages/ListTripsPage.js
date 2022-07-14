@@ -18,7 +18,7 @@ const ListTripsPage = () => {
             setListaViagens(resp.data.trips)
         })
         .catch(err => {
-            console.log(err)
+            alert(JSON.parse(err.request.responseText).message)
         })
     }
 
