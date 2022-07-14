@@ -1,5 +1,7 @@
+import { useEffect } from "react"
+
 export const goToLogin = (navigate) => {
-    navigate("/login")
+    navigate("../login")
 }
 
 export const goToListaDeViagens = (navigate) => {
@@ -24,4 +26,14 @@ export const goToCreateTrip = (navigate) => {
 
 export const goToTripDetails = (navigate, id) => {
     navigate(`../admin/trips/${id}`)
+}
+
+export const ProtectedPage = (navigate) => {
+    useEffect(() => {
+        const token = window.localStorage.getItem('token')
+
+        if(token === null) {
+            goToLogin(navigate)
+        }
+    }, [navigate])
 }

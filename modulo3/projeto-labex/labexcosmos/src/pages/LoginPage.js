@@ -8,14 +8,7 @@ import BotaoVoltar from "../components/BotaoVoltar"
 import BotaoEscuro from "../components/BotaoEscuro"
 import TituloDaTela from "../components/TituloDaTela"
 import InputMu from "../components/InputMu"
-
-const MainContainer = styled.div`
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 1rem;
-`
+import MainContainer from "../components/MainContainer"
 
 const LoginContainer = styled.div`
     align-items: center;

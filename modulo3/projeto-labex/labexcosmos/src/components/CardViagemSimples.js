@@ -13,6 +13,7 @@ const CardContainer = styled.li`
     background-color: #b9bcbf;
     border-radius: 10px;
     margin-bottom: 1rem;
+    box-shadow: 2px 2px 7px #24b3d2;
     &:hover {
         background-color: white;
         cursor: pointer;

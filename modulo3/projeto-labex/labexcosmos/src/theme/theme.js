@@ -15,6 +15,19 @@ const theme = createTheme({
             contrastText: '#222',
             },
     },
+    components: {
+        // Name of the component
+        MuiMenuItem: {
+            styleOverrides: {
+            // Name of the slot
+                root: {
+              // Some CSS
+                    color: '#121243',
+                    fontWeight: 'bold'
+                },
+            },
+        },
+    },
 })
 
 export default theme

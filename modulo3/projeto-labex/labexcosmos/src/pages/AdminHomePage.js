@@ -4,20 +4,13 @@ import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import LogoutIcon from '@mui/icons-material/Logout'
 
-import { goToCreateTrip, goToTripDetails } from '../routes/coordinator'
+import { goToCreateTrip, goToLogin, goToTripDetails } from '../routes/coordinator'
 import BotaoVoltar from '../components/BotaoVoltar'
 import BotaoEscuro from '../components/BotaoEscuro'
 import CardViagemSimples from '../components/CardViagemSimples'
 import TituloDaTela from '../components/TituloDaTela'
-
-const MainContainer = styled.div`
-    padding: 1rem 0;
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
+import MainContainer from '../components/MainContainer'
+import { ProtectedPage } from '../routes/coordinator'
 
 const ConteudoContainer = styled.div` 
     background-color: rgba(18, 43, 67, 0.8);
@@ -44,6 +37,8 @@ const ListaContainer = styled.ul`
 
 const AdminHomePage = () => {
     const navigate = useNavigate()
+    ProtectedPage(navigate)
+
     const [tripsList, setTripsList] = useState([])
     const [token, setToken] = useState('')
 
@@ -68,11 +63,11 @@ const AdminHomePage = () => {
         })
         .then(resp => {
             console.log(resp)
+            GetTrips()
         })
         .catch(err => {
             console.log(err)
         })
-        GetTrips()
     }
 
     useEffect(() => {
@@ -90,7 +85,7 @@ const AdminHomePage = () => {
             <ConteudoContainer>
                 <TituloDaTela 
                     titulo={'Painel Administrativo'}
-                    colro={'neutral'}
+                    color={'#d7d7d7'}
                 />
                 <BotoesContainer>
                     <BotaoVoltar color={'neutral'}/>
