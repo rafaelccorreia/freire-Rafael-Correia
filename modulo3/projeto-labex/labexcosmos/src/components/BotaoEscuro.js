@@ -1,17 +1,19 @@
 import React from 'react'
 import { Button } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
+
 import theme from '../theme/theme'
 
 const BotaoEscuro = (props) => {
     return (
         <ThemeProvider theme={theme}>
             <Button 
-            variant='contained'
-            startIcon={props.startIcon}
-            endIcon={props.endIcon}
-            color={props.color}
-            onClick={props.onClick}
+                color={props.color}
+                endIcon={props.endIcon}
+                onClick={props.onClick}
+                startIcon={props.startIcon}
+                sx={{ button:{ fontWeight: 'bold'} }}
+                variant='contained'
             >
                 {props.texto}
             </Button>
