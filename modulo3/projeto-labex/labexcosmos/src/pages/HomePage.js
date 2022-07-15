@@ -42,7 +42,7 @@ const LeftSideButtonContainer = styled.div`
     align-items: center;
     width: 50%;
     padding: 0 1rem;
-    &:hover {
+    &:hover, &:focus {
         top: 0;
         height: 100vh;
         justify-content: center;
@@ -51,6 +51,18 @@ const LeftSideButtonContainer = styled.div`
         background-size: cover;
         transition: 1s;
         border-radius: 10px;
+    }
+    @media screen and (max-width: 480px) {
+        &:focus, &:active, &:hover {
+            top: 0;
+            height: 100vh;
+            justify-content: center;
+            background-color: rgba(18, 43, 67, 0.8);
+            background-image: url(${admBg});
+            background-size: contain;
+            transition: 1s;
+            border-radius: 10px;
+        }
     }
 `
 const RightSideButtonContainer = styled.div`
@@ -62,7 +74,7 @@ const RightSideButtonContainer = styled.div`
     align-items: center;
     width: 50%;
     padding: 0 1rem;
-    &:hover {
+    &:hover, &:focus {
         bottom: 0;
         height: 100vh;
         justify-content: center;
@@ -71,6 +83,18 @@ const RightSideButtonContainer = styled.div`
         background-size: cover;
         transition: 1s;
         border-radius: 10px;
+    }
+    @media screen and (max-width: 480px) {
+        &:focus, &:active, &:hover {
+            bottom: 0;
+            height: 100vh;
+            justify-content: center;
+            background-color: rgba(185, 188, 191, 0.8);
+            background-image: url(${tripsBg});
+            background-size: contain;
+            transition: 1s;
+            border-radius: 10px;
+        }
     }
 `
 
