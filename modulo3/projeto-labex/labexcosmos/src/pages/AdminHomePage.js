@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import LogoutIcon from '@mui/icons-material/Logout'
 
-import { goToCreateTrip, goToLogin, goToTripDetails } from '../routes/coordinator'
+import { goToCreateTrip, goToTripDetails } from '../routes/coordinator'
 import BotaoVoltar from '../components/BotaoVoltar'
 import BotaoEscuro from '../components/BotaoEscuro'
 import CardViagemSimples from '../components/CardViagemSimples'
