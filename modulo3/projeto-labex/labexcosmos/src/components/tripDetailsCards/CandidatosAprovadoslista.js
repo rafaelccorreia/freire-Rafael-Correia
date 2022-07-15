@@ -44,7 +44,7 @@ const CandidatosAprovadosLista = (props) => {
     if(listaAprovados.length > 0){
         listaAprovadosJsx = listaAprovados.map(pessoa => {
             return (
-                <NomeCandidato key={pessoa.id}>{pessoa.nome}</NomeCandidato>
+                <NomeCandidato key={pessoa.id}>{pessoa.name}</NomeCandidato>
             )
         }) 
     } else {

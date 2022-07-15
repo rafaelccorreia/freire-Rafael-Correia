@@ -5,7 +5,7 @@ export const goToLogin = (navigate) => {
 }
 
 export const goToListaDeViagens = (navigate) => {
-    navigate("/trips/list")
+    navigate("../trips/list")
 }
 
 export const goToAdminHomePage = (navigate) => {
@@ -17,7 +17,7 @@ export const goToTripsApplication = (navigate) => {
 }
 
 export const goBackPage = (navigate) => {
-    navigate(-1)
+    navigate("../")
 } 
 
 export const goToCreateTrip = (navigate) => {

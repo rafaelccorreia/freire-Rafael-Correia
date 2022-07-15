@@ -63,7 +63,6 @@ const TripDetailsPage = () => {
             }
         })
         .then(resp => {
-            console.log(resp)
             setTrip(resp.data.trip)
             setCandidates(resp.data.trip.candidates)
             setAprovados(resp.data.trip.approved)
@@ -73,9 +72,29 @@ const TripDetailsPage = () => {
         })
     }
 
+    const DecideCandidate = (event, decide) => {
+        console.log(event.target)
+        const token = localStorage.getItem('token')
+        const body = {
+            approve: decide
+        }
+
+        axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-correia-freire/trips/${idViagem}/candidates/${event.target.id}/decide`, body, {
+            headers: {
+                auth: token
+            }
+        })
+        .then(resp => {
+            alert('Candidato aprovado com sucesso!')
+        })
+        .catch(err => {
+            alert(JSON.parse(err.request.responseText).message)
+        })
+    }
+
     useEffect(() => {
         GetTripDetail()
-    }, [])
+    }, [candidates, aprovados])
 
     const DadosTrip = (
         <TripDetailsCard 
@@ -99,6 +118,7 @@ const TripDetailsPage = () => {
                     applicationText={candidate.applicationText}
                     id={candidate.id}
                     key={candidate.id}
+                    onClick={DecideCandidate}
                 />
             )
         })

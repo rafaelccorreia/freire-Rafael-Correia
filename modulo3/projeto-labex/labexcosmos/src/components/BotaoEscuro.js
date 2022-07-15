@@ -9,6 +9,7 @@ const BotaoEscuro = (props) => {
         <ThemeProvider theme={theme}>
             <Button 
                 color={props.color}
+                id={props.id}
                 endIcon={props.endIcon}
                 onClick={props.onClick}
                 startIcon={props.startIcon}

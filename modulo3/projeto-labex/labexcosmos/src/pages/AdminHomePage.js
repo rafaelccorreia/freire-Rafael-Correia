@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import LogoutIcon from '@mui/icons-material/Logout'
 
-import { goToCreateTrip, goToTripDetails } from '../routes/coordinator'
+import { goToCreateTrip, goToLogin, goToTripDetails } from '../routes/coordinator'
 import BotaoVoltar from '../components/BotaoVoltar'
 import BotaoEscuro from '../components/BotaoEscuro'
 import CardViagemSimples from '../components/CardViagemSimples'
@@ -50,7 +50,6 @@ const AdminHomePage = () => {
         .catch(err => {
             alert(JSON.parse(err.request.responseText).message)
         })
-        console.log('gettrips foi chamado')
     }
 
     const DeleteTrip = (event) => {
@@ -62,12 +61,16 @@ const AdminHomePage = () => {
             }
         })
         .then(resp => {
-            console.log(resp)
             GetTrips()
         })
         .catch(err => {
-            console.log(err)
+            alert(JSON.parse(err.request.responseText).message)
         })
+    }
+
+    const handleLogOut = () => {
+        localStorage.removeItem('token')
+        goToLogin(navigate)
     }
 
     useEffect(() => {
@@ -95,6 +98,7 @@ const AdminHomePage = () => {
                         texto={'Criar Viagem'}
                     />
                     <BotaoEscuro 
+                        onClick={handleLogOut}
                         color={'neutral'}
                         texto={'Log Out'}
                         endIcon={<LogoutIcon />}

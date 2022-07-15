@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import axios from "axios"
@@ -37,6 +37,14 @@ const LoginPage = () => {
     const [valorEmailAdmin, setValorEmailAdmin] = useState('')
     const [valorPassAdmin, setValorPassAdmin] = useState('')
 
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if(token !== null) {
+            goToAdminHomePage(navigate)
+        }
+
+    }, [])
+
     const handleEmailAdmin = (event) => {
         setValorEmailAdmin(event.target.value)
     }
@@ -53,7 +61,6 @@ const LoginPage = () => {
 
         axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-correia-freire/login', body)
         .then(resp => {
-            console.log(resp.data.token)
             localStorage.setItem('token', resp.data.token )
             goToAdminHomePage(navigate)
         })
