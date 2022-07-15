@@ -17,7 +17,7 @@ export const goToTripsApplication = (navigate) => {
 }
 
 export const goBackPage = (navigate) => {
-    navigate("../")
+    navigate(-1)
 } 
 
 export const goToCreateTrip = (navigate) => {

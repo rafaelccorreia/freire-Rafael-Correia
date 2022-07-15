@@ -73,6 +73,10 @@ const AdminHomePage = () => {
         goToLogin(navigate)
     }
 
+    const handleVoltarLogado = () => {
+        navigate('../')
+    }
+
     useEffect(() => {
         GetTrips()
         setToken(localStorage.getItem('token'))
@@ -91,7 +95,10 @@ const AdminHomePage = () => {
                     color={'#d7d7d7'}
                 />
                 <BotoesContainer>
-                    <BotaoVoltar color={'neutral'}/>
+                    <BotaoVoltar 
+                        color={'neutral'}
+                        onClick={handleVoltarLogado}
+                    />
                     <BotaoEscuro 
                         onClick={() => goToCreateTrip(navigate)}
                         color={'neutral'}

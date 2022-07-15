@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
+import shadows from '@mui/material/styles/shadows'
 
 import theme from '../theme/theme'
 
@@ -13,7 +14,7 @@ const BotaoEscuro = (props) => {
                 endIcon={props.endIcon}
                 onClick={props.onClick}
                 startIcon={props.startIcon}
-                sx={{ button:{ fontWeight: 'bold'} }}
+                sx={{ button:{ fontWeight: 'bold'}, boxShadow: 13 }}
                 variant='contained'
             >
                 {props.texto}

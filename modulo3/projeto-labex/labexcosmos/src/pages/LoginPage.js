@@ -53,6 +53,10 @@ const LoginPage = () => {
         setValorPassAdmin(event.target.value)
     }
 
+    const handleVoltarLogado = () => {
+        navigate('../')
+    }
+
     const handleLogin = () => {
         const body = {
             email: valorEmailAdmin,
@@ -99,7 +103,10 @@ const LoginPage = () => {
                     />
                 </InputsContainer>
                 <BotoesContainer>    
-                    <BotaoVoltar color={'neutral'}/>
+                    <BotaoVoltar 
+                        color={'neutral'}
+                        onClick={handleVoltarLogado}
+                    />
                     <BotaoEscuro 
                         color={'neutral'}
                         onClick={handleLogin}

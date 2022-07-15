@@ -11,7 +11,7 @@ const BotaoVoltar = (props) => {
     return(
         <BotaoEscuro
             color={props.color}
-            onClick={()=> goBackPage(navigate)}
+            onClick={props.onClick ? props.onClick : ()=> goBackPage(navigate)}
             startIcon={<ReplyAllIcon />}
             texto={'Voltar'}
         />
