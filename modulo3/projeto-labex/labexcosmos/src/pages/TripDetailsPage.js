@@ -84,7 +84,7 @@ const TripDetailsPage = () => {
                 auth: token
             }
         })
-        .then(resp => {
+        .then(() => {
             alert('Candidato aprovado com sucesso!')
         })
         .catch(err => {

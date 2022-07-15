@@ -69,7 +69,7 @@ export const SelectTrip = (props) => {
 
     const selectOptions = listaViagens.map(viagem => {
         return (
-            <MenuItem value={viagem.name} key={viagem.id} id={viagem.id}>{viagem.name}</MenuItem>
+            <MenuItem value={viagem.name} key={viagem.id} id={props.name} name={props.id}>{viagem.name}</MenuItem>
         )
     })
 
@@ -91,7 +91,7 @@ export const SelectTrip = (props) => {
                 <InputLabel id="select-trip-label">Escolha uma Viagem</InputLabel>
                 <Select
                     labelId="select-trip-label"
-                    id="select-trip-label"
+                    id="select-trip"
                     value={props.value}
                     onChange={props.onChange}
                 >

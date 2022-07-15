@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
@@ -45,6 +45,21 @@ const BotoesContainer = styled.div`
 `
 
 const ApplicationFormPage = () => {
+    const [listaViagens, setListaViagens] = React.useState([])
+    //requisição com a API
+    const GetTrips = () => {
+        axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-correia-freire/trips')
+        .then(resp => {
+            setListaViagens(resp.data.trips)
+        })
+        .catch(err => {
+            alert(JSON.parse(err.request.responseText).message)
+        })
+    }
+    useEffect(() => {
+        GetTrips()
+    }, [])
+
     const [valorSelectViagem, setValorSelectViagem] = useState('')
     const [valorSelectViagemId, setValorSelectViagemId] = useState('')
     const [valorSelectCountry, setValorSelectCountry] = useState('')
@@ -56,7 +71,12 @@ const ApplicationFormPage = () => {
     //controladores de input
     const handleSelectViagem = (event) => {
         setValorSelectViagem(event.target.value)
-        setValorSelectViagemId(event.target.id)
+        console.log(event.target)
+        listaViagens.map(viagem => {
+            if(viagem.name === event.target.value) {
+                setValorSelectViagemId(viagem.id)
+            }
+        })
     }
     const handleSelectCountry = (event) => {
         setValorSelectCountry(event.target.value)
@@ -74,7 +94,8 @@ const ApplicationFormPage = () => {
         setValorInputProfissao(event.target.value)
     }
 
-    const ApplyToTrip = () => {
+    const ApplyToTrip = (event) => {
+        console.log(event.target)
         const body = {
             name: valorInputNome,
             age: valorInputIdade,
@@ -112,6 +133,7 @@ const ApplicationFormPage = () => {
                         <SelectTrip 
                             value={valorSelectViagem}
                             onChange={handleSelectViagem}
+                            id={valorSelectViagemId}
                         />
                         <InputMu 
                             backColor={'#b9bcbf'}
