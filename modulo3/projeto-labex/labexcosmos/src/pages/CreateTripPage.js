@@ -59,6 +59,7 @@ const CreateTripPage = () => {
         setValorTituloViagem(event.target.value)
     }
     const handleDataViagem = (event) => {
+        console.log(event.target.value)
         setValorDataViagem(event.target.value)
     }
     const handlePlanetaViagem = (event) => {
@@ -73,13 +74,10 @@ const CreateTripPage = () => {
 
     //requisição para criar viagem
     const CreateTrip = () => {
-        let data = new Date(valorDataViagem)
-        let dataFormatada = (data.getFullYear() + "/" + data.getMonth() + "/" + (data.getDate() )) 
-
         const body = {
             name: valorTituloViagem,
             planet: valorPlanetaViagem,
-            date: dataFormatada,
+            date: valorDataViagem,
             description: valorDescricaoViagem,
             durationInDays: Number(valorDuracaoViagem)
         }

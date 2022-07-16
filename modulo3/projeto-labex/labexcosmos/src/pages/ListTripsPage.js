@@ -59,6 +59,9 @@ const ListTripsPage = () => {
     }
 
     const listaViagensJsx = listaViagens.map((viagem) => {
+        let data = new Date(viagem.date)
+        let dataFormatada = ((data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear())) 
+
         return (
             <CardViagemPublic 
                 id={viagem.id}

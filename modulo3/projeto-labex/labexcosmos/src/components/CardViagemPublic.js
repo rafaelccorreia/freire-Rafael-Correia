@@ -38,7 +38,7 @@ const CardViagemPublic = (props) => {
             <CardPDescricao><CardPTitulo>Nome: </CardPTitulo>{props.name}</CardPDescricao>
             <CardPDescricao><CardPTitulo>Descrição: </CardPTitulo>{props.description}</CardPDescricao>
             <CardPDescricao><CardPTitulo>Planeta: </CardPTitulo>{props.planet}</CardPDescricao>
-            <CardPDescricao><CardPTitulo>Duração: </CardPTitulo>{props.durationInDays}</CardPDescricao>
+            <CardPDescricao><CardPTitulo>Duração: </CardPTitulo>{props.durationInDays} dias</CardPDescricao>
             <CardPDescricao><CardPTitulo>Data: </CardPTitulo>{props.date}</CardPDescricao>
         </CardViagemPublicContainer>
     )
