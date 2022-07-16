@@ -35,15 +35,15 @@ export const SelectPlanet = (props) => {
                     <MenuItem value="">
                     <em>Escolha um planeta</em>
                     </MenuItem>
-                    <MenuItem value={'mercurio'}>Mercúrio</MenuItem>
-                    <MenuItem value={'venus'}>Vênus</MenuItem>
-                    <MenuItem value={'terra'}>Terra</MenuItem>
-                    <MenuItem value={'marte'}>Marte</MenuItem>
-                    <MenuItem value={'terra'}>Júpter</MenuItem>
-                    <MenuItem value={'saturno'}>Saturno</MenuItem>
-                    <MenuItem value={'urano'}>Urano</MenuItem>
-                    <MenuItem value={'netuno'}>Netuno</MenuItem>
-                    <MenuItem value={'plutao'}>Plutão</MenuItem>
+                    <MenuItem value={'Mercúrio'}>Mercúrio</MenuItem>
+                    <MenuItem value={'Vênus'}>Vênus</MenuItem>
+                    <MenuItem value={'Terra'}>Terra</MenuItem>
+                    <MenuItem value={'Marte'}>Marte</MenuItem>
+                    <MenuItem value={'Júpter'}>Júpter</MenuItem>
+                    <MenuItem value={'Saturno'}>Saturno</MenuItem>
+                    <MenuItem value={'Urano'}>Urano</MenuItem>
+                    <MenuItem value={'Netuno'}>Netuno</MenuItem>
+                    <MenuItem value={'Plutão'}>Plutão</MenuItem>
                 </Select>
             </FormControl>
         </ThemeProvider>
