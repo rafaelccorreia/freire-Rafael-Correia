@@ -13,6 +13,7 @@ const CandidatosAprovadosContainer = styled.div`
 
 const CandidateAprContainer = styled.ul` 
     width: 100%;
+    max-width: 460px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -28,6 +29,7 @@ const CandidateAprContainer = styled.ul`
 const TituloAprovados = styled.h2` 
     text-align: center;
     font-size: 2rem;
+    margin-bottom: 0.5rem;
 `
 
 const NomeCandidato = styled.li`  

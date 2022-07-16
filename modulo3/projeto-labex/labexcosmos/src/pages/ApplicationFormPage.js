@@ -8,6 +8,7 @@ import MainContainer from '../components/MainContainer'
 import TituloDaTela from '../components/TituloDaTela'
 import { SelectTrip, SelectCountry } from '../components/SelectMu'
 import InputMu from '../components/InputMu'
+import Header from '../components/Header'
 
 const FormPublicContainer = styled.div` 
     background-color: rgba(185, 188, 191, 0.8);
@@ -95,7 +96,6 @@ const ApplicationFormPage = () => {
     }
 
     const ApplyToTrip = (event) => {
-        console.log(event.target)
         const body = {
             name: valorInputNome,
             age: valorInputIdade,
@@ -106,7 +106,6 @@ const ApplicationFormPage = () => {
 
         axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-correia-freire/trips/${valorSelectViagemId}/apply`, body)
         .then(resp => {
-            console.log(resp)
             alert('Sua inscrição foi feita com sucesso!')
             setValorInputIdade('')
             setValorInputNome('')
@@ -122,77 +121,80 @@ const ApplicationFormPage = () => {
     }
 
     return (
-        <MainContainer>
-            <FormPublicContainer>
-                <TituloDaTela
-                    titulo={'Formulário de Inscrição'}
-                    color={'#121243'}
-                />
-                <FormElementoContainer>
-                    <InputsContainer>
-                        <SelectTrip 
-                            value={valorSelectViagem}
-                            onChange={handleSelectViagem}
-                            id={valorSelectViagemId}
-                        />
-                        <InputMu 
-                            backColor={'#b9bcbf'}
-                            color={'primary'}
-                            fontColor={'#122b43'}
-                            label={'Nome'}
-                            id={'NomeViagemAplicar'}
-                            onChange={handleInputNome}
-                            type={'text'}
-                            value={valorInputNome}
-                        />
-                        <InputMu 
-                            backColor={'#b9bcbf'}
-                            color={'primary'}
-                            fontColor={'#122b43'}
-                            label={'Idade'}
-                            id={'NomeViagemAplicar'}
-                            onChange={handleInputIdade}
-                            type={'number'}
-                            value={valorInputIdade}
-                        />
-                        <InputMu 
-                            backColor={'#b9bcbf'}
-                            color={'primary'}
-                            fontColor={'#122b43'}
-                            label={'Texto de candidatura'}
-                            id={'NomeViagemAplicar'}
-                            onChange={handleInputTexto}
-                            type={'text'}
-                            value={valorInputTexto}
-                        />
-                        <InputMu 
-                            backColor={'#b9bcbf'}
-                            color={'primary'}
-                            fontColor={'#122b43'}
-                            label={'Profissão'}
-                            id={'NomeViagemAplicar'}
-                            onChange={handleInputProfissao}
-                            type={'text'}
-                            value={valorInputProfissao}
-                        />
-                        <SelectCountry 
-                            value={valorSelectCountry}
-                            onChange={handleSelectCountry}
-                        />
-                    </InputsContainer>
-                </FormElementoContainer>
-                <BotoesContainer>
-                    <BotaoVoltar 
-                        color={'primary'}
+        <div>
+            <Header />
+            <MainContainer>
+                <FormPublicContainer>
+                    <TituloDaTela
+                        titulo={'Formulário de Inscrição'}
+                        color={'#121243'}
                     />
-                    <BotaoEscuro
-                        onClick={ApplyToTrip}
-                        texto={'Enviar'}
-                        color={'primary'}
-                    />
-                </BotoesContainer>
-            </FormPublicContainer>
-        </MainContainer>
+                    <FormElementoContainer>
+                        <InputsContainer>
+                            <SelectTrip 
+                                value={valorSelectViagem}
+                                onChange={handleSelectViagem}
+                                id={valorSelectViagemId}
+                            />
+                            <InputMu 
+                                backColor={'#b9bcbf'}
+                                color={'primary'}
+                                fontColor={'#122b43'}
+                                label={'Nome'}
+                                id={'NomeViagemAplicar'}
+                                onChange={handleInputNome}
+                                type={'text'}
+                                value={valorInputNome}
+                            />
+                            <InputMu 
+                                backColor={'#b9bcbf'}
+                                color={'primary'}
+                                fontColor={'#122b43'}
+                                label={'Idade'}
+                                id={'NomeViagemAplicar'}
+                                onChange={handleInputIdade}
+                                type={'number'}
+                                value={valorInputIdade}
+                            />
+                            <InputMu 
+                                backColor={'#b9bcbf'}
+                                color={'primary'}
+                                fontColor={'#122b43'}
+                                label={'Texto de candidatura'}
+                                id={'NomeViagemAplicar'}
+                                onChange={handleInputTexto}
+                                type={'text'}
+                                value={valorInputTexto}
+                            />
+                            <InputMu 
+                                backColor={'#b9bcbf'}
+                                color={'primary'}
+                                fontColor={'#122b43'}
+                                label={'Profissão'}
+                                id={'NomeViagemAplicar'}
+                                onChange={handleInputProfissao}
+                                type={'text'}
+                                value={valorInputProfissao}
+                            />
+                            <SelectCountry 
+                                value={valorSelectCountry}
+                                onChange={handleSelectCountry}
+                            />
+                        </InputsContainer>
+                    </FormElementoContainer>
+                    <BotoesContainer>
+                        <BotaoVoltar 
+                            color={'primary'}
+                        />
+                        <BotaoEscuro
+                            onClick={ApplyToTrip}
+                            texto={'Enviar'}
+                            color={'primary'}
+                        />
+                    </BotoesContainer>
+                </FormPublicContainer>
+            </MainContainer>
+        </div>
     )
 }
 

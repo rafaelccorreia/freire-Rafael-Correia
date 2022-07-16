@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 import BotaoVoltar from '../components/BotaoVoltar'
 import BotaoEscuro from '../components/BotaoEscuro'
@@ -9,7 +10,7 @@ import TituloDaTela from '../components/TituloDaTela'
 import InputMu from '../components/InputMu'
 import { SelectPlanet } from '../components/SelectMu'
 import { ProtectedPage } from '../routes/coordinator'
-import { useNavigate } from 'react-router-dom'
+import Header from '../components/Header'
 
 const FormMainContainer = styled.div` 
     background-color: rgba(18, 43, 67, 0.8);
@@ -101,75 +102,78 @@ const CreateTripPage = () => {
     }
 
     return (
-        <MainContainer>
-            <FormMainContainer>
-                <TituloDaTela 
-                    color={'#d7d7d7'}
-                    titulo={'Criar Viagem'}
-                />
-                <FormElementoContainer>
-                    <InputsContainer>
-                        <InputMu 
-                            backColor={'#b9bcbf'}
-                            color={'primary'}
-                            fontColor={'#122b43'}
-                            label={'Título da Viagem'}
-                            id={'tituloViagemCriar'}
-                            onChange={handleTituloViagem}
-                            type={'text'}
-                            value={valorTituloViagem}
-                        />
-                        <SelectPlanet 
-                            backColor={'#b9bcbf'}
-                            color={'primary'}
-                            fontColor={'#122b43'}
-                            value={valorPlanetaViagem}
-                            onChange={handlePlanetaViagem}
-                        />
-                        <InputMu 
-                            backColor={'#b9bcbf'}
-                            color={'primary'}
-                            fontColor={'#122b43'}
-                            label={''}
-                            id={'dataViagemCriar'}
-                            onChange={handleDataViagem}
-                            type={'date'}
-                            value={valorDataViagem}
-                        />
-                        <InputMu 
-                            backColor={'#b9bcbf'}
-                            color={'primary'}
-                            fontColor={'#122b43'}
-                            label={'Descrição'}
-                            id={'descricaoViagemLabue'}
-                            onChange={handleDescricaoViagem}
-                            type={'text'}
-                            value={valorDescricaoViagem}
-                        />
-                        <InputMu 
-                            backColor={'#b9bcbf'}
-                            color={'primary'}
-                            fontColor={'#122b43'}
-                            label={'Duração em dias'}
-                            id={'duracaoViagemCriar'}
-                            onChange={handleDuracaoViagem}
-                            type={'number'}
-                            value={valorDuracaoViagem}
-                        />
-                    </InputsContainer>
-                    <BotoesContainer>
-                        <BotaoVoltar 
-                            color={'neutral'}
-                        />
-                        <BotaoEscuro 
-                            color={'neutral'}
-                            texto={'Criar'}
-                            onClick={CreateTrip}
-                        />
-                    </BotoesContainer>
-                </FormElementoContainer>
-            </FormMainContainer>
-        </MainContainer>
+        <div>
+            <Header />
+            <MainContainer>
+                <FormMainContainer>
+                    <TituloDaTela 
+                        color={'#d7d7d7'}
+                        titulo={'Criar Viagem'}
+                    />
+                    <FormElementoContainer>
+                        <InputsContainer>
+                            <InputMu 
+                                backColor={'#b9bcbf'}
+                                color={'primary'}
+                                fontColor={'#122b43'}
+                                label={'Título da Viagem'}
+                                id={'tituloViagemCriar'}
+                                onChange={handleTituloViagem}
+                                type={'text'}
+                                value={valorTituloViagem}
+                            />
+                            <SelectPlanet 
+                                backColor={'#b9bcbf'}
+                                color={'primary'}
+                                fontColor={'#122b43'}
+                                value={valorPlanetaViagem}
+                                onChange={handlePlanetaViagem}
+                            />
+                            <InputMu 
+                                backColor={'#b9bcbf'}
+                                color={'primary'}
+                                fontColor={'#122b43'}
+                                label={''}
+                                id={'dataViagemCriar'}
+                                onChange={handleDataViagem}
+                                type={'date'}
+                                value={valorDataViagem}
+                            />
+                            <InputMu 
+                                backColor={'#b9bcbf'}
+                                color={'primary'}
+                                fontColor={'#122b43'}
+                                label={'Descrição'}
+                                id={'descricaoViagemLabue'}
+                                onChange={handleDescricaoViagem}
+                                type={'text'}
+                                value={valorDescricaoViagem}
+                            />
+                            <InputMu 
+                                backColor={'#b9bcbf'}
+                                color={'primary'}
+                                fontColor={'#122b43'}
+                                label={'Duração em dias'}
+                                id={'duracaoViagemCriar'}
+                                onChange={handleDuracaoViagem}
+                                type={'number'}
+                                value={valorDuracaoViagem}
+                            />
+                        </InputsContainer>
+                        <BotoesContainer>
+                            <BotaoVoltar 
+                                color={'neutral'}
+                            />
+                            <BotaoEscuro 
+                                color={'neutral'}
+                                texto={'Criar'}
+                                onClick={CreateTrip}
+                            />
+                        </BotoesContainer>
+                    </FormElementoContainer>
+                </FormMainContainer>
+            </MainContainer>
+        </div>
     )
 }
 

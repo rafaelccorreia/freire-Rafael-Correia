@@ -11,6 +11,7 @@ import CardViagemSimples from '../components/CardViagemSimples'
 import TituloDaTela from '../components/TituloDaTela'
 import MainContainer from '../components/MainContainer'
 import { ProtectedPage } from '../routes/coordinator'
+import Header from '../components/Header'
 
 const ConteudoContainer = styled.div` 
     background-color: rgba(18, 43, 67, 0.8);
@@ -88,44 +89,47 @@ const AdminHomePage = () => {
     }
 
     return(
-        <MainContainer>
-            <ConteudoContainer>
-                <TituloDaTela 
-                    titulo={'Painel Administrativo'}
-                    color={'#d7d7d7'}
-                />
-                <BotoesContainer>
-                    <BotaoVoltar 
-                        color={'neutral'}
-                        onClick={handleVoltarLogado}
+        <div>
+            <Header />
+            <MainContainer>
+                <ConteudoContainer>
+                    <TituloDaTela 
+                        titulo={'Painel Administrativo'}
+                        color={'#d7d7d7'}
                     />
-                    <BotaoEscuro 
-                        onClick={() => goToCreateTrip(navigate)}
-                        color={'neutral'}
-                        texto={'Criar Viagem'}
-                    />
-                    <BotaoEscuro 
-                        onClick={handleLogOut}
-                        color={'neutral'}
-                        texto={'Log Out'}
-                        endIcon={<LogoutIcon />}
-                    />
-                </BotoesContainer>
-                <ListaContainer>
-                    {tripsList.map(trip => {
-                        return(
-                            <CardViagemSimples 
-                                key={trip.id}
-                                id={trip.id}
-                                onClick={handleMostraDetalhes}
-                                tituloViagem={trip.name}
-                                deleteViagem={DeleteTrip}
-                            />
-                        )
-                    })}
-                </ListaContainer>
-            </ConteudoContainer>
-        </MainContainer>
+                    <BotoesContainer>
+                        <BotaoVoltar 
+                            color={'neutral'}
+                            onClick={handleVoltarLogado}
+                        />
+                        <BotaoEscuro 
+                            onClick={() => goToCreateTrip(navigate)}
+                            color={'neutral'}
+                            texto={'Criar Viagem'}
+                        />
+                        <BotaoEscuro 
+                            onClick={handleLogOut}
+                            color={'neutral'}
+                            texto={'Log Out'}
+                            endIcon={<LogoutIcon />}
+                        />
+                    </BotoesContainer>
+                    <ListaContainer>
+                        {tripsList.map(trip => {
+                            return(
+                                <CardViagemSimples 
+                                    key={trip.id}
+                                    id={trip.id}
+                                    onClick={handleMostraDetalhes}
+                                    tituloViagem={trip.name}
+                                    deleteViagem={DeleteTrip}
+                                />
+                            )
+                        })}
+                    </ListaContainer>
+                </ConteudoContainer>
+            </MainContainer>
+        </div>
     )
 }
 

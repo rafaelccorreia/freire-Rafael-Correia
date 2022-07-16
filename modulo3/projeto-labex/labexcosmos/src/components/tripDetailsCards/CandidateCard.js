@@ -9,7 +9,7 @@ const CandidatosPendentesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 2rem 0;
+    margin: 0.5rem 0;
     max-width: 100%;
     min-width: 300px;
 `
@@ -25,6 +25,7 @@ const CandidateCardContainer = styled.div`
     margin: 1rem 0;
     min-width: 100%;
     padding: 1rem;
+    max-width: 600px;
 `
 
 const TituloPendentes = styled.h2` 
@@ -106,7 +107,6 @@ const CandidateCard = (props) => {
 
     return (
         <CandidatosPendentesContainer key={props.id}>
-            <TituloPendentes>Candidatos Pendentes</TituloPendentes>
             {nomeDeVariavelDecente}
         </CandidatosPendentesContainer>
     )

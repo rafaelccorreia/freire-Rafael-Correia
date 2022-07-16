@@ -9,6 +9,7 @@ import BotaoEscuro from "../components/BotaoEscuro"
 import MainContainer from "../components/MainContainer"
 import TituloDaTela from "../components/TituloDaTela"
 import CardViagemPublic from "../components/CardViagemPublic"
+import Header from "../components/Header"
 
 const TripsPublicContainer = styled.div` 
     background-color: rgba(185, 188, 191, 0.8);
@@ -80,27 +81,30 @@ const ListTripsPage = () => {
     }, [])
 
     return (
-        <MainContainer>
-            <TripsPublicContainer>
-                <ButtonContainer>
-                    <BotaoVoltar 
-                        color={'primary'}
+        <div>
+            <Header />
+            <MainContainer>
+                <TripsPublicContainer>
+                    <ButtonContainer>
+                        <BotaoVoltar 
+                            color={'primary'}
+                        />
+                        <BotaoEscuro 
+                            onClick={() => goToTripsApplication(navigate)}
+                            texto={'inscrever-se'}
+                            color={'primary'}
+                        />
+                    </ButtonContainer>
+                    <TituloDaTela
+                        titulo={'Lista de Viagens'}
+                        color={'#121243'}
                     />
-                    <BotaoEscuro 
-                        onClick={() => goToTripsApplication(navigate)}
-                        texto={'inscrever-se'}
-                        color={'primary'}
-                    />
-                </ButtonContainer>
-                <TituloDaTela
-                    titulo={'Lista de Viagens'}
-                    color={'#121243'}
-                />
-                <ListaServicosContainer>
-                    {listaViagensJsx}
-                </ListaServicosContainer>
-            </TripsPublicContainer>
-        </MainContainer>
+                    <ListaServicosContainer>
+                        {listaViagensJsx}
+                    </ListaServicosContainer>
+                </TripsPublicContainer>
+            </MainContainer>
+        </div>
     )
 }
 

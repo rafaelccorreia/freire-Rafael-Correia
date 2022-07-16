@@ -10,6 +10,7 @@ import TripDetailsCard from '../components/tripDetailsCards/TripDetailsCard'
 import CandidateCard from '../components/tripDetailsCards/CandidateCard'
 import CandidatosAprovadosLista from '../components/tripDetailsCards/CandidatosAprovadoslista'
 import { ProtectedPage } from '../routes/coordinator'
+import Header from '../components/Header'
 
 const ContentContainer = styled.div` 
     background-color: rgba(18, 43, 67, 0.8);
@@ -40,6 +41,12 @@ const CandidatosPendentesContainer2 = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+`
+
+const TituloPendentes = styled.h2` 
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
 `
 
 const TripDetailsPage = () => {
@@ -131,26 +138,30 @@ const TripDetailsPage = () => {
     }
 
     return(
-        <MainContainer>
-            <ContentContainer>
-                <TituloDaTela 
-                    color={'#d7d7d7'}
-                    titulo={trip.name}
-                />
-                {DadosTrip}
-                <BotaoVoltar 
-                    color={'neutral'}
-                />
-                <CandidatesContainer>
-                    <CandidatosPendentesContainer2>
-                        {DadosCandidate}    
-                    </CandidatosPendentesContainer2>
-                    <CandidatosAprovadosLista 
-                        listaAprovados={aprovados}
+        <div>
+            <Header />
+            <MainContainer>
+                <ContentContainer>
+                    <TituloDaTela 
+                        color={'#d7d7d7'}
+                        titulo={trip.name}
                     />
-                </CandidatesContainer>
-            </ContentContainer>
-        </MainContainer>
+                    {DadosTrip}
+                    <BotaoVoltar 
+                        color={'neutral'}
+                    />
+                    <CandidatesContainer>
+                        <CandidatosPendentesContainer2>
+                            <TituloPendentes>Candidatos Pendentes</TituloPendentes>
+                            {DadosCandidate}    
+                        </CandidatosPendentesContainer2>
+                        <CandidatosAprovadosLista 
+                            listaAprovados={aprovados}
+                        />
+                    </CandidatesContainer>
+                </ContentContainer>
+            </MainContainer>
+        </div>
     )
 }
 

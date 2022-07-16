@@ -9,6 +9,7 @@ import BotaoEscuro from "../components/BotaoEscuro"
 import TituloDaTela from "../components/TituloDaTela"
 import InputMu from "../components/InputMu"
 import MainContainer from "../components/MainContainer"
+import Header from "../components/Header"
 
 const LoginContainer = styled.div`
     align-items: center;
@@ -74,47 +75,51 @@ const LoginPage = () => {
     }
 
     return (
-        <MainContainer>
-            <LoginContainer>
-                <TituloDaTela 
-                    titulo={'Admin Login'}
-                    color={'#b9bcbf'}
-                />
-                <InputsContainer>
-                    <InputMu 
-                        backColor={'#b9bcbf'}
-                        color={'primary'}
-                        fontColor={'#122b43'}
-                        label={'E-mail'}
-                        id={'emailLogin'}
-                        onChange={handleEmailAdmin}
-                        type={'text'}
-                        value={valorEmailAdmin}
+        <div>
+            <Header />
+            <MainContainer>
+                <LoginContainer>
+                    <TituloDaTela 
+                        titulo={'Admin Login'}
+                        color={'#b9bcbf'}
                     />
-                    <InputMu 
-                        backColor={'#b9bcbf'}
-                        color={'primary'}
-                        fontColor={'#122b43'}
-                        label={'Password'}
-                        id={'Password'}
-                        onChange={handlePassAdmin} 
-                        type={'password'}
-                        value={valorPassAdmin} 
-                    />
-                </InputsContainer>
-                <BotoesContainer>    
-                    <BotaoVoltar 
-                        color={'neutral'}
-                        onClick={handleVoltarLogado}
-                    />
-                    <BotaoEscuro 
-                        color={'neutral'}
-                        onClick={handleLogin}
-                        texto={'Entrar'}
-                    />
-                </BotoesContainer>
-            </LoginContainer>
-        </MainContainer>
+                    <InputsContainer>
+                        <InputMu 
+                            backColor={'#b9bcbf'}
+                            color={'primary'}
+                            fontColor={'#122b43'}
+                            label={'E-mail'}
+                            id={'emailLogin'}
+                            onChange={handleEmailAdmin}
+                            type={'text'}
+                            value={valorEmailAdmin}
+                        />
+                        <InputMu 
+                            backColor={'#b9bcbf'}
+                            color={'primary'}
+                            fontColor={'#122b43'}
+                            label={'Password'}
+                            id={'Password'}
+                            onChange={handlePassAdmin} 
+                            type={'password'}
+                            value={valorPassAdmin} 
+                        />
+                    </InputsContainer>
+                    <BotoesContainer>    
+                        <BotaoVoltar 
+                            color={'neutral'}
+                            onClick={handleVoltarLogado}
+                        />
+                        <BotaoEscuro 
+                            color={'neutral'}
+                            onClick={handleLogin}
+                            texto={'Entrar'}
+                        />
+                    </BotoesContainer>
+                </LoginContainer>
+            </MainContainer>
+        </div>
+
     )
 }
 

@@ -6,6 +6,7 @@ import { goToListaDeViagens, goToLogin, goToAdminHomePage } from "../routes/coor
 import BotaoEscuro from "../components/BotaoEscuro"
 import admBg from '../img/adm_bg.png'
 import tripsBg from '../img/trips_bg.png'
+import logoImg from '../img/logo_header_icon.png'
 
 const HomeMainContainer = styled.main`
     align-items: center;
@@ -22,8 +23,20 @@ const TituloPrincipal = styled.h1`
     margin-bottom: 10rem;
     text-align: center;
     font-family: 'Codystar', cursive;
+    display: flex;
+    align-items: center;
     @media screen and (max-width: 480px) {
         font-size: 3rem;
+        flex-direction: column;
+    }
+`
+
+const TituloPrincipalImg = styled.img` 
+    height: 5rem;
+    width: 5rem;
+    margin-left: 0.5rem;
+    @media screen and (max-width: 480px) {
+        margin: 0.5rem 0 2rem 0;
     }
 `
 
@@ -31,6 +44,15 @@ const BotoesContainer = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+`
+
+const Footer = styled.footer` 
+    position: fixed;
+    bottom: 3%;
+    font-size: 1.2rem;
+    padding: 1rem;
+    background-color: rgba(18, 43, 67, 0.8);
+    border-radius: 10px;
 `
 
 const LeftSideButtonContainer = styled.div`
@@ -68,7 +90,7 @@ const LeftSideButtonContainer = styled.div`
 const RightSideButtonContainer = styled.div`
     position: fixed;
     right: 0;
-    bottom: 44.6%;
+    bottom: calc(50% - 2.281rem);
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -115,7 +137,7 @@ const HomePage = () => {
 
     return (
         <HomeMainContainer>
-            <TituloPrincipal>LabeXCosmos</TituloPrincipal>
+            <TituloPrincipal>LabeXCosmos <TituloPrincipalImg src={logoImg} /></TituloPrincipal>
             <BotoesContainer>
                 <LeftSideButtonContainer>
                     <BotaoEscuro 
@@ -132,6 +154,7 @@ const HomePage = () => {
                     />
                 </RightSideButtonContainer>
             </BotoesContainer>
+            <Footer>Rafael Chagas &copy; 2022</Footer>
         </HomeMainContainer>
     )
 }
