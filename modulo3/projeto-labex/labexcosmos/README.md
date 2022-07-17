@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+<h1 align="center">LabeXCosmos</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### O que funciona
+- As páginas são redirecionadas utilizando o react router, com os arquivos Router.js e coordinator.js.
+- Todas as páginas com exceção da Home possui um cabeçalho com a logo que ao ser clicada redireciona de volta para a home page.
+- O código está dividido em componentes funcionais, há uma pasta para os componentes de páginas e outra para componentes menores
+- O usuário pode escolher entre a seção pública e de Admin na home page
+- As páginas públicas mostram as viagens disponíveis e uma opção para a página de inscrição
+- A seção Admin só pode ser acessada após o login, e a página de login não pode ser acessada até que seja feito o log out.
+- Algumas requisições contam com um loading enquanto são feitas
+- Nas páginas de Admin o usuário pode criar novas viagens, acessar os detalhes de uma viagem específica e aprovar ou reprovar as aplicações
+- O site está responsivo e se adapta as telas mobile
 
-## Available Scripts
+### O que não funciona
+- Algumas requisições não tem a animação de loading devido à uma requisição sendo feita em loop
+- Algumas seções do código estão sendo repetidas e o código poderia ser "quebrado" de uma melhor maneira
+- O único código que não foi feito por mim é a lista com os dados de todos os países, de onde foi retirado o nome de cada um para colocar como opção do select na página de aplicação. A lista foi retirada de um repositório público que pode ser acessado pelo link: https://github.com/juliolvfilho/lista-paises/blob/master/paises-array.json
 
-In the project directory, you can run:
+### Link Surge 
+https://labe-x-cosmos.surge.sh
 
-### `npm start`
+email: rafaelcosmos@gmail.com
+senha: chuvadepipoca
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Imagens
+#### Desktop
+![image](https://user-images.githubusercontent.com/95589176/179426357-813e5655-4c5e-468f-81db-1eba7c3aed06.png)
+![image](https://user-images.githubusercontent.com/95589176/179426371-cca102c4-f50f-4c65-a8f7-20fa3a8a86f0.png)
+![image](https://user-images.githubusercontent.com/95589176/179426385-195d4b1b-3908-477e-bf85-aaa62b98de5d.png)
+![image](https://user-images.githubusercontent.com/95589176/179426392-35196d5b-1853-4dc8-acd1-ba8af70d66af.png)
+![image](https://user-images.githubusercontent.com/95589176/179426404-327be2a1-c12a-4594-9f54-79a26e588ff7.png)
+![image](https://user-images.githubusercontent.com/95589176/179426443-ad9fe500-f83e-474d-b130-603968057a6a.png)
+![image](https://user-images.githubusercontent.com/95589176/179426449-037408f1-2c8b-4dfd-9458-3147e907f37f.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Mobile
+![image](https://user-images.githubusercontent.com/95589176/179426481-fa5db38f-622c-4472-bc36-dff35c75d01d.png)
+![image](https://user-images.githubusercontent.com/95589176/179426487-59e03bb7-4ca8-4919-a5e0-50e94bd41e52.png)
+![image](https://user-images.githubusercontent.com/95589176/179426493-de5f534d-9d63-4430-a0b5-6abc07c333db.png)
+![image](https://user-images.githubusercontent.com/95589176/179426504-694138ad-c389-4499-b2db-1fd31b157dc2.png)
+![image](https://user-images.githubusercontent.com/95589176/179426516-5b008dd7-2494-48c5-a2b5-53d4a02a132e.png)
+![image](https://user-images.githubusercontent.com/95589176/179426534-a4b7ec99-7507-46b1-8c96-9d41a282090e.png)
+![image](https://user-images.githubusercontent.com/95589176/179426548-d90c8a51-eeaf-4f3b-9f98-02c1e01137a0.png)
