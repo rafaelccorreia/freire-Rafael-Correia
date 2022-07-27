@@ -1,13 +1,9 @@
-import React, { useContext, useEffect } from 'react'
-import GlobalStateContext from "../../context/context"
+import React from 'react'
 
+import useTela from '../../hooks/useTela'
 
 const ErrorPage = () => {
-    const {setTelaAtual} = useContext(GlobalStateContext)
-
-    useEffect(() => {
-        setTelaAtual('Error Page')
-    }, [setTelaAtual])
+    useTela('Error Page')
 
     return (
         <div>

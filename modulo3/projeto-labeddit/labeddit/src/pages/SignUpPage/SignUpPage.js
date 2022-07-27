@@ -1,13 +1,9 @@
-import React, { useContext, useEffect } from 'react'
-import GlobalStateContext from "../../context/context"
+import React from 'react'
+import useTela from '../../hooks/useTela'
 
 
 const SignUpPage = () => {
-    const {setTelaAtual} = useContext(GlobalStateContext)
-    
-    useEffect(() => {
-        setTelaAtual('Sign Up Page')
-    }, [setTelaAtual])
+    useTela('Sign Up Page')
 
     return(
         <div>

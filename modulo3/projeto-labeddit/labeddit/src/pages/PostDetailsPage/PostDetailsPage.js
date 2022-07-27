@@ -1,13 +1,9 @@
-import React, { useContext, useEffect } from 'react'
-import GlobalStateContext from "../../context/context"
+import React from 'react'
 
+import useTela from '../../hooks/useTela'
 
 const PostDetailsPage = () => {
-    const {setTelaAtual} = useContext(GlobalStateContext)
-    
-    useEffect(() => {
-        setTelaAtual('Post Details Page')
-    }, [setTelaAtual])
+    useTela('Post Details Page')
 
     return(
         <div>
