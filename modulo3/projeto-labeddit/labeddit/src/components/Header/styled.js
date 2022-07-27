@@ -53,3 +53,8 @@ export const BotaoTextHeader = styled.span`
     }
 `
 
+export const LogoImgX = styled.img ` 
+    width: 1.6rem;
+    height: 1.5rem;
+`
+

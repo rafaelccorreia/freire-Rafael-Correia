@@ -4,7 +4,7 @@ import GlobalStateContext from "../../context/context"
 import statusBar from '../../assets/status_bar.png'
 import logoMenor from '../../assets/logo_menor.png'
 import fecharBotaoHeader from '../../assets/fechar_botao_header.png'
-import { HeaderContainer, StatusHeader, StatusHeaderImg, StatusHeaderTime, LogoHeaderContainer, LogoImg, BotaoTextHeader } from './styled'
+import { HeaderContainer, StatusHeader, StatusHeaderImg, StatusHeaderTime, LogoHeaderContainer, LogoImg, BotaoTextHeader, LogoImgX } from './styled'
 
 const Header = () => {
     const [hora, setHora] = useState('')
@@ -40,7 +40,7 @@ const Header = () => {
             case 'Post Details Page':
                 logoElementosJsx = (
                     <LogoHeaderContainer>
-                        <img src={fecharBotaoHeader} alt='botão X para fechar' />
+                        <LogoImgX src={fecharBotaoHeader} alt='botão X para fechar' />
                         <LogoImg src={logoMenor} alt='logo labeddit' />
                         <BotaoTextHeader>Logout</BotaoTextHeader>
                     </LogoHeaderContainer>
