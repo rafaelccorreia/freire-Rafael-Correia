@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import useTela from '../../hooks/useTela'
 import logoLabEddit from '../../assets/logo.png'
 import InputForm from '../../components/InputForm/InputForm'
+import { goToSignUpPage } from '../../router/coordinator'
 import { RoundButtonFilled, RoundButtonNoFill } from '../../components/BotaoGradient/BotaoGradient'
 import { MainContainer, LogoContainer, LogoImg, LogoMensagem, InputsContainer, LinhaGradient } from './styled'
+import useForm from '../../hooks/useForm'
 
 const LoginPage = () => {
     useTela('Login Page')
-    const [valorNome, setValorNome] = useState('')
-    const [valorSenha, setValorSenha] = useState('')
+    const navigate = useNavigate()
+    const [dados, onChange, clear] = useForm({name: '', password: ''})
 
-    const handleValorNome = (event) => {
-        setValorNome(event.target.value)
-    }
-    const handleValorSenha = (event) => {
-        setValorSenha(event.target.value)
+    const handleLogin = () => {
+        
     }
 
     return (
@@ -26,25 +26,29 @@ const LoginPage = () => {
             </LogoContainer>
             <InputsContainer>
                 <InputForm
-                    onChange={handleValorNome}
+                    name={'name'}
+                    onChange={onChange}
                     placeHolder={'Nome'}
                     type={'text'}
-                    value={valorNome}
+                    value={dados.name}
                 />
                 <InputForm
-                    onChange={handleValorSenha}
+                    name={'password'}
+                    onChange={onChange}
                     placeHolder={'Senha'}
                     type={'password'}
-                    value={valorSenha}
+                    value={dados.password}
                 />
             </InputsContainer>
             <div>
                 <RoundButtonFilled
+                    onClick={handleLogin}
                     text={'Continuar'}
                     type={'button'}
                 />
                 <LinhaGradient />
                 <RoundButtonNoFill
+                    onClick={() => goToSignUpPage(navigate)}
                     text={'Criar uma conta!'}
                     type={'button'}
                 />

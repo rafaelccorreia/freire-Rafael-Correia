@@ -4,7 +4,7 @@ import { InputContainer } from './styled'
 const InputForm = (props) => {
     return (
         <InputContainer 
-            name={props.placeHolder}
+            name={props.name}
             onChange={props.onChange}
             placeholder={props.placeHolder}
             type={props.type}
