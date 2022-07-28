@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import GlobalStateContext from "../../context/context"
+import { useNavigate } from 'react-router-dom'
 
+import GlobalStateContext from "../../context/context"
 import statusBar from '../../assets/status_bar.png'
 import logoMenor from '../../assets/logo_menor.png'
 import fecharBotaoHeader from '../../assets/fechar_botao_header.png'
+import { goToLoginPage } from '../../router/coordinator'
 import { HeaderContainer, StatusHeader, StatusHeaderImg, StatusHeaderTime, LogoHeaderContainer, LogoImg, BotaoTextHeader, LogoImgX } from './styled'
 
 const Header = () => {
+    const navigate = useNavigate()
     const [hora, setHora] = useState('')
     const {telaAtual} = useContext(GlobalStateContext)
 
@@ -24,7 +27,7 @@ const Header = () => {
                     <LogoHeaderContainer>
                         <div></div>
                         <LogoImg src={logoMenor} alt='logo labeddit' />
-                        <BotaoTextHeader>Login</BotaoTextHeader>
+                        <BotaoTextHeader onClick={() => goToLoginPage(navigate)}>Login</BotaoTextHeader>
                     </LogoHeaderContainer>
                 )
                 break;
