@@ -15,7 +15,7 @@ const LoginPage = () => {
     const [dados, onChange, clear] = useForm({name: '', password: ''})
 
     const handleLogin = () => {
-        
+        console.log(dados)
     }
 
     return (

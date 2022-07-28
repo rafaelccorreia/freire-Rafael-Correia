@@ -6,6 +6,7 @@ export const RoundButtonFilled = (props) => {
         <RoundButtonFilledS 
             onClick={props.onClick} 
             type={props.type}
+            value={props.value}
         >
             {props.text}
         </RoundButtonFilledS>
@@ -17,6 +18,7 @@ export const RoundButtonNoFill = (props) => {
         <RoundButtonNoFillS 
             onClick={props.onClick} 
             type={props.type}
+            value={props.value}
         >
             {props.text}
         </RoundButtonNoFillS>
@@ -28,6 +30,7 @@ export const SquaredButtonFilled = (props) => {
         <SquaredButtonFilledS 
             onClick={props.onClick} 
             type={props.type}
+            value={props.value}
         >
             {props.text}
         </SquaredButtonFilledS>
