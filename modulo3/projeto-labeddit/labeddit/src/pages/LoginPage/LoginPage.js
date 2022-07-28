@@ -12,7 +12,7 @@ import useForm from '../../hooks/useForm'
 const LoginPage = () => {
     useTela('Login Page')
     const navigate = useNavigate()
-    const [dados, onChange, clear] = useForm({name: '', password: ''})
+    const [dados, onChange, clear] = useForm({email: '', password: ''})
 
     const handleLogin = () => {
         console.log(dados)
@@ -26,11 +26,11 @@ const LoginPage = () => {
             </LogoContainer>
             <InputsContainer>
                 <InputForm
-                    name={'name'}
+                    name={'email'}
                     onChange={onChange}
-                    placeHolder={'Nome'}
-                    type={'text'}
-                    value={dados.name}
+                    placeHolder={'E-mail'}
+                    type={'email'}
+                    value={dados.email}
                 />
                 <InputForm
                     name={'password'}

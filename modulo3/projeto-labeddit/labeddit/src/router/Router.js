@@ -1,7 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
 
 import LoginPage from '../pages/LoginPage/LoginPage'
+import 'react-toastify/dist/ReactToastify.css'
 import SignUpPage from '../pages/SignUpPage/SignUpPage'
 import PostsFeedPage from '../pages/PostsFeedPage/PostsFeedPage'
 import PostDetailsPage from '../pages/PostDetailsPage/PostDetailsPage'
@@ -13,6 +15,7 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Header />
+            <ToastContainer position={toast.POSITION.TOP_CENTER} />
             <Routes>
                 <Route path='/' element={<LoginPage />} />
                 <Route path='/login' element={<LoginPage />} />
