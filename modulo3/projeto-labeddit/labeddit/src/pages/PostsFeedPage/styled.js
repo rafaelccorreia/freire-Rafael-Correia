@@ -41,3 +41,8 @@ export const LinhaGradient = styled.hr`
     background: linear-gradient(to right, #FF6489, #F9B24E);
 `
 
+export const PostsContainer = styled.section` 
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+`

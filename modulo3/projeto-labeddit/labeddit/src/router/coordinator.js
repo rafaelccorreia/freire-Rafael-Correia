@@ -8,5 +8,5 @@ export const goToPostsFeedPage = (navigate) => {
     navigate('../feed')
 }
 export const goToPostDetailsPage = (navigate, id) => {
-    navigate(`../post/${id}`)
+    navigate(`../feed/post/${id}`)
 }   

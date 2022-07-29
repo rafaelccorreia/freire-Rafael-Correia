@@ -1,19 +1,62 @@
-import React from 'react'
+import React, {useRef, useState, useCallback} from 'react'
 
 import useTela from '../../hooks/useTela'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useForm from '../../hooks/useForm'
+import useInfiniteScroll from '../../hooks/useInfiniteScroll'
+import CardPost from '../../components/CardPost/CardPost'
 import { SquaredButtonFilled } from '../../components/BotaoGradient/BotaoGradient'
-import { MainContainer, InputStyled, TextAreaStyled, LinhaGradient } from './styled'
+import { MainContainer, InputStyled, TextAreaStyled, LinhaGradient, PostsContainer } from './styled'
 
 const PostsFeedPage = () => {
     useProtectedPage()
-    const [dados, onChange, clear] = useForm({title: '', body: ''})
     useTela('Posts Feed Page')
+    const [pageNumber, setPageNumber] = useState(1)
+    const {posts, hasMore, loading} = useInfiniteScroll(pageNumber)
+    const [dados, onChange, clear] = useForm({title: '', body: ''})
+
+    const observer = useRef()
+    const lastPostElementRef = useCallback(lastElement => {
+        if(loading) return
+        if(observer.current) observer.current.disconnect()
+        observer.current = new IntersectionObserver(entries => {
+            if(entries[0].isIntersecting && hasMore) {
+                setPageNumber(prevPageNumber => prevPageNumber + 1)
+            }
+        })
+        if(lastElement) observer.current.observe(lastElement)
+    }, [loading, hasMore])
 
     const handleCriarPost = () => {
-
+        
     }
+
+    let listaDePosts = posts.map((post, index) => {
+        if(posts.length === index + 1) {
+            return (
+                <CardPost 
+                    key={post.id}
+                    userName={post.username}
+                    body={post.body}
+                    voteSum={post.voteSum}
+                    commentCount={post.commentCount}
+                    id={post.id}
+                    refProp={lastPostElementRef}
+                />
+            )
+        } else {
+            return (
+                <CardPost 
+                    key={post.id}
+                    userName={post.username}
+                    body={post.body}
+                    voteSum={post.voteSum}
+                    commentCount={post.commentCount}
+                    id={post.id}
+                />
+            )
+        }
+    })
 
     return(
         <MainContainer>
@@ -39,6 +82,10 @@ const PostsFeedPage = () => {
                 />
             </form>
             <LinhaGradient />
+            <PostsContainer>
+                {listaDePosts}
+            </PostsContainer>
+            <div>{loading && 'Carregando...'}</div>
         </MainContainer>
     )
 }
