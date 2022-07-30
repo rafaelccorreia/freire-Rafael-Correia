@@ -20,6 +20,19 @@ export const CardPostContainer = styled.div`
     }
 `
 
+export const CardPostDetailsContainer = styled.div` 
+    background-color: #FBFBFB;
+    border: 1px solid #E0E0E0;
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0.625rem;
+    min-height: 10.438rem;
+    padding: 0.563rem 0.625rem;
+    width: 100%;
+`
+
 export const NomeUsuario = styled.span` 
     color: ${lightText};
     font-family: ${primaryFont};

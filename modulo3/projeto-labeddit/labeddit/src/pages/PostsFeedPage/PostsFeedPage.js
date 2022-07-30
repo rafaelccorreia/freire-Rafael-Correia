@@ -5,6 +5,7 @@ import useProtectedPage from '../../hooks/useProtectedPage'
 import useForm from '../../hooks/useForm'
 import useInfiniteScroll from '../../hooks/useInfiniteScroll'
 import CardPost from '../../components/CardPost/CardPost'
+import { CreatePost } from '../../services/posts'
 import { SquaredButtonFilled } from '../../components/BotaoGradient/BotaoGradient'
 import { MainContainer, InputStyled, TextAreaStyled, LinhaGradient, PostsContainer } from './styled'
 
@@ -28,7 +29,8 @@ const PostsFeedPage = () => {
     }, [loading, hasMore])
 
     const handleCriarPost = () => {
-        
+        CreatePost(dados)
+        clear()
     }
 
     let listaDePosts = posts.map((post, index) => {
