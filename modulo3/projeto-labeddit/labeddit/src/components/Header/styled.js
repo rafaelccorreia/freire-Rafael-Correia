@@ -56,5 +56,12 @@ export const BotaoTextHeader = styled.span`
 export const LogoImgX = styled.img ` 
     width: 1.6rem;
     height: 1.5rem;
+    &:hover, &:focus, &:active {
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 100%;
+        background-color: gray;
+        transform: scale(2);
+    }
 `
 

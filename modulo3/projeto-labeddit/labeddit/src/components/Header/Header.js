@@ -5,8 +5,9 @@ import GlobalStateContext from "../../context/context"
 import statusBar from '../../assets/status_bar.png'
 import logoMenor from '../../assets/logo_menor.png'
 import fecharBotaoHeader from '../../assets/fechar_botao_header.png'
-import { goToLoginPage } from '../../router/coordinator'
+import { goBackPage, goToLoginPage } from '../../router/coordinator'
 import { HeaderContainer, StatusHeader, StatusHeaderImg, StatusHeaderTime, LogoHeaderContainer, LogoImg, BotaoTextHeader, LogoImgX } from './styled'
+import { Logout } from '../../services/users'
 
 const Header = () => {
     const navigate = useNavigate()
@@ -36,16 +37,16 @@ const Header = () => {
                     <LogoHeaderContainer>
                         <div></div>
                         <LogoImg src={logoMenor} alt='logo labeddit' />
-                        <BotaoTextHeader>Logout</BotaoTextHeader>
+                        <BotaoTextHeader onClick={() => Logout(navigate)}>Logout</BotaoTextHeader>
                     </LogoHeaderContainer>
                 )
                 break;
             case 'Post Details Page':
                 logoElementosJsx = (
                     <LogoHeaderContainer>
-                        <LogoImgX src={fecharBotaoHeader} alt='botão X para fechar' />
+                        <LogoImgX src={fecharBotaoHeader} alt='botão X para fechar' onClick={() => goBackPage(navigate)} />
                         <LogoImg src={logoMenor} alt='logo labeddit' />
-                        <BotaoTextHeader>Logout</BotaoTextHeader>
+                        <BotaoTextHeader onClick={() => Logout(navigate)}>Logout</BotaoTextHeader>
                     </LogoHeaderContainer>
                 )
                 break;

@@ -21,20 +21,20 @@ export const CreatePost = (body) => {
     })
 }
 
-export const GetPostDetails = (id) => {
+export const CreateComment = (id, body) => {
     toast.loading('Carregando...')
     const token = localStorage.getItem('token')
-    axios.get(`${BASE_URL}/posts/${id}`, {
+    axios.post(`${BASE_URL}/posts/${id}/comments`, body, {
         headers: {
             Authorization: token
         }
     })
     .then(res => {
         toast.dismiss()
-        console.log(res)
+        toast.success('Comentário criado!')
     })
     .catch(err => {
         toast.dismiss()
-        console.log(err)
+        toast.error(`Error: ${err}`)
     })
 }

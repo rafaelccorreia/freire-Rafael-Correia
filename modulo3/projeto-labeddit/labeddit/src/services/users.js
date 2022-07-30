@@ -2,7 +2,7 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 
 import { BASE_URL } from '../constants/urls'
-import { goToPostsFeedPage } from '../router/coordinator'
+import { goToLoginPage, goToPostsFeedPage } from '../router/coordinator'
 
 export const Login = (body, navigate) => {
     toast.loading('Carregando...')
@@ -25,4 +25,9 @@ export const Login = (body, navigate) => {
         }
         toast.error(`Error: ${err.response.data.message}: ${errorMessagem}`)
     })
+}
+
+export const Logout = (navigate) => {
+    localStorage.removeItem('token')
+    goToLoginPage(navigate)
 }

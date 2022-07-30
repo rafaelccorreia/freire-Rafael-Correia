@@ -7,7 +7,7 @@ import IconDescurtirLight from '../../assets/icon_descurtir_light.png'
 import IconComment from '../../assets/icon_comment.png'
 import { goToPostDetailsPage } from '../../router/coordinator'
 
-const CardPost = (props) => {
+export const CardPost = (props) => {
     const navigate = useNavigate()
 
     return (
@@ -34,4 +34,25 @@ const CardPost = (props) => {
     )
 }
 
-export default CardPost
+export const CardComment = (props) => {
+    const navigate = useNavigate()
+
+    return (
+        <CardPostContainer 
+        key={props.id} 
+        id={props.id} 
+        onClick={() => goToPostDetailsPage(navigate, props.id)}
+        ref={props.refProp}
+        >
+            <NomeUsuario>Enviado por: {props.userName}</NomeUsuario>
+            <PostMessage>{props.body}</PostMessage>
+            <Postbotoes>
+                <PostBotoesDiv>
+                    <img src={IconCurtirLight} alt='Ícone curtir'/>
+                    <span>{props.voteSum}</span>
+                    <img src={IconDescurtirLight} alt='Ícone descurtir'/>
+                </PostBotoesDiv>
+            </Postbotoes>
+        </CardPostContainer>
+    )
+}
