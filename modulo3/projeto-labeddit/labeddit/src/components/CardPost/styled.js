@@ -15,7 +15,6 @@ export const CardPostContainer = styled.div`
     padding: 0.563rem 0.625rem;
     width: 100%;
     &:hover, &:focus, &:active {
-        cursor: pointer;
         border-color: black;
     }
 `
@@ -39,6 +38,9 @@ export const NomeUsuario = styled.span`
     font-size: 0.75rem;
     font-weight: 400;
     margin-bottom: 1.125rem;
+    &:hover, &:focus, &:active {
+        cursor: pointer;
+    }
 `
 
 export const PostMessage = styled.p`
@@ -46,6 +48,9 @@ export const PostMessage = styled.p`
     font-size: 1.125rem;
     font-weight: 400;
     margin-bottom: 1.125rem;
+    &:hover, &:focus, &:active {
+        cursor: pointer;
+    }
 `
 
 export const Postbotoes = styled.div`
