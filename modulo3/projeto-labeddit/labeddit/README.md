@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+<h1 align="center">Projeto LabEddit</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Uma rede social onde o usuário pode fazer login ou criar uma conta para criar posts e interagir com posts de outros usuários, por meio de comentários e  curtidas. O projeto é desenvolvido baseado em mobile first e faz requisições com uma API .
 
-## Available Scripts
+### LINK SURGE
+https://labbeddit-rafaelc.surge.sh
 
-In the project directory, you can run:
+### O que funciona: 
+- Todas as páginas verificam se o usuário já fez o login e fazem o redirecionamento de acordo
+- Os formulários das páginas de login e cadastro são funcionais e mostram notificações e loading para as requisições
+- A página de feed possui um formulário para criar post e renderiza o post após a criação. Também mostra uma lista com os posts de outros usuário que é atualizada sempre que chega no último elemento
+- Cada post possui botões de curtir e descurtir que podem ser clicados e fazem uma requisição para aumentar/diminuir o número
+- O usuário pode clicar no post( nome do usuário que postou, Conteudo do post ou botão de comentários) para se redirecionar para a página de detalhes do post
+- Na página de Detalhes o usuário pode criar um comentário para o post e interagir com os comentários existentes
 
-### `npm start`
+### O que não funciona
+- O botão de curtida dos posts e comentários não o número de curtidas automaticamente, após atualizar a página os votos são atualizados mas o botão de curtida volta ao estado original e o mesmo usuário pode curtir novamente.
+- Algumas requisições não possuem loading
+- Na página de detalhes o post não é mostrado novamente, apenas os comentários
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Imagens
+![image](https://user-images.githubusercontent.com/95589176/182035268-3a9dc738-1373-4bf7-afd7-983a48f009eb.png)
+![image](https://user-images.githubusercontent.com/95589176/182035287-c79191f8-c36b-4272-a3c7-d736b7bc8011.png)
+![image](https://user-images.githubusercontent.com/95589176/182035319-c2c30be0-fa6f-43e3-98bf-02c756345ba7.png)
+![image](https://user-images.githubusercontent.com/95589176/182035346-cc3463d8-62c6-4039-8249-965ebb47892c.png) 
