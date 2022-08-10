@@ -1,8 +1,5 @@
-function imprimeTresCoresFavoritas() {
-    var cor1 = prompt("Insira sua primeira cor favorita");
-    var cor2 = prompt("Insira sua segunda cor favorita");
-    var cor3 = prompt("Insira sua terceira cor favorita");
+function imprimeTresCoresFavoritas(cor1, cor2, cor3) {
     console.log([cor1, cor2, cor3]);
 }
 
-imprimeTresCoresFavoritas()
+imprimeTresCoresFavoritas('preto', 'azul', 'vermelho')

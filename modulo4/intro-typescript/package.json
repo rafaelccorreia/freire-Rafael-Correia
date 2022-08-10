@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "tsc ./src/exercicio5/exercicio5.ts && node ./build/index.js"
+    "start": "tsc ./src/exercicio2/exercicio2.ts && node ./build/index.js"
   },
   "keywords": [],
   "author": "Rafael Correia",
