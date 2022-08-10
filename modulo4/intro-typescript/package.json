@@ -1,0 +1,16 @@
+{
+  "name": "intro-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "tsc ./src/exercicio2/exercicio2.ts && node ./build/index.js"
+  },
+  "keywords": [],
+  "author": "Rafael Correia",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}
