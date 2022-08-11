@@ -1,0 +1,1 @@
+// Já havia criado um tsconfig.json, me parece que tem mais propriedades comentadas.
