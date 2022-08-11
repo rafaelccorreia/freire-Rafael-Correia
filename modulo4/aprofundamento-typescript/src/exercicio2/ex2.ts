@@ -24,8 +24,8 @@
 //     return estatisticas
 // }
 
-type AmostraDeIdades = {
-    numeros: number[],
+type Amostra = {
+    numeros: [21, 18, 65, 44, 15, 18],
     obterEstatisticas: (numeros: number[]) => {
 
     }
