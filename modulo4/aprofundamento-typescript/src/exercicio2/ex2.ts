@@ -26,7 +26,11 @@
 
 type Amostra = {
     numeros: [21, 18, 65, 44, 15, 18],
-    obterEstatisticas: (numeros: number[]) => {
-
-    }
+    obterEstatisticas: (numeros: number[]) => number
 }
+
+//type comFUncao = {
+//     nome: string,
+//     funcao:(n1:number) => number
+// }
+
