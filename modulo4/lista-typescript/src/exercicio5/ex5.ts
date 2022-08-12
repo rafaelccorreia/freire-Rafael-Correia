@@ -16,7 +16,9 @@ const usersList: User[] =  [
 function buscarEmails (listaUsuarios: User[]): string[] {
     let listaDeEmails: string[] = []
     listaUsuarios.forEach(user => {
-        listaDeEmails.push(user.email)
+        if(user.role === 'admin') {
+            listaDeEmails.push(user.email)
+        }
     })
     return listaDeEmails
 }
