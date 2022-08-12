@@ -6,7 +6,8 @@
   "scripts": {
     "ex1": "tsc && node ./build/exercicio1/ex1.js",
     "ex2": "tsc && node ./build/exercicio2/ex2.js",
-    "ex3": "tsc && node ./build/exercicio3/ex3.js"
+    "ex3": "tsc && node ./build/exercicio3/ex3.js",
+    "ex4": "tsc && node ./build/exercicio4/ex4.js"
   },
   "keywords": [],
   "author": "Rafael Correia",
