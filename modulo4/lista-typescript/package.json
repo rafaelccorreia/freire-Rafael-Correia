@@ -9,7 +9,8 @@
     "ex3": "tsc && node ./build/exercicio3/ex3.js",
     "ex4": "tsc && node ./build/exercicio4/ex4.js",
     "ex5": "tsc && node ./build/exercicio5/ex5.js",
-    "ex6": "tsc && node ./build/exercicio6/ex6.js"
+    "ex6": "tsc && node ./build/exercicio6/ex6.js",
+    "ex7": "tsc && node ./build/exercicio7/ex7.js"
   },
   "keywords": [],
   "author": "Rafael Correia",
