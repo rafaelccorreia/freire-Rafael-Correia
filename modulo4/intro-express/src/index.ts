@@ -112,3 +112,10 @@ const postsList: Post[] = [
         userId: "2"
     }
 ]
+
+//exercício 7
+app.get('/posts', (req, res) => {
+    res.send(postsList)
+})
+
+//exercício 8
