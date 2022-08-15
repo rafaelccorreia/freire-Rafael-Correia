@@ -73,3 +73,11 @@ const UsersList: User[] = [
 app.get('/users', (req, res) => {
     res.send(UsersList)
 })
+
+//exercício 5
+type Post = {
+    id: number,
+    title: string,
+    body: string,
+    userId: number
+}
