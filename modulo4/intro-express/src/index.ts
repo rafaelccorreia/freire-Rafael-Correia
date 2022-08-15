@@ -25,7 +25,46 @@ app.get("/", (req, res) => {
 type User = {
     id: string,
     name: string,
-    phone: string | number,
+    phone: string,
     email: string,
     website: string
 }
+
+//exercício 3
+const UsersList: User[] = [
+    {
+        id: "1",
+        name: "Aatrox",
+        phone: "87989-8989",
+        email: "aaMegaDarkin@gmail.com",
+        website: "despair.blog.com"
+    },
+    {
+        id: "2",
+        name: "Alistar",
+        phone: "00009-8989",
+        email: "chifrada@gmail.com",
+        website: "mino.blog.com"
+    },
+    {
+        id: "3",
+        name: "Carlos",
+        phone: "16855-4656",
+        email: "johnson@gmail.com",
+        website: "grove.street.com"
+    },
+    {
+        id: "4",
+        name: "Homelander",
+        phone: "12345-7595",
+        email: "youretherealhero@gmail.com",
+        website: "seven.the.com"
+    },
+    {
+        id: "5",
+        name: "French",
+        phone: "22323-1111",
+        email: "moncouer@gmail.com",
+        website: "moncouer.com"
+    },
+]
