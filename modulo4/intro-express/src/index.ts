@@ -16,6 +16,16 @@ const server = app.listen(process.env.PORT || 3003, () => {
     }
 })
 
+//exercício 1
 app.get("/", (req, res) => {
     res.send("Hello from Express")
 })
+
+//exercício 2
+type User = {
+    id: string,
+    name: string,
+    phone: string | number,
+    email: string,
+    website: string
+}
