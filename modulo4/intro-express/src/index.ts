@@ -119,3 +119,12 @@ app.get('/posts', (req, res) => {
 })
 
 //exercício 8
+app.get('/posts/:idUser', (req, res) => {
+    const idUsuario:string = req.params.idUser
+
+    const listaPostsUsuario: Post[] = postsList.filter(post => {
+        return idUsuario === post.userId
+    })
+
+    res.send(listaPostsUsuario)
+})
