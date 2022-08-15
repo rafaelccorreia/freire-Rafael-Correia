@@ -67,6 +67,13 @@ const UsersList: User[] = [
         email: "moncouer@gmail.com",
         website: "moncouer.com"
     },
+    {
+        id: "6",
+        name: "teste",
+        phone: "11111-1111",
+        email: "teste@gmail.com",
+        website: "teste.com"
+    },
 ]
 
 //exercício 4
@@ -145,4 +152,17 @@ app.delete('/posts/:postId', (req, res) => {
         }
     })
     res.status(200).send(postsList)
+})
+
+//exercício 10
+app.delete('/users/:idUser', (req, res) => {
+    const usuarioId = req.params.idUser
+    UsersList.forEach(usuario => {
+        if(usuario.id === usuarioId){
+            let index:number = UsersList.indexOf(usuario)
+            UsersList.splice(index)
+        }
+    })
+    console.log(UsersList)
+    res.status(200).send(UsersList)
 })
