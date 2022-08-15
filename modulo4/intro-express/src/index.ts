@@ -79,5 +79,36 @@ type Post = {
     id: number,
     title: string,
     body: string,
-    userId: number
+    userId: string
 }
+
+//exercício 6
+// acho que o array de posts deve ser criado fora do array de usuários para que os posts
+// tenham uma organização própria, assim na hora de uma possível impressão dos dados pelo front-end
+// os posts não será impressos de usuário por usuário
+const postsList: Post[] = [
+    {
+        id: 1,
+        title: "A que dos ascendentes",
+        body: "Todos os dakin já foram guerreiros respeitados que lutavam por justiça, após a queda o imperador, sem ninguém para seguir, viramos criaturas amaldiçoadas.",
+        userId: "1"
+    },
+    {
+        id: 2,
+        title: "Grove Street",
+        body: "Lar, pelo menos era antes que eu estragasse tudo.",
+        userId: "3"
+    },
+    {
+        id: 3,
+        title: "Thank you",
+        body: "You Guys Are The Real Heroes, We Are Just Glad We Can Help",
+        userId: "4"
+    },
+    {
+        id: 4,
+        title: "Debandada",
+        body: "Se mecher com o touro, vai levar uma chifrada!",
+        userId: "2"
+    }
+]
