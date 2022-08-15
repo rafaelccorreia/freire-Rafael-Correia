@@ -110,6 +110,12 @@ const postsList: Post[] = [
         title: "Debandada",
         body: "Se mecher com o touro, vai levar uma chifrada!",
         userId: "2"
+    },
+    {
+        id: 5,
+        title: "teste",
+        body: "dsfafsdaafssdafssdfasfdasdfsdfa!",
+        userId: "2"
     }
 ]
 
@@ -127,4 +133,16 @@ app.get('/posts/:idUser', (req, res) => {
     })
 
     res.send(listaPostsUsuario)
+})
+
+//exercício 9
+app.delete('/posts/:postId', (req, res) => {
+    const postId:number = Number(req.params.postId)
+    postsList.forEach(post => {
+        if(post.id === postId){
+            let index:number = postsList.indexOf(post)
+            postsList.splice(index)
+        }
+    })
+    res.status(200).send(postsList)
 })
