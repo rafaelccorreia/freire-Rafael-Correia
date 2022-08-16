@@ -77,6 +77,34 @@ const listaAfazeres: Afazeres[] = [
     },
 ]
 
+//exercicio 4
+app.get('/afazeres', (req, res) => {
+    if(req.body.completed !== undefined) {
+        let newListaAfazeres = listaAfazeres.filter(tarefa => {
+            return req.body.completed === tarefa.completed
+        })
+        res.send(newListaAfazeres)
+    } else {
+        res.send(listaAfazeres)
+    }
+})
+
+//exercicio 5
+app.post('/afazeres/criar', (req, res) => {
+    if(!req.body) {
+        res.send(`Error de requisição, faltou passar o body`)
+    } else {
+        let novoAfazer: Afazeres = {
+            userId: req.body.userId,
+            id: listaAfazeres.length,
+            title: req.body.title,
+            completed: false
+        }
+        let novaListaAfazeres: Afazeres[] = [...listaAfazeres, novoAfazer]
+        res.send(novaListaAfazeres)
+    }
+})
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if(server) {
         const address = server.address() as AddressInfo
