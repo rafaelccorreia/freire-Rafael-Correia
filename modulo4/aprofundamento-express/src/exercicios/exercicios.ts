@@ -105,6 +105,23 @@ app.post('/afazeres/criar', (req, res) => {
     }
 })
 
+//exercicio 6
+app.put('/afazeres/:idAfazer/status', (req, res) => {
+    let newList: Afazeres[] = listaAfazeres.map(tarefa => {
+        if(tarefa.id === Number(req.params.idAfazer)) {
+            tarefa.completed = !tarefa.completed
+            return tarefa
+        } else {
+            return tarefa
+        }
+    })
+
+    res.send(newList)
+})
+
+//exercicio 7
+
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if(server) {
         const address = server.address() as AddressInfo
