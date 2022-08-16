@@ -120,6 +120,23 @@ app.put('/afazeres/:idAfazer/status', (req, res) => {
 })
 
 //exercicio 7
+app.delete('/afazeres/:idAfazer/delete', (req,res) => {
+    let index: number
+
+    listaAfazeres.forEach(tarefa => {
+        if(tarefa.id === Number(req.params.idAfazer)) {
+            index = listaAfazeres.indexOf(tarefa)
+            let newLista: Afazeres[] = listaAfazeres
+            newLista.splice(index)
+            res.send(newLista)
+        }
+    })
+    setTimeout(() => {
+        if(!index) {
+            res.send(`Id não encontrado`)
+        }
+    }, 3000)
+})
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
