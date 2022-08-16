@@ -138,6 +138,16 @@ app.delete('/afazeres/:idAfazer/delete', (req,res) => {
     }, 3000)
 })
 
+//exercicio 8
+app.get('/afazeres/usuario', (req,res) => {
+    const idUser: number = Number(req.query.id)
+
+    let newList: Afazeres[] = listaAfazeres.filter(afazer => {
+        return afazer.userId === idUser
+    })
+    res.send(newList)
+})
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if(server) {
