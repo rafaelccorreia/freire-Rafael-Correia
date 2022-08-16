@@ -148,7 +148,6 @@ app.get('/afazeres/usuario', (req,res) => {
     res.send(newList)
 })
 
-
 const server = app.listen(process.env.PORT || 3003, () => {
     if(server) {
         const address = server.address() as AddressInfo
