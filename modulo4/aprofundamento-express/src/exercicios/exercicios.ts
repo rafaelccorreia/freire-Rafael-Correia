@@ -6,9 +6,18 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+//exercicio 1
 app.get('/ping', (req, res) => {
     res.send('Pong! 🏓')
 })
+
+//exercicio 2
+type Afazeres = {
+    userId: number,
+    id: number,
+    title: string,
+    completed: boolean
+}
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if(server) {
