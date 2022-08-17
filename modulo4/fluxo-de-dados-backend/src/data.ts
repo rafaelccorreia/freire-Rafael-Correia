@@ -20,5 +20,10 @@ export const listaProdutos: Produto[] = [
         id: '2',
         name: 'sapato',
         price: 2000
+    },
+    {
+        id: '3',
+        name: 'teste',
+        price: 5000
     }
 ]

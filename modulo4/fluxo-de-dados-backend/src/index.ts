@@ -13,7 +13,7 @@ app.get('/test', (req, res) => {
     res.send('A API está funcionando!')
 })
 
-//exercicio3
+//exercicios 3 e 7
 app.post('/products/create', (req, res) => {
     try {
         const name: string = req.body.name
@@ -67,12 +67,12 @@ app.get('/products', (req, res) => {
     }
 })
 
-//exercicio 5
+//exercicios 5, 8 e 11
 app.put('/products/:idProduct', (req, res) => {
     try {
         const produtoId: string = req.params.idProduct
         const novoPreco: number = req.body.novoPreco
-        const novoNome: string = req.body.nonoNome
+        const novoNome: string = req.body.novoNome
         let verificaId: boolean = false
 
         if (!novoPreco && !novoNome) {
@@ -91,13 +91,13 @@ app.put('/products/:idProduct', (req, res) => {
         let novaListaProdutos: Produto[] = listaProdutos.map(produto => {
             if (produtoId === produto.id) {
                 verificaId = true
-                
-                if(novoNome && novoPreco){
+
+                if (novoNome && novoPreco) {
                     produto.name = novoNome
                     produto.price = novoPreco
-                } else if(novoNome) {
+                } else if (novoNome) {
                     produto.name = novoNome
-                } else if(novoPreco) {
+                } else if (novoPreco) {
                     produto.price = novoPreco
                 }
 
@@ -113,7 +113,7 @@ app.put('/products/:idProduct', (req, res) => {
         res.send(novaListaProdutos)
 
     } catch (error: any) {
-        switch(error.message) {
+        switch (error.message) {
             case 'Nenhum novo valor foi recebido':
                 res.status(404).send(error.message)
                 break
@@ -139,6 +139,29 @@ app.put('/products/:idProduct', (req, res) => {
         }
     }
 
+})
+
+//exercicios 6 e 9
+app.delete('/products/:idProduct/delete', (req, res) => {
+    try {
+        const produtoId: string = req.params.idProduct
+
+        let newArrayProdutos: Produto[] = listaProdutos.filter(produto => {
+            return produto.id !== produtoId
+        })
+
+        if (newArrayProdutos.length === listaProdutos.length) {
+            throw new Error('Produto não econtrado')
+        }
+        res.send(newArrayProdutos)
+
+    } catch (error: any) {
+        if(error.message === 'Produto não encontrado') {
+            res.status(404).send(error.message)
+        } else {
+            res.status(500).send('Algo inesperado aconteceu.')
+        }
+    }
 })
 
 const server = app.listen(process.env.PORT || 3003, () => {
