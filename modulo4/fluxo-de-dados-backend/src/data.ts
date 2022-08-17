@@ -1,3 +1,4 @@
+//exercicio 2
 export type Produto = {
     id: string,
     name: string,
@@ -6,17 +7,17 @@ export type Produto = {
 
 export const listaProdutos: Produto[] = [
     {
-        id: '12a3',
+        id: '0',
         name: 'camisa',
         price: 50
     },
     {
-        id: '45b6',
+        id: '1',
         name: 'calça',
         price: 150
     },
     {
-        id: '78c9',
+        id: '2',
         name: 'sapato',
         price: 2000
     }
