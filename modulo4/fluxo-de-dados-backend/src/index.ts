@@ -58,10 +58,18 @@ app.post('/products/create', (req, res) => {
     }
 })
 
-//exercicio 4
+//exercicios 4 e 10
 app.get('/products', (req, res) => {
     try {
-        res.send(listaProdutos)
+        const search = req.query.search as string
+        if(search !== undefined) {
+            let newList: Produto[] = listaProdutos.filter(produto => {
+                return produto.name.toLowerCase().includes(search.toLowerCase())
+            })
+            res.send(newList)
+        } else {
+            res.send(listaProdutos)
+        }
     } catch (error) {
         res.status(500).send('Erro inesperado!')
     }
