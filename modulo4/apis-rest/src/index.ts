@@ -58,6 +58,23 @@ app.get('/users', (req,res) => {
     }
 })
 
+// Exercicio 4
+// a) Nada mudou, continua funcionando normalmente
+// b) Se o objetivo é apenas criar o POST é mais apropriado, o PUT eu usaria para fazer alterações em algo existente
+app.put('/users', (req,res) => {
+    const {name, email, type, age} = req.body
+
+    const newUser: User = {
+        id: users.length + 1,
+        name: name,
+        email: email,
+        type: type,
+        age: age
+    }
+    users.push(newUser)
+    res.status(201).send(users)
+})
+
 const server = app.listen(3003, () => {
     console.log(`Server is running in http://localhost:3003`);
 });
