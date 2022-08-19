@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import { AddressInfo } from "net"
-import { Conta } from "./types"
+import { Conta, Gasto } from "./types"
 import { contas } from "./data/data"
 
 const app = express()
@@ -24,9 +24,11 @@ app.get('/contas', (req, res) => {
         }
 
         //cria um nova lista de contas para não alterar diretamente os dados
-        let saldoValor: number | undefined 
+        let saldoValor: number | undefined
+        let nomeUser: string | undefined 
         contas.forEach(user => {
-            if(user.CPF === CPF) {
+            if(user.CPF === CPF && user.nome === nome) {
+                nomeUser = user.nome
                 saldoValor = user.saldo
             }
         })
@@ -37,7 +39,7 @@ app.get('/contas', (req, res) => {
         }
 
         res.status(200).send({
-            nome: nome,
+            nome: nomeUser,
             saldo: saldoValor
         })
 
@@ -60,12 +62,12 @@ app.get('/contas', (req, res) => {
     }
 })
 
-//Criar Conta
+// Criar Conta
 app.post('/contas', (req, res) => {
     let errorCode: number = 400
     try {
         const { nome, CPF, dataDeNascimento } = req.body
-        var dataRegex = new RegExp(/^\d{2}\/\d{2}\/\d{4}$/)
+        let dataRegex = new RegExp(/^\d{2}\/\d{2}\/\d{4}$/)
 
         //validação de dados
         if (!nome || !(typeof nome === "string")) {
@@ -132,7 +134,7 @@ app.post('/contas', (req, res) => {
     }
 })
 
-//Adicionar Saldo
+// Adicionar Saldo
 app.put('/contas', (req, res) => {
     let errorCode: number = 400
     try {
@@ -180,6 +182,96 @@ app.put('/contas', (req, res) => {
                 res.status(errorCode).send({ message: error.message })
                 break
             case 'Valor do depósito inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'Nenhum usuário encontrado com essa combinação, verificar nome e CPF':
+                res.status(errorCode).send({ message: error.message })
+                break
+            default:
+                res.status(500).send({ message: 'Ocorreu um erro inesperado!'})
+                break
+        }
+    }
+})
+
+// Pagar conta
+app.put('/contas/pagar', (req,res) => {
+    let errorCode: number = 400
+    try {
+        let dataRegex = new RegExp(/^\d{2}\/\d{2}\/\d{4}$/)
+        const { nome, CPF, data, valor} = req.body
+        const descricao: string = req.body.descricao
+
+        let dataHoje:Date = new Date()
+        let dataHojeFormatada:string = (`${dataHoje.getMonth() + 1}/${dataHoje.getDate()}/${dataHoje.getFullYear()}`)
+        let dataEscolhida:string
+
+        if (!nome || !(typeof nome === "string")) {
+            errorCode = 422
+            throw new Error('Nome vazio ou inválido')
+        }
+        if (!CPF || !(typeof CPF === "string")) {
+            errorCode = 422
+            throw new Error('CPF vazio ou inválido')
+        }
+        if (!valor || !(typeof valor === "number") || valor <= 0) {
+            errorCode = 422
+            throw new Error('Valor do depósito inválido')
+        }
+        if (!descricao || !(typeof descricao === "string")) {
+            errorCode = 422
+            throw new Error('Descricão vazia ou em formato inválido')
+        }
+        if(data) {
+            if (!(typeof data === "string") || !dataRegex.test(data)) {
+                errorCode = 422
+                throw new Error('Data de pagamento inválida. Esperado uma data no formato: MM/DD/AAAA')
+            }
+            dataEscolhida = data
+        } else {
+            dataEscolhida = dataHojeFormatada
+        }
+
+        //cria um nova lista de contas para não alterar diretamente os dados
+        let valida:boolean = false
+        let novaListaContas: Conta[] = contas.map(user => {
+            if(nome === user.nome && CPF === user.CPF) {
+                valida = true
+                // cria um novo extrato para adicionar a lista de extratos da conta
+                let novoExtrato: Gasto = {
+                    valor: valor,
+                    data: dataEscolhida,
+                    descricao: descricao
+                }
+                user.extrato.push(novoExtrato)
+
+                return user
+            } else {
+                return user
+            }
+        })
+
+        if(!valida) {
+            errorCode = 401
+            throw new Error('Nenhum usuário encontrado com essa combinação, verificar nome e CPF')
+        }
+        res.status(201).send(novaListaContas)
+    } 
+    catch (error: any) {
+        switch(error.message) {
+            case 'Nome vazio ou inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'CPF vazio ou inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'Valor do depósito inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'Descricão vazia ou em formato inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'Data de pagamento inválida. Esperado uma data no formato: MM/DD/AAAA':
                 res.status(errorCode).send({ message: error.message })
                 break
             case 'Nenhum usuário encontrado com essa combinação, verificar nome e CPF':
