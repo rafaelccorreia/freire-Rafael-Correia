@@ -8,8 +8,29 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// Pegar Contas
+app.get('/contas', (req,res) => {
+    let errorCode:number = 400
+    try {
+        const auth:string = req.headers.auth as string
+
+        if(!auth || auth !== "ADMIN") {
+            errorCode = 401
+            throw new Error('Usuário não autorizado')
+        }
+
+        res.status(200).send(contas)
+    } catch (error: any) {
+        if(error.message === 'Usuário não autorizado') {
+            res.status(errorCode).send({ message: error.message })
+        } else {
+            res.status(500).send("Error inesperado")
+        }
+    }
+})
+
 // Pegar Saldo
-app.get('/contas', (req, res) => {
+app.get('/contas/saldo', (req, res) => {
     let errorCode: number = 400
     try {
         const {nome, CPF} = req.body
@@ -284,6 +305,7 @@ app.put('/contas/pagar', (req,res) => {
     }
 })
 
+// Transferencia
 app.put('/contas/transferencia', (req,res) => {
     let errorCode: number = 400
     try {
