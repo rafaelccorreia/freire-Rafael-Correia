@@ -8,11 +8,11 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.post('/contas', (req, res) => {
+// Pegar Saldo
+app.get('/contas', (req, res) => {
     let errorCode: number = 400
     try {
-        const { nome, CPF, dataDeNascimento } = req.body
-        var dataRegex = new RegExp(/^\d{2}\/\d{2}\/\d{4}$/)
+        const {nome, CPF} = req.body
 
         if (!nome || !(typeof nome === "string")) {
             errorCode = 422
@@ -22,6 +22,65 @@ app.post('/contas', (req, res) => {
             errorCode = 422
             throw new Error('CPF vazio ou inválido')
         }
+
+        //cria um nova lista de contas para não alterar diretamente os dados
+        let saldoValor: number | undefined 
+        contas.forEach(user => {
+            if(user.CPF === CPF) {
+                saldoValor = user.saldo
+            }
+        })
+
+        if(!saldoValor) {
+            errorCode = 401
+            throw new Error('Nenhum usuário encontrado com essa combinação, verificar nome e CPF')
+        }
+
+        res.status(200).send({
+            nome: nome,
+            saldo: saldoValor
+        })
+
+    } catch (error: any) {
+
+        switch(error.message) {
+            case 'Nome vazio ou inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'CPF vazio ou inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'Nenhum usuário encontrado com essa combinação, verificar nome e CPF':
+                res.status(errorCode).send({ message: error.message })
+                break
+            default:
+                res.status(500).send({ message: 'Ocorreu um erro inesperado!'})
+                break
+        }
+    }
+})
+
+//Criar Conta
+app.post('/contas', (req, res) => {
+    let errorCode: number = 400
+    try {
+        const { nome, CPF, dataDeNascimento } = req.body
+        var dataRegex = new RegExp(/^\d{2}\/\d{2}\/\d{4}$/)
+
+        //validação de dados
+        if (!nome || !(typeof nome === "string")) {
+            errorCode = 422
+            throw new Error('Nome vazio ou inválido')
+        }
+        if (!CPF || !(typeof CPF === "string")) {
+            errorCode = 422
+            throw new Error('CPF vazio ou inválido')
+        }
+        contas.forEach(conta => {
+            if(conta.CPF === CPF) {
+                throw new Error('CPF já cadastrado')
+            }
+        })
         if (!dataDeNascimento || !(typeof dataDeNascimento === "string") || !dataRegex.test(dataDeNascimento)) {
             errorCode = 422
             throw new Error('Data de nascimento vazia ou inválida. Esperado uma data no formato: MM/DD/AAAA')
@@ -57,10 +116,73 @@ app.post('/contas', (req, res) => {
             case 'CPF vazio ou inválido':
                 res.status(errorCode).send({ message: error.message })
                 break
+            case 'CPF já cadastrado':
+                res.status(errorCode).send({ message: error.message })
+                break
             case 'Data de nascimento vazia ou inválida. Esperado uma data no formato: MM/DD/AAAA':
                 res.status(errorCode).send({ message: error.message })
                 break
             case 'Usuário menor de idade, apenas pessoas com mais de 18 anos podem criar contas.':
+                res.status(errorCode).send({ message: error.message })
+                break
+            default:
+                res.status(500).send({ message: 'Ocorreu um erro inesperado!'})
+                break
+        }
+    }
+})
+
+//Adicionar Saldo
+app.put('/contas', (req, res) => {
+    let errorCode: number = 400
+    try {
+        const { nome, CPF, valor} = req.body
+
+        if (!nome || !(typeof nome === "string")) {
+            errorCode = 422
+            throw new Error('Nome vazio ou inválido')
+        }
+        if (!CPF || !(typeof CPF === "string")) {
+            errorCode = 422
+            throw new Error('CPF vazio ou inválido')
+        }
+        if (!valor || !(typeof valor === "number") || valor <= 0) {
+            errorCode = 422
+            throw new Error('Valor do depósito inválido')
+        }
+
+        //cria um nova lista de contas para não alterar diretamente os dados
+        let valida:boolean = false
+        let novaListaContas: Conta[] = contas.map(user => {
+            if(nome === user.nome && CPF === user.CPF) {
+                valida = true
+                user.saldo += valor
+                return user
+            } else {
+                return user
+            }
+        })
+
+        if(!valida) {
+            errorCode = 401
+            throw new Error('Nenhum usuário encontrado com essa combinação, verificar nome e CPF')
+        }
+
+        res.status(200).send(novaListaContas)
+
+    } catch (error: any) {
+
+        switch(error.message) {
+            case 'Nome vazio ou inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'CPF vazio ou inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'Valor do depósito inválido':
+                res.status(errorCode).send({ message: error.message })
+                break
+            case 'Nenhum usuário encontrado com essa combinação, verificar nome e CPF':
                 res.status(errorCode).send({ message: error.message })
                 break
             default:
