@@ -90,3 +90,62 @@ SELECT SUM(salary) FROM Actor;
 
 
 ### Exercício 5
+a) Pega as informações de quantidade e gender da tabela Actor e agrupa por gender
+
+b) 
+
+```
+
+SELECT id, name
+FROM Actor
+ORDER BY name DESC;
+
+```
+
+c) 
+
+```
+
+SELECT * FROM Actor ORDER BY salary ASC;
+
+```
+
+d) 
+
+```
+
+SELECT * FROM Actor ORDER BY salary DESC LIMIT 3;
+
+```
+
+e) 
+
+```
+
+SELECT AVG(salary),gender FROM Actor GROUP BY gender;
+
+```
+
+
+### Exercício 6
+a)b)c)
+d) Não deu erro no código, rodou normalmente. Mas 0 linhas foram afetadas pelas mudanças.
+
+```
+
+ALTER TABLE Filmes ADD playing_limit_date DATE;
+ALTER TABLE Filmes CHANGE avaliacao avaliacao FLOAT;
+UPDATE Filmes
+SET playing_limit_date = "2022-09-05"
+WHERE id = "001";
+
+UPDATE Filmes
+SET playing_limit_date = "2021-01-30"
+WHERE id = "002";
+
+DELETE FROM Filmes WHERE id ="004";
+UPDATE Filmes
+SET sinopse = "teste"
+WHERE id = "004";
+
+```
