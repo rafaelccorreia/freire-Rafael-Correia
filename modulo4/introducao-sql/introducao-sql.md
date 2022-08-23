@@ -193,3 +193,13 @@ a)b)c)
         SELECT * FROM Filmes WHERE nome = "Doce de mãe";
         SELECT id, nome, sinopse FROM Filmes WHERE avaliacao >= 7;
     ```
+
+
+### Exercício 7
+a)b)c)d)
+    ```
+        SELECT * FROM Filmes WHERE nome LIKE "%vida%";
+        SELECT * FROM Filmes WHERE nome LIKE "%dois%" OR sinopse LIKE "%dois%";
+        SELECT * FROM Filmes WHERE data_de_lancamento < "2022-08-22";
+        SELECT * FROM Filmes WHERE (data_de_lancamento < "2022-08-22") AND (nome LIKE "%dois%" OR sinopse LIKE "%dois%") AND (avaliacao >= 7);
+    ```
