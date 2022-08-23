@@ -187,3 +187,9 @@ b)c)d)e)
 
 
 ### Exercício 6
+a)b)c)
+    ```
+        SELECT id, nome, avaliacao FROM Filmes WHERE id = "001";
+        SELECT * FROM Filmes WHERE nome = "Doce de mãe";
+        SELECT id, nome, sinopse FROM Filmes WHERE avaliacao >= 7;
+    ```
