@@ -84,3 +84,12 @@ d)
 Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`freire-rafael-correia`.`MovieCast`, CONSTRAINT `MovieCast_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `Actor` (`id`))
     //Não pode deletar um ator que tem o id referenciado em outra tabela.
 ```
+
+### Exercício 3
+a) O operador "ON" liga as referências de mesmo valor no id para que fiquem alinhadas
+
+b) 
+```
+SELECT Filmes.nome, Filmes.id, Rating.rate FROM Filmes 
+INNER JOIN Rating ON Filmes.id = Rating.movie_id;
+```
