@@ -1,1 +1,8 @@
-GET http://localhost:3003/user
+PUT http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "teste",
+    "nickname": "testando",
+    "email": "teste@gmail.com"
+}
