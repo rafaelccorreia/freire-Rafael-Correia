@@ -6,10 +6,17 @@ export default async function getUser(req: Request, res: Response){
         const id:string = req.params.id
 
         const user = await selectUser(id)
+        if(!user) {
+            throw new Error("Usuário não encontrado")
+        }
 
         res.status(200).send(user)
+
     } catch (error:any) {
-        res.status(400).send({message : error.message || error.sqlMessage})
+        if(error.message === "Usuário não encontrado"){
+            res.status(422).send({message: error.message || error.sqlMessage})
+        } else {
+            res.status(400).send({message : error.message || error.sqlMessage})
+        }
     }
 }
-//exemplo

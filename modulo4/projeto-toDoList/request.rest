@@ -6,3 +6,6 @@ Content-Type: application/json
     "nickname": "testando",
     "email": "teste@gmail.com"
 }
+
+###
+GET http://localhost:3003/user/1661454355630

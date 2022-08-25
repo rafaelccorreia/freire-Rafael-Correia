@@ -9,7 +9,7 @@ const app: Express = express()
 app.use(express.json())
 app.use(cors())
 
-app.get('/user', getUser)
+app.get('/user/:id', getUser)
 
 app.put('/user', createUser)
 
