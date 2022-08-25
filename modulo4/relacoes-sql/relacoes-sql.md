@@ -113,3 +113,27 @@ SELECT AVG(Rating.rate), Filmes.id, Filmes.nome FROM Filmes
 LEFT JOIN Rating ON Filmes.id = movie_id
 GROUP BY(Filmes.id);
 ```
+
+### Exercício 5
+a) É necessário 2 joins, pois para juntar as tabelas é preciso juntar duas em duas, após o primeiro join fazemos a junção com a última tabela.
+
+b)
+```
+SELECT f.id as movie_id, f.nome, actor_id, a.name FROM Filmes f
+LEFT JOIN MovieCast mc ON f.id = mc.movie_id
+JOIN Actor a ON a.id = mc.actor_id;
+```
+
+c)
+```
+Error Code: 1054. Unknown column 'm' in 'field list'
+    // m faz referência a tabela de filmes, não da para retorna ela sem especificar o que deve ser retornado
+```
+
+d)
+```
+SELECT Filmes.id, Filmes.nome, Actor.id, Actor.name, Rating.rate, Rating.comment FROM Filmes
+LEFT JOIN Rating ON Rating.movie_id = Filmes.id
+LEFT JOIN MovieCast ON Filmes.id = MovieCast.movie_id
+JOIN Actor ON Actor.id = MovieCast.actor_id;
+```
