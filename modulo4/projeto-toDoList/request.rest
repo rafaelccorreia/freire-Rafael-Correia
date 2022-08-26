@@ -35,4 +35,7 @@ Content-Type: application/json
 GET http://localhost:3003/task/1661522368069
 
 ###
+GET http://localhost:3003/task?creatorUserId=1661454355630
+
+###
 GET http://localhost:3003/user/all
