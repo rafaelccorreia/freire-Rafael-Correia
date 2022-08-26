@@ -51,3 +51,6 @@ Content-Type: application/json
     "task_id": "1661519340099",
     "responsible_user_id": "1661533981242"
 }
+
+###
+GET http://localhost:3003/task/1661519340099/responsible

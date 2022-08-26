@@ -10,6 +10,7 @@ import getAllUsers from './endpoints/getAllUsers'
 import getTasksFromUser from './endpoints/getTasksFromUser'
 import searchUser from './endpoints/searchUser'
 import linkUserToTask from './endpoints/linkUserToTask'
+import getAllUsersResponsibleTask from './endpoints/getAllUsersResponsibleTask'
 
 const app: Express = express()
 
@@ -25,6 +26,7 @@ app.put('/user/edit/:id', editUser)
 //task
 app.get('/task', getTasksFromUser)
 app.get('/task/:id', getTask)
+app.get('/task/:id/responsible', getAllUsersResponsibleTask)
 app.post('/task', createTask)
 app.post('/task/responsible', linkUserToTask)
 
