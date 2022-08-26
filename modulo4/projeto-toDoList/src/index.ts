@@ -9,6 +9,7 @@ import getTask from './endpoints/getTask'
 import getAllUsers from './endpoints/getAllUsers'
 import getTasksFromUser from './endpoints/getTasksFromUser'
 import searchUser from './endpoints/searchUser'
+import linkUserToTask from './endpoints/linkUserToTask'
 
 const app: Express = express()
 
@@ -25,6 +26,7 @@ app.put('/user/edit/:id', editUser)
 app.get('/task', getTasksFromUser)
 app.get('/task/:id', getTask)
 app.post('/task', createTask)
+app.post('/task/responsible', linkUserToTask)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
