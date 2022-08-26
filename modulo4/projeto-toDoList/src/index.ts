@@ -3,6 +3,7 @@ import cors from 'cors'
 import { AddressInfo } from "net"
 import getUser from './endpoints/getUser'
 import createUser from './endpoints/createUser'
+import editUser from './endpoints/EditUser'
 
 const app: Express = express()
 
@@ -12,6 +13,8 @@ app.use(cors())
 app.get('/user/:id', getUser)
 
 app.put('/user', createUser)
+
+app.put('/user/edit/:id', editUser)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
