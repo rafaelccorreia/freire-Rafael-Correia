@@ -12,14 +12,12 @@ const app: Express = express()
 app.use(express.json())
 app.use(cors())
 
+//user
 app.get('/user/:id', getUser)
-
 app.put('/user', createUser)
-
 app.put('/user/edit/:id', editUser)
-
+//task
 app.post('/task', createTask)
-
 app.get('/task/:id', getTask)
 
 const server = app.listen(process.env.PORT || 3003, () => {
