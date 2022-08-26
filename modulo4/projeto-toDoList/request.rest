@@ -19,3 +19,14 @@ Content-Type: application/json
     "nickname": "testando2",
     "email": "testando2@gmail.com"
 }
+
+###
+POST http://localhost:3003/task
+Content-Type: application/json
+
+{
+    "title": "Test task",
+    "description": "test task test task test task test task",
+    "limitDate": "04/05/2020",
+    "creatorUserId": "1661454355630"
+}

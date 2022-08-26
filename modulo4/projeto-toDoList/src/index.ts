@@ -4,6 +4,7 @@ import { AddressInfo } from "net"
 import getUser from './endpoints/getUser'
 import createUser from './endpoints/createUser'
 import editUser from './endpoints/EditUser'
+import createTask from './endpoints/createTask'
 
 const app: Express = express()
 
@@ -15,6 +16,8 @@ app.get('/user/:id', getUser)
 app.put('/user', createUser)
 
 app.put('/user/edit/:id', editUser)
+
+app.post('/task', createTask)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {

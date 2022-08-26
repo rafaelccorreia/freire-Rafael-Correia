@@ -1,4 +1,5 @@
 import { Request, Response } from "express"
+import insertTask from "../data/insertTask"
 
 export default async function createTask(req: Request, res:Response) {
     let errorStatus:number = 400
@@ -23,7 +24,11 @@ export default async function createTask(req: Request, res:Response) {
             throw new Error('Empty or invalid value for creatorUserId')
         }
 
-        let dataFormatada:string = limitDate.split('').reverse().join().replace('/', '.')
+        let dataSplit:string[] = limitDate.split('')
+        let year:string = dataSplit[6] + dataSplit[7] + dataSplit[8] + dataSplit[9]
+        let month:string = dataSplit[3] + dataSplit[4]
+        let day:string = dataSplit[0] + dataSplit[1]
+        let dataFormatada:string = year + "-" + month + "-" + day
         console.log(dataFormatada)
 
         const taskData: Object = {
@@ -35,6 +40,8 @@ export default async function createTask(req: Request, res:Response) {
         }
 
         const respDataBase = await insertTask(taskData)
+
+        res.status(200).send(`New Task created`)
 
     } catch (error:any) {
         switch(error.message){
@@ -51,7 +58,7 @@ export default async function createTask(req: Request, res:Response) {
                 res.status(errorStatus).send({message: error.message || error.sqlMessage})
                 break
             default:
-                res.status(500).send({message: "Unespected Error"})
+                res.status(500).send({message: error.sqlMessage || "Unexpected Error"})
                 break
         }
     }
