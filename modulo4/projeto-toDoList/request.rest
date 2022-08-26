@@ -39,3 +39,6 @@ GET http://localhost:3003/task?creatorUserId=1661454355630
 
 ###
 GET http://localhost:3003/user/all
+
+###
+GET http://localhost:3003/user?query=Jo

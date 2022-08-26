@@ -8,6 +8,7 @@ import createTask from './endpoints/createTask'
 import getTask from './endpoints/getTask'
 import getAllUsers from './endpoints/getAllUsers'
 import getTasksFromUser from './endpoints/getTasksFromUser'
+import searchUser from './endpoints/searchUser'
 
 const app: Express = express()
 
@@ -17,6 +18,7 @@ app.use(cors())
 //user
 app.get('/user/all', getAllUsers)
 app.get('/user/:id', getUser)
+app.get('/user', searchUser)
 app.put('/user', createUser)
 app.put('/user/edit/:id', editUser)
 //task
