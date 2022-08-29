@@ -34,10 +34,10 @@ async function getAssinantes(): Promise<any[]> {
 // Exercício 2
 // a) A arrow function precisa ser declarada com const/let e o async vem após o nome da função dentro da declaração
 // b)
-const getAssinantesArrow = async ():Promise<user[]> => {
+const getAssinantesArrow = async (): Promise<user[]> => {
     const result = await axios.get(`https://labenews.herokuapp.com/subscribers`)
 
-    return result.data.map((res:any) => {
+    return result.data.map((res: any) => {
         return {
             id: res.id,
             email: res.email,
@@ -60,7 +60,7 @@ type user = {
 // Exercício 4
 // a) void pois não retorna nada
 // b)
-const createNoticia = async(title:string, content:string, date:number): Promise<void> => {
+const createNoticia = async (title: string, content: string, date: number): Promise<void> => {
     const body = {
         title: title,
         content: content,
@@ -70,18 +70,49 @@ const createNoticia = async(title:string, content:string, date:number): Promise<
 }
 
 // Exercício 5
-const sendNotificacoes = async(users: any[], message:string): Promise<void> => {
+const sendNotificacoes = async (users: user[], message: string): Promise<void> => {
     users.forEach(async (user) => {
         const body = {
-            subscriberId: user.subscriberId,
+            subscriberId: user.id,
             message: message
         }
         const req = await axios.post('https://labenews.herokuapp.com/notifications', body)
     })
-    return 
+    return
 }
 
 // Exercício 6
+// a) Execulta todas as promises contidas na array
+// b) É possível fazer todos de uma vez, se der um erro em alguma delas, todo o processo para
+// c)
+const sendNotifications = async (
+    users: user[],
+    message: string
+): Promise<void> => {
+    try {
+        const promises = users.map(user => {
+            return axios.post(`https://labenews.herokuapp.com/notifications
+            `, {
+                subscriberId: user.id,
+                message: message,
+            })
+        })
+
+        await Promise.all(promises);
+
+    } catch {
+        console.log("Error");
+    }
+}
+
+// Desafio
+const arrowGreeting = async(): Promise<void> => {
+    setTimeout(() => {
+        console.log("Oi")
+    }, 5000)
+}
+
+arrowGreeting()
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
