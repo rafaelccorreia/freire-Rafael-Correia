@@ -29,7 +29,16 @@ async function getAssinantes(): Promise<any[]> {
     console.log(result)
     return result.data
 }
-getAssinantes()
+
+// Exercício 2
+// a) A arrow function precisa ser declarada com const/let e o async vem após o nome da função dentro da declaração
+// b)
+const getAssinantesArrow = async ():Promise<any[]> => {
+    const result = await axios.get(`https://labenews.herokuapp.com/subscribers`)
+    console.log(result)
+    return result.data
+}
+getAssinantesArrow()
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
