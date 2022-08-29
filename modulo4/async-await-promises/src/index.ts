@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import express, { response } from "express"
 import { AddressInfo } from "net"
 import axios from "axios"
+import { StringMappingType } from "typescript"
 
 dotenv.config()
 
@@ -54,6 +55,18 @@ type user = {
     id: string,
     name: string,
     email: string
+}
+
+// Exercício 4
+// a) void pois não retorna nada
+// b)
+const createNoticia = async(title:string, content:string, date:number): Promise<void> => {
+    const body = {
+        title: title,
+        content: content,
+        date: date
+    }
+    const req = await axios.put('https://labenews.herokuapp.com/news', body)
 }
 
 const server = app.listen(process.env.PORT || 3003, () => {
