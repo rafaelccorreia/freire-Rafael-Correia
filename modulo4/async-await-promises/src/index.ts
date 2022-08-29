@@ -69,6 +69,20 @@ const createNoticia = async(title:string, content:string, date:number): Promise<
     const req = await axios.put('https://labenews.herokuapp.com/news', body)
 }
 
+// Exercício 5
+const sendNotificacoes = async(users: any[], message:string): Promise<void> => {
+    users.forEach(async (user) => {
+        const body = {
+            subscriberId: user.subscriberId,
+            message: message
+        }
+        const req = await axios.post('https://labenews.herokuapp.com/notifications', body)
+    })
+    return 
+}
+
+// Exercício 6
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
         const address = server.address() as AddressInfo
