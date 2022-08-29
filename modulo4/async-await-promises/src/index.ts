@@ -1,6 +1,6 @@
 import knex from "knex"
 import dotenv from "dotenv"
-import express from "express"
+import express, { response } from "express"
 import { AddressInfo } from "net"
 import axios from "axios"
 
@@ -33,12 +33,28 @@ async function getAssinantes(): Promise<any[]> {
 // Exercício 2
 // a) A arrow function precisa ser declarada com const/let e o async vem após o nome da função dentro da declaração
 // b)
-const getAssinantesArrow = async ():Promise<any[]> => {
+const getAssinantesArrow = async ():Promise<user[]> => {
     const result = await axios.get(`https://labenews.herokuapp.com/subscribers`)
-    console.log(result)
-    return result.data
+
+    return result.data.map((res:any) => {
+        return {
+            id: res.id,
+            email: res.email,
+            name: res.name,
+        }
+    })
 }
 getAssinantesArrow()
+
+// Exercício 3
+// a) não
+// b) para termos certeza que estamos recebendo o valor correto
+// c) 
+type user = {
+    id: string,
+    name: string,
+    email: string
+}
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
