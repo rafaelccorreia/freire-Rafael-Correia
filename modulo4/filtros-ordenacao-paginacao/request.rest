@@ -1,0 +1,4 @@
+GET http://localhost:3003/users?nome=da
+
+###
+Get http://localhost:3003/users/CX

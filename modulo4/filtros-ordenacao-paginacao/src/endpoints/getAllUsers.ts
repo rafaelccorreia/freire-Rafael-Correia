@@ -14,6 +14,6 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
 
     } catch (error:any) {
         console.log(error)
-        res.send(error.message || error.sqlMessage)
+        res.send({message: error.message || error.sqlMessage})
     }
 }

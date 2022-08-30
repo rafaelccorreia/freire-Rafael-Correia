@@ -3,6 +3,7 @@ import knex from "knex"
 import cors from "cors"
 import dotenv from "dotenv"
 import { AddressInfo } from "net"
+import { getAllUsersEx1, getAllUsersEx1b } from "./endpoints/ex1"
 
 dotenv.config()
 
@@ -20,6 +21,9 @@ export const connection = knex({
 const app: Express = express()
 app.use(express.json())
 app.use(cors())
+
+app.get('/users', getAllUsersEx1)
+app.get('/users/:tipo', getAllUsersEx1b)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
