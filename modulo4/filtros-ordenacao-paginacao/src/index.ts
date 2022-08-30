@@ -6,6 +6,7 @@ import { AddressInfo } from "net"
 import { getAllUsersEx1, getAllUsersEx1b } from "./endpoints/ex1"
 import { getAllUsersEx2 } from "./endpoints/ex2"
 import { getAllUsersPage } from "./endpoints/ex3"
+import { getAllUsersEx4 } from "./endpoints/ex4"
 
 dotenv.config()
 
@@ -25,9 +26,10 @@ app.use(express.json())
 app.use(cors())
 
 // app.get('/users', getAllUsersEx1)
-app.get('/users', getAllUsersEx2)
 // app.get('/users/:tipo', getAllUsersEx1b)
-app.get('/users/:page', getAllUsersPage)
+// app.get('/users', getAllUsersEx2)
+// app.get('/users/:page', getAllUsersPage)
+app.get('/users/:page', getAllUsersEx4)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
