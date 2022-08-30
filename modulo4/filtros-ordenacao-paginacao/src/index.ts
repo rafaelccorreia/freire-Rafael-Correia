@@ -5,6 +5,7 @@ import dotenv from "dotenv"
 import { AddressInfo } from "net"
 import { getAllUsersEx1, getAllUsersEx1b } from "./endpoints/ex1"
 import { getAllUsersEx2 } from "./endpoints/ex2"
+import { getAllUsersPage } from "./endpoints/ex3"
 
 dotenv.config()
 
@@ -25,7 +26,8 @@ app.use(cors())
 
 // app.get('/users', getAllUsersEx1)
 app.get('/users', getAllUsersEx2)
-app.get('/users/:tipo', getAllUsersEx1b)
+// app.get('/users/:tipo', getAllUsersEx1b)
+app.get('/users/:page', getAllUsersPage)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {

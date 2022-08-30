@@ -5,3 +5,6 @@ Get http://localhost:3003/users/CX
 
 ###
 Get http://localhost:3003/users?order=type
+
+###
+GET http://localhost:3003/users/3
