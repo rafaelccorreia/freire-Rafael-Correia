@@ -1,7 +1,9 @@
 import { AddressInfo } from "net"
+
 import { app } from "./app"
+import { createUser } from "./endpoints/createUser"
 
-
+app.post('/users', createUser)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
