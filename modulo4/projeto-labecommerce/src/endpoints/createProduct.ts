@@ -5,12 +5,11 @@ import { Product } from "../types"
 
 export const createProduct = async (req: Request, res: Response): Promise <void> => {
     try {
-        
         const { name, price, imageUrl } = req.body
 
         if(!name || !price || !imageUrl) {
             res.statusCode = 400
-            throw new Error("'name', 'price' e 'imageUrl' são obrigatórios!")
+            throw new Error("name, price e imageUrl são necessários!")
         }
 
         const product: Product = {
