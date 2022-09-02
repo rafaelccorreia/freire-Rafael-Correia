@@ -2,6 +2,7 @@ import { AddressInfo } from "net"
 
 import { app } from "./app"
 import { createProduct } from "./endpoints/createProduct"
+import { createPurchases } from "./endpoints/createPurchases"
 import { createUser } from "./endpoints/createUser"
 import { getAllProducts } from "./endpoints/getAllProducts"
 import { getAllUsers } from "./endpoints/getAllUsers"
@@ -11,6 +12,8 @@ app.post('/users', createUser)
 
 app.get('/products', getAllProducts)
 app.post('/products', createProduct)
+
+app.post('/purchases', createPurchases)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
