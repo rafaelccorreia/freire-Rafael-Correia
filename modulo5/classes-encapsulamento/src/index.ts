@@ -92,6 +92,5 @@ class Bank {
 }
 
 account1.setTransactions(transactionTest)
-
-console.log(account1.getCpf())
-console.log(account1.getTransactions())
+const bank1: Bank = new Bank([account1])
+console.log(bank1)
