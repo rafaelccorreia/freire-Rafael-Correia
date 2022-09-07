@@ -84,6 +84,72 @@ console.log(customer.getId(), customer.getName(), customer.getEmail(), customer.
 // Exercício 4 e 5
 console.log(customer.introduceYourserlf())
 
+// DESAFIOS EXERCÍCIO 6 e 11
+class Employee extends User {
+    protected admissionDate: string
+    protected baseSalary: number
+    static BENEFITS_VALUE:number = 400
+
+    constructor(
+        id:string,
+        name:string,
+        email:string,
+        password:string,
+        admissionDate: string,
+        baseSalary: number
+    ) {
+        console.log("Chamando constructor da classe Employee")
+        super(id, name, email, password)
+        this.admissionDate = admissionDate
+        this.baseSalary = baseSalary
+    }
+
+    public getAdmissionDate(): string {
+		return this.admissionDate
+	}
+
+	public getBaseSalary(): number {
+		return this.baseSalary
+	}
+
+    public calculateTotalSalary(): number {
+        return this.baseSalary + Employee.BENEFITS_VALUE
+    }
+}
+
+const employee: Employee = new Employee('98', 'Miles Halter', 'halt@gmail.com', 'senha1234', '2022-08-28', 2500)
+// Exercício 7
+console.log(employee.calculateTotalSalary())
+
+// Exercício 8 E 11
+class Seller extends Employee {
+    private salesQuantity: number = 0
+    static SELLING_COMMISSION: number = 100
+
+    public getSalesQuantity(): number {
+		return this.salesQuantity
+	}
+
+    public setSalesQuantity(newValue: number): void {
+        this.salesQuantity = newValue
+    }
+
+    public calculateTotalSalary(): number {
+        return this.baseSalary + Employee.BENEFITS_VALUE + this.salesQuantity * Seller.SELLING_COMMISSION
+    }
+}
+
+const seller: Seller = new Seller('65479', 'Anivia', 'nivia@gmail.com', 'senha1243', '2022-01-25', 2000)
+
+// Exercício 9
+seller.setSalesQuantity(3)
+console.log(seller.getId(), seller.getName(), seller.getEmail(), seller.getAdmissionDate(), seller.getBaseSalary(), seller.getSalesQuantity())
+
+// Exercício 10
+// public calculateTotalSalary(): number {
+//     return this.baseSalary + 400 + this.salesQuantity * 100
+// }
+
 //////////////////////// POLIMORFISMO
 
 export interface Client {
