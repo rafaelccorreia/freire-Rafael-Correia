@@ -88,13 +88,13 @@ console.log(customer.introduceYourserlf())
 class Employee extends User {
     protected admissionDate: string
     protected baseSalary: number
-    static BENEFITS_VALUE:number = 400
+    static BENEFITS_VALUE: number = 400
 
     constructor(
-        id:string,
-        name:string,
-        email:string,
-        password:string,
+        id: string,
+        name: string,
+        email: string,
+        password: string,
         admissionDate: string,
         baseSalary: number
     ) {
@@ -105,12 +105,12 @@ class Employee extends User {
     }
 
     public getAdmissionDate(): string {
-		return this.admissionDate
-	}
+        return this.admissionDate
+    }
 
-	public getBaseSalary(): number {
-		return this.baseSalary
-	}
+    public getBaseSalary(): number {
+        return this.baseSalary
+    }
 
     public calculateTotalSalary(): number {
         return this.baseSalary + Employee.BENEFITS_VALUE
@@ -127,8 +127,8 @@ class Seller extends Employee {
     static SELLING_COMMISSION: number = 100
 
     public getSalesQuantity(): number {
-		return this.salesQuantity
-	}
+        return this.salesQuantity
+    }
 
     public setSalesQuantity(newValue: number): void {
         this.salesQuantity = newValue
@@ -294,7 +294,7 @@ class CommercialClient extends Commerce implements Client {
 }
 
 // Exercício 6
-class IndustrialClinet extends Industry implements Client {
+class IndustrialClient extends Industry implements Client {
     constructor(
         public name: string,
         public registrationNumber: number,
@@ -314,3 +314,49 @@ class IndustrialClinet extends Industry implements Client {
         return this.consumedEnergy * 0.45 + this.machinesQuantity * 100;
     }
 }
+
+// Desafios Exercício 7
+class ClientManager {
+    private clients: Client[] = []
+
+    public getClientsQuantity(): number {
+        return this.clients.length
+    }
+
+    public registerClient(client: Client): void {
+        this.clients.push(client)
+    }
+
+    public calculateTotalIncome(): number {
+        let total: number = 0;
+        this.clients.forEach( (client) => {
+            total += client.calculateBill()
+        });
+        return total
+    }
+
+    public deleteUser(registrationNumber: number) : void {
+        let registrationIndex = undefined
+
+        for (let i = 0; i < this.clients.length; i++) {
+            if (this.clients[i].registrationNumber === registrationNumber) {
+                registrationIndex = i
+            }
+        }
+
+        if (registrationIndex !== undefined) {
+            this.clients.splice(registrationIndex, 1)
+        }
+    }
+}
+
+const clientManager = new ClientManager()
+
+const residentialClient = new ResidentialClient('Paulo', 98, 20, '65478931254', 2, '65478987')
+clientManager.registerClient(residentialClient)
+
+const commercialClient = new CommercialClient('Carla', 65, 85, '1236531254', 4, '987415632')
+clientManager.registerClient(commercialClient)
+
+const industrialClient = new IndustrialClient('Moana', 64, 65, '9753248975', 1, '759542324')
+clientManager.registerClient(industrialClient)
