@@ -33,5 +33,33 @@ export class UserEndpoint {
         }
     }
 
-    
+    public async login (req: Request, res: Response) {
+        try {
+            
+            const { email, password } = req.body
+
+            if(!email || !(email.includes('@'))) {
+                throw new EmailInvalido()
+            }
+
+            const userData: UserData = new UserData()
+
+            const usuario = await userData.selecionarUsuarioPorEmail(email)
+
+            if(usuario.password !== password) {
+                throw new SenhaInvalida()
+            }
+
+            const token = gerarToken({
+                id: usuario.id,
+            })
+
+            res.status(200).send({
+                token,
+            })
+
+        } catch (error:any) {
+            res.status(error.statusCode || 500).send({ message: error.sqlMessage || error.message })
+        }
+    }
 }
