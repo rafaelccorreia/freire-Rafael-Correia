@@ -4,6 +4,7 @@ import { EmailInvalido } from "../error/EmailInvalido"
 import { SenhaInvalida } from "../error/SenhaInvalida"
 import { gerarId } from "../services/gerarId"
 import { gerarToken } from "../services/gerarToken"
+import { pegarDados } from "../services/pegarDados"
 
 export class UserEndpoint {
     public async criarUsuario(req: Request, res: Response) {
@@ -59,6 +60,27 @@ export class UserEndpoint {
             })
 
         } catch (error:any) {
+            res.status(error.statusCode || 500).send({ message: error.sqlMessage || error.message })
+        }
+    }
+
+    public async pegarDadosUsuario (req: Request, res: Response) {
+        try {
+            
+            const token = req.headers.authorization as string
+            
+            const authenticationData = pegarDados(token)
+
+            const userData: UserData = new UserData()
+
+            const usuario = await userData.selecionarUsuarioPorId(authenticationData.id)
+
+            res.status(200).send({
+                id: usuario.id,
+                email: usuario.email
+            })
+
+        } catch (error: any) {
             res.status(error.statusCode || 500).send({ message: error.sqlMessage || error.message })
         }
     }

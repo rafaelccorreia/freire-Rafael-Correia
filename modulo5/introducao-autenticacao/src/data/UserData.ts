@@ -1,3 +1,4 @@
+import { format } from "path"
 import BaseDataBase from "./BaseDataBase"
 
 class UserData extends BaseDataBase {
@@ -13,12 +14,21 @@ class UserData extends BaseDataBase {
     }
 
     async selecionarUsuarioPorEmail(email: string): Promise<any> {
-        const result = await this.getConnection()
+        const resultado = await this.getConnection()
             .select("*")
             .from(this.userTableName)
             .where({ email })
 
-        return result[0]
+        return resultado[0]
+    }
+
+    public async selecionarUsuarioPorId(id: string): Promise<any> {
+        const resultado = await this.getConnection()
+            .select("*")
+            .from(this.userTableName)
+            .where({ id })
+
+        return resultado[0]
     }
 }
 
