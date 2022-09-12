@@ -8,7 +8,7 @@ class BaseDataBase {
 
     private connetion: Knex | null = null;
 
-    protected getConnetion() {
+    protected getConnection() {
         
         if (!this.connetion) {
             this.connetion = knex({
