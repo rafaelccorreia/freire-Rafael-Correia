@@ -14,6 +14,6 @@ export const gerarToken = (input: AuthenticationData): string => {
     return token
 }
 
-type AuthenticationData = {
+export type AuthenticationData = {
     id: string
 }

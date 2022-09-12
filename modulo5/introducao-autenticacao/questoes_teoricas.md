@@ -9,4 +9,7 @@
 
     //Exercício 3
     a) recebe o valor como uma string, utilizamos para garantir que o valor será no formato que precisamos
+
+    //Exercício 7
+    a) recebe o valor como qualquer, já que o resultado da verificação pode ter tipos diferentes
 */
