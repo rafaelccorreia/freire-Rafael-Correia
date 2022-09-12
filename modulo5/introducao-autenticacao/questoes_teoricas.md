@@ -8,4 +8,5 @@
         e um função assíncrona que receberá id, email e password e vai inserir esses dados na tabela usando query builder
 
     //Exercício 3
+    a) recebe o valor como uma string, utilizamos para garantir que o valor será no formato que precisamos
 */
