@@ -2,7 +2,7 @@ import { format } from "path"
 import BaseDataBase from "./BaseDataBase"
 
 class UserData extends BaseDataBase {
-    public userTableName = "User"
+    public userTableName = "UserAulaAutenticao"
 
     async insertUser(id: string, email: string, password: string): Promise<void> {
         await this.getConnection().insert({

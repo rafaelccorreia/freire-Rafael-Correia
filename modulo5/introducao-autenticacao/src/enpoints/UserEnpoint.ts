@@ -29,6 +29,10 @@ export class UserEndpoint {
                 id,
             })
 
+            res.status(200).send({
+                token: token
+            })
+
         } catch (error:any) {
             res.status(error.statusCode || 500).send({ message: error.sqlMessage || error.message })
         }
