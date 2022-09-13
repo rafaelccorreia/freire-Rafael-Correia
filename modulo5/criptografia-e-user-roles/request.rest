@@ -1,0 +1,18 @@
+POST http://localhost:3003/usuario/cadastrar 
+Content-Type: application/json
+
+{
+"email": "testeHash@gmail.com", "password": "hash123"
+}
+
+### 
+GET http://localhost:3003/usuario/login 
+Content-Type: application/json
+
+{
+"email": "testeHash@gmail.com", "password": "hash123"
+}
+
+### 
+GET http://localhost:3003/usuario/profile 
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzOTE3MzY3LTUwNDctNDUwZi1hZDc3LTNmN2Y2MmMyNmIxNSIsImlhdCI6MTY2MzA5NTg5NCwiZXhwIjoxNjYzMDk1OTU0fQ.qoiSwDSlklar9izy3ZCxw1idYfkqFXQI3K2iVfFk0e0
