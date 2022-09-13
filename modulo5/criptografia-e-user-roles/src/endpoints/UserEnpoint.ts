@@ -3,6 +3,7 @@ import UserData from "../data/UserData"
 import { EmailInvalido } from "../error/EmailInvalido"
 import { RoleInvalida } from "../error/RoleInvalida"
 import { SenhaInvalida } from "../error/SenhaInvalida"
+import { UsuarioNormalApenas } from "../error/UsuarioNormalApenas"
 import { gerarId } from "../services/gerarId"
 import { gerarToken } from "../services/gerarToken"
 import { HashManager } from "../services/HashManager"
@@ -101,6 +102,10 @@ export class UserEndpoint {
             const userData: UserData = new UserData()
 
             const usuario = await userData.selecionarUsuarioPorId(authenticationData.id)
+
+            if(usuario.role !== "normal") {
+                throw new UsuarioNormalApenas()
+            }
 
             res.status(200).send({
                 id: usuario.id,
