@@ -4,11 +4,12 @@ import BaseDataBase from "./BaseDataBase"
 class UserData extends BaseDataBase {
     public userTableName = "UserAulaAutenticao"
 
-    async insertUser(id: string, email: string, password: string): Promise<void> {
+    async insertUser(id: string, email: string, password: string, role: string): Promise<void> {
         await this.getConnection().insert({
             id,
             email,
-            password
+            password,
+            role
         })
             .into(this.userTableName)
     }

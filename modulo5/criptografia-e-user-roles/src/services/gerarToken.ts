@@ -1,10 +1,11 @@
 import * as jwt from "jsonwebtoken"
 
-const expiresIn = "1min"
+const expiresIn = "5min"
 export const gerarToken = (input: AuthenticationData): string => {
     const token = jwt.sign(
         {
             id: input.id,
+            role: input.role,
         },
         process.env.JWT_KEY as string,
         {
@@ -15,5 +16,6 @@ export const gerarToken = (input: AuthenticationData): string => {
 }
 
 export type AuthenticationData = {
-    id: string
+    id: string,
+    role: string
 }

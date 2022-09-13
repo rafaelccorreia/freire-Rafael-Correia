@@ -2,7 +2,7 @@ POST http://localhost:3003/usuario/cadastrar
 Content-Type: application/json
 
 {
-"email": "testeHash@gmail.com", "password": "hash123"
+"email": "pedroAdmin@gmail.com", "password": "pedroca123", "role": "admin"
 }
 
 ### 
