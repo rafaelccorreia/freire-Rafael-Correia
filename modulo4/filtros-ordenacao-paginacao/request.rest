@@ -1,0 +1,18 @@
+GET http://localhost:3003/users?nome=da
+### recebe a query name para pesquisar usuários
+
+###
+Get http://localhost:3003/users/CX
+# receber o tipo de user nos params
+
+###
+Get http://localhost:3003/users?order=type
+# receber a query para ordenar de acordo
+
+###
+GET http://localhost:3003/users/3
+# receber o número da página
+
+###
+GET http://localhost:3003/users/1?name=Se&tipo=Teacher
+# recebe o número da página nos params e pode receber as queries: tipo, name, order

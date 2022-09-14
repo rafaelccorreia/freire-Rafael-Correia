@@ -1,0 +1,56 @@
+PUT http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Joana",
+    "nickname": "Jojo",
+    "email": "jojo@gmail.com"
+}
+
+###
+GET http://localhost:3003/user/1661454355630
+
+###
+PUT http://localhost:3003/user/edit/1661454355630
+Content-Type: application/json
+
+{
+    "name": "teste2",
+    "nickname": "testando2",
+    "email": "testando2@gmail.com"
+}
+
+###
+POST http://localhost:3003/task
+Content-Type: application/json
+
+{
+    "title": "Test task",
+    "description": "test task test task test task test task",
+    "limitDate": "04/05/2020",
+    "creatorUserId": "1661454355630"
+}
+
+###
+GET http://localhost:3003/task/1661522368069
+
+###
+GET http://localhost:3003/task?creatorUserId=1661454355630
+
+###
+GET http://localhost:3003/user/all
+
+###
+GET http://localhost:3003/user?query=Jo
+
+###
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+    "task_id": "1661519340099",
+    "responsible_user_id": "1661533981242"
+}
+
+###
+GET http://localhost:3003/task/1661519340099/responsible
